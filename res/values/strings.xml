@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, LoadDatabse!</string>
+    <string name="app_name">Java程序员应试一点通</string>
+    <string name="show_message">显示答案</string>
+    <string name="prev_message">上翻</string>
+    <string name="next_message">下翻</string>
+    <string name="message">知识点</string>
+    <string name="wmessage">笔试题</string>
+    <string name="wmesslist">笔试题库</string>
+    <string name="no_message">对不起没有找到相关数据 !</string>
+    <string name="search_messages">查询结果</string>
+    <string name="not_null">查询字段不能为空</string>
+    <string name="Home">主页</string>
+    <string name="Favorite">收藏夹</string>
+     <string name="About">版本信息</string>
+     <string name="Quit">退出</string>
+      <string name="firstM">This is the First Message!</string>
+       <string name="lastM">This is the Last Message!</string>
+       <string name="answer">答案:    </string>
+	<string name="favo_message">收藏</string>
+	<string name="thanks">致谢</string>
+	<string name="app_about">\t\t\tJava 一点通   \t\t\t\t\t1.1 Version \n  感谢您使用本软件，欢迎提意见或者分享资料 \n 
+	                        \t by yale.yang.chu@gmail.com</string>
+</resources>

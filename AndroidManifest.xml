@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="com.wing.ydt"
+      android:versionCode="2"
+      android:versionName="1.1">
+    <application android:icon="@drawable/icon"  android:screenOrientation="portrait" android:label="@string/app_name">
+        <activity android:name=".view.SplashActivity"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    <activity android:name=".view.WMessageActivity"   android:screenOrientation="portrait"  android:label="@string/wmessage"></activity>
+    <activity android:name=".view.ListWMessListActivity"   android:screenOrientation="portrait"  android:label="@string/wmesslist"></activity>
+    <activity android:name=".view.MessageActivity"   android:screenOrientation="portrait"  android:label="@string/message"></activity>
+    <activity android:name=".view.ListMessActivity"   android:screenOrientation="portrait" android:label="@string/search_messages"></activity>
+	 <meta-data android:value="1" android:name="Market_ID"/>
+</application>
+    <uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-sdk android:minSdkVersion="3" />
+
+</manifest> 
