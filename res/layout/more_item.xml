@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+		
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/more_page_button"
+	android:gravity="center_vertical"
+	android:focusable="true"	
+	android:clickable="true"	
+	android:layout_width="fill_parent" 
+	android:layout_height="wrap_content">
+					
+	<LinearLayout
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:layout_alignParentLeft="true">		
+		<TextView
+			android:id="@+id/m_name"
+			android:paddingLeft="20dp" 
+			android:gravity="center_vertical"
+			android:typeface="serif"
+			android:textSize="20dp"
+			android:ellipsize="end"
+			android:lines="1"
+			android:scrollHorizontally="true"
+			android:layout_toLeftOf="@+id/more_item_arrow"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"/>
+		<TextView
+			android:id="@+id/m_desc"
+			android:paddingLeft="20dp" 
+			android:gravity="center_vertical"
+			android:typeface="serif"
+			android:textSize="20dp"
+			android:ellipsize="end"
+			android:lines="1"
+			android:scrollHorizontally="true"
+			android:layout_toLeftOf="@+id/more_item_arrow"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"/>
+	   
+	</LinearLayout>
+ 	<ImageView
+			android:id="@+id/more_item_arrow"
+	    	android:src="@drawable/list_arrow"
+	    	android:paddingLeft="5dp"
+	    	android:paddingRight="15dp"
+	    	android:layout_alignParentRight="true"
+	    	android:layout_centerVertical="true"
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"/>
+	</RelativeLayout>

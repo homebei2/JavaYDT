@@ -15,10 +15,16 @@
     <activity android:name=".view.ListWMessListActivity"   android:screenOrientation="portrait"  android:label="@string/wmesslist"></activity>
     <activity android:name=".view.MessageActivity"   android:screenOrientation="portrait"  android:label="@string/message"></activity>
     <activity android:name=".view.ListMessActivity"   android:screenOrientation="portrait" android:label="@string/search_messages"></activity>
-	 <meta-data android:value="1" android:name="Market_ID"/>
-</application>
-    <uses-permission android:name="android.permission.INTERNET" />
-	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	
+	<meta-data android:value="0e36fd60e950461f9697e2484239445a" android:name="GH_APPKEY" />
+    </application>
     <uses-sdk android:minSdkVersion="3" />
+    <uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	<!-- Guohead SDK for Youmi -->
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 </manifest> 

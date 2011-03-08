@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+     <declare-styleable name="LinearLayout">
+        <attr name="deselected" format="integer" />
+        <attr name="deselected_img" format="integer" />
+    </declare-styleable>
+    
+    <!-- ****************************  -->
+    <!--  			DIMENSIONS	 	   -->
+    <!-- ****************************  -->
+    <dimen name="bottom_offset">50px</dimen>
+    <dimen name="featured_image">150px</dimen>
+    
+    <dimen name="arrow_icon_size">15px</dimen>
+    
+    <dimen name="image_icon_size">85dp</dimen>
+    
+    <dimen name="price_text_size">14dp</dimen>
+    <dimen name="title_text_size">18dp</dimen>
+    <dimen name="label_text_size">14dp</dimen>
+    
+    <dimen name="shelf_status_text_size">12px</dimen>
+    
+    <dimen name="reading_page_title_text_size">18px</dimen>
+    <dimen name="reading_page_text_size">18px</dimen>
+    
+    <dimen name="info_chapter_title_text_size_phone">20dp</dimen>
+    <dimen name="info_item_text_size_phone">18dp</dimen>
+    <dimen name="empty_info_list_text_size_phone">18dp</dimen>
+    
+    <dimen name="info_chapter_title_text_size_tablet">18dp</dimen>
+    <dimen name="info_item_text_size_tablet">16dp</dimen>
+    <dimen name="empty_info_list_text_size_tablet">16dp</dimen>
+    
+    <dimen name="reading_view_header_footer_size">20dp</dimen>
+    
+	<dimen name="reading_view_margin_phone">12dp</dimen>
+	<dimen name="reading_view_scrubber_and_top_overlay_separator">14dp</dimen>
+	<dimen name="reading_view_scrubber_back_vertical_padding">10dp</dimen>
+	<dimen name="reading_view_scrubber_text_horizontal_padding">16dp</dimen>
+    
+    <dimen name="reading_options_dialog_width">310dp</dimen>
+    <dimen name="reading_options_dialog_height">310dp</dimen>
+    
+    <dimen name="text_selector_affordance_rect_padding">15dp</dimen>
+    <dimen name="text_selector_affordance_end_circle_radius">50dp</dimen>
+    <dimen name="text_selector_affordance_handle_circle_radius">20dp</dimen>
+    <dimen name="text_selector_affordance_dual_handle_size">20dp</dimen>
+    <dimen name="text_selector_affordance_dual_handle_offset">10dp</dimen>
+    <dimen name="text_selector_drag_scroll_area">15dp</dimen>
+    <dimen name="text_selector_min_initial_selection_width">50dp</dimen>
+    
+    <dimen name="info_page_metadata_horizontal_padding">25dp</dimen>
+    
+    <dimen name="facebook_logout_button_right_padding">5dp</dimen>
+    
+    <!-- Library -->
+    <dimen name="current_read_title_max_width">80dp</dimen>
+    <dimen name="current_read_cover_width">24dp</dimen>
+    <dimen name="current_read_cover_height">38dp</dimen>
+    
+    <dimen name="version_text_margin_right">20dp</dimen>
+    <dimen name="version_text_margin_bottom">10dp</dimen>
+    
+	<dimen name="library_sort_text_top_margin_phone">10dp</dimen>
+	<dimen name="library_sort_text_left_margin_phone">20dp</dimen>
+	<dimen name="library_sort_text_font_size_phone">16dp</dimen>
+	<dimen name="search_results_padding_phone">10dp</dimen>
+	<dimen name="phone_list_header_height">40dp</dimen>
+	<dimen name="phone_shelf_header_height">40dp</dimen>
+    
+	<dimen name="info_page_bottom_padding">20dp</dimen>
+	
+	<dimen name="annotations_menu_side_padding">18dp</dimen>
+    
+	<dimen name="add_note_divider_min_height_phone">100dp</dimen>
+    <dimen name="add_note_divider_min_height_tablet">40dp</dimen>
+    
+    <dimen name="no_annotations_select_text_message_margin_top">8dp</dimen>
+    <dimen name="no_annotations_edit_note_message_margin_top">130dp</dimen>
+    
+    <dimen name="info_item_extra_padding_tablet">2dp</dimen>
+    
+    <!--  Mix Page -->
+    <dimen name="mix_page_chapter_height">44px</dimen>
+    
+    <!-- ****************************  -->
+    <!--  			COLORS  	 	   -->
+    <!-- ****************************  -->
+    <color name="full_alpha">#00FFFFFF</color>
+    
+    <color name="splash_screen_overlay_transparent_alpha">#FFFFFFFF</color>
+
+    <color name="header_title_colour">#000000</color>
+    
+    <color name="page_text">#000000</color>
+    <color name="label_text_colour">#666666</color>
+    <color name="title_text_colour">#231F20</color>
+    <color name="price_text_colour">#669933</color>
+    
+    <color name="shelf_status_text_colour">#959595</color>
+    
+    <color name="shelf_item_unselected">#00FFFFFF</color>
+    <color name="shelf_item_selected">#00FFFFFF</color>
+    <color name="shelf_item_clicked">#7777</color>
+    
+    <color name="progress_bar_gradient_start">#A2DBE3</color>
+    <color name="progress_bar_gradient_center">#00A8CB</color>
+    <color name="progress_bar_gradient_end">#A2DBE3</color>
+    <color name="progress_bar_background_gradient_start">#FF9D9E9D</color>
+    <color name="progress_bar_background_gradient_center">#FF5A5D5A</color>
+    <color name="progress_bar_background_gradient_end">#FF747674</color>
+    
+    <color name="custom_dialog_night_background">#CCCCCC</color>
+    
+    <!--  Top Level Lists  -->
+    <color name="top_level_item_selected">#CCCCCC</color>
+    <color name="top_level_item_clicked">#8B8B8B</color>
+    
+    <!--  Settings -->
+    <color name="page_settings_title_color">#FFFFFF</color>
+    <color name="page_settings_lbl_color">#0D0D0D</color>
+    
+    <!--  Menu -->
+	<color name="menu_item_selected_backgroud_color">#8B8B8B</color>
+	<color name="menu_item_backgroud_color">#FFFFFF</color>
+	
+	<!--  Loading -->
+	<color name="loading_screen_background">#FFFFFF</color>
+	<color name="e_pub_scrubber_bg_color">#AA000000</color>
+
+	<color name="e_pub_scrubber_bg_transparent">#00FFFFFF</color>
+	<color name="epub_contents_data_book_name">#231F20</color>
+	<color name="epub_contents_data_author_name">#404041</color>
+	
+	<color name="loading_web_view_overlay_colour">#00FFFFFF</color>
+	<color name="loading_web_view_loading_text_colour">#FF555555</color>
+	
+	<!--  EULA -->
+	<color name="eula_text_colour">#FF000000</color>
+
+	<!--  Reading -->
+	<color name="reading_background">#FFFFFF</color>
+	<color name="reading_background_night">#000000</color>
+    <color name="reading_empty_title_color">#000000</color>
+    <color name="reading_empty_message_color">#00A8CB</color>
+    <color name="reading_empty_default_color">#000000</color>
+    <color name="reading_empty_background_color">#FFF</color>
+    <color name="reading_empty_ebook_color">#00A8CB</color>
+    <color name="description_color">#000000</color>
+    <color name="no_description_color">#888888</color>
+    <color name="book_chapter_info_color">#666666</color>
+    <color name="reading_top_overlay_title">#FFFFFF</color>
+    <color name="scrubber_text_color">#000000</color>
+    <color name="gesture_highlight">#00A8CB</color>
+    <color name="text_selector_day_selected_color">#4D1DADC7</color>
+    <color name="text_selector_night_selected_color">#801DADC7</color>
+    <color name="text_selector_day_text_color">#000000</color>
+    <color name="text_selector_night_text_color_phone">#FFFAE3</color>
+    <color name="text_selector_night_text_color_tablet">#FFFFFF</color>
+    <color name="text_selector_day_background_color">#FFFAE3</color>
+    <color name="text_selector_night_background_color">#000000</color>
+    <color name="add_note_day_text_color">#000000</color>
+    <color name="add_note_night_text_color">#FFFFFF</color>
+    <color name="selected_text_title_color">#CCCCCC</color>
+	
+    <!--  Welcome -->
+    <color name="welcome_title_color">#00A8CB</color>
+    <color name="welcome_message_color">#231F20</color>
+    <color name="welcome_default_text_color">#1A1A1A</color>
+    <color name="welcome_classics_color">#C31887</color>
+    
+    <!--  Anonymous I'm Reading -->
+    <color name="imr_anon_signin_title_color">#C31887</color>
+    <color name="imr_anon_create_title_color">#00A8CB</color>
+    <color name="imr_anon_message_color">#000</color>
+    <color name="imr_anon_button_text_color">#FFF</color>
+    
+    <!--  Library  -->
+    <color name="library_sort_title_color">#231F20</color>
+    <color name="library_list_item_background_color">#FFFFFF</color>
+    <color name="library_list_item_clicked_background_color">#B9B9B9</color>
+    <color name="library_list_item_title_color">#231F20</color>
+    <color name="library_list_item_author_color">#666666</color>
+    <color name="library_list_item_read_status_color">#666666</color>
+    <color name="library_list_item_download_status_color">#808184</color>
+    <color name="library_list_item_price_color">#669933</color>
+    <color name="library_shelf_item_overlay_color">#BB4A494A</color>
+    <color name="library_list_divider_color">#B2B2B2</color>
+    
+    <!--  Information Page  -->
+	<color name="table_of_contents_background_color">#FFFFFF</color>
+    <color name="table_of_contents_clicked_background_color">#B9B9B9</color>
+    
+    <color name="no_annotations_message_special_color">#00A8CB</color>
+    
+     <!--  Side Loading Page  -->
+	<color name="side_loading_main_title_color">#231F20</color>
+	
+	<!--  Reading Settings Page  -->
+	<color name="border_color">#888888</color>
+	<color name="border_highlight_color">#FBC265</color>
+	
+	<integer name="add_note_highlight_view_weight">1</integer>
+	<integer name="add_note_note_view_weight">2</integer>
+	
+	<item type="id" name="highlight_id_tag_key" />
+	<item type="id" name="share_to_facebook_tag_key" />	
+
+</resources>

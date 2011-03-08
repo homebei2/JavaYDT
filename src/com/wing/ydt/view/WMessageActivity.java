@@ -16,11 +16,13 @@ import android.view.View.OnClickListener;
 import android.widget.AbsoluteLayout;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.LinearLayout.LayoutParams;
 
+import com.guohead.sdk.GuoheAdLayout;
 import com.wing.ydt.R;
 import com.wing.ydt.db.DBAdapter;
 import com.wing.ydt.view.component.CommonImageButton;
@@ -46,19 +48,23 @@ public class WMessageActivity extends MenuActivity implements OnClickListener {
 	private TextView answer;
 	private TextView select;
 	private TextView name ;
-	private WoobooAdView ad;
+	private LinearLayout ad;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		
-		ad = new WoobooAdView(this, // Context
- 				"29462c6ad4f4457bb98b98d4b307cd8b", // Wooboo_PID
- 				 Color.TRANSPARENT,Color.RED,false,//Test flag
- 				30);
+		ad = new LinearLayout(this);
         LayoutParams adparam =  new LayoutParams(screenWidth, (screenHeigh-80)/10);
         //(LayoutParams.FILL_PARENT,LayoutParams.WRAP_CONTENT ); 
         ad.setLayoutParams(adparam); 
+        
+        RelativeLayout.LayoutParams GuoheAdLayoutParams = new RelativeLayout.LayoutParams(
+                LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT);
+        GuoheAdLayout adLayout = new GuoheAdLayout(this);
+        ad.addView(adLayout, GuoheAdLayoutParams);
+        ad.invalidate();
+        
         
         selectLayout  = new ScrollView(this);
         selectLayout.setScrollContainer(true);   
