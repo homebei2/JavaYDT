@@ -13,7 +13,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.LinearLayout.LayoutParams;
 
-import com.guohead.sdk.GuoheAdLayout;
+import com.adview.AdViewInterface;
+import com.adview.AdViewLayout;
+import com.adview.AdViewTargeting;
+import com.adview.AdViewTargeting.RunMode;
+import com.adview.AdViewTargeting.UpdateMode;
 import com.wing.ydt.R;
 import com.wing.ydt.db.DBAdapter;
 import com.wing.ydt.vo.Category;
@@ -21,7 +25,7 @@ import com.wing.ydt.vo.ListItem;
 import com.wing.ydt.vo.Message;
 import com.wing.ydt.vo.WMessageList;
 
-public class EditActivity extends Activity {
+public class EditActivity extends Activity implements AdViewInterface {
 	private Message message;
 	private Category category;
 	private WMessageList wmlist;
@@ -74,11 +78,14 @@ public class EditActivity extends Activity {
 		}
 		setResult(RESULT_CANCELED);
 
-		RelativeLayout.LayoutParams GuoheAdLayoutParams = new RelativeLayout.LayoutParams(
-				LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT);
-		GuoheAdLayout adLayout = new GuoheAdLayout(this);
-		((LinearLayout) findViewById(R.id.adLayout)).addView(adLayout,
-				GuoheAdLayoutParams);
+		
+		  /*下面两行只用于测试,完成后一定要去掉,参考文挡说明*/
+//        AdViewTargeting.setUpdateMode(UpdateMode.EVERYTIME);  //每次都从服务器取配置
+//        AdViewTargeting.setRunMode(RunMode.TEST);        //保证所有选中的广告公司都为测试状态
+        /*下面这句方便开发者进行发布渠道统计,详细调用可以参考java doc  */
+        //AdViewTargeting.setChannel(Channel.GOOGLEMARKET);
+        AdViewLayout adViewLayout = (AdViewLayout)findViewById(R.id.adview_ayout);
+        adViewLayout.setAdViewInterface(this);
 
 	}
 
@@ -161,5 +168,17 @@ public class EditActivity extends Activity {
 		}else if(v.getId()== R.id.search){
 			onSearchRequested();
 		}
+	}
+
+	@Override
+	public void onClickAd() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onDisplayAd() {
+		// TODO Auto-generated method stub
+		
 	}
 }

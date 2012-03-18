@@ -46,6 +46,10 @@ public class BaseListActivity extends ListActivity implements OnClickListener{
 		
 		 if(getIntent().getExtras()!=null)
 		    	item = this.getIntent().getExtras().getParcelable("item");
+		 
+			quitReceiver = new QuitIntentReceiver();
+			IntentFilter filter = new IntentFilter(QUIT);
+			registerReceiver(quitReceiver, filter);
 	}
 
 	protected int getLayoutID() {
@@ -168,4 +172,43 @@ public class BaseListActivity extends ListActivity implements OnClickListener{
 			adapter.removeItem(contextItem);
 		}		
 	};
+	private Handler quithandler = new Handler() {
+		public void handleMessage(android.os.Message msg) {
+			// TODO Auto-generated method stub
+			super.handleMessage(msg);
+			BaseListActivity.this.finish();
+		}
+	};
+
+	private class QuitIntentReceiver extends BroadcastReceiver {
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			quithandler.sendEmptyMessage(0);
+		}
+	}
+
+	@Override
+	protected void onDestroy() {
+		// TODO Auto-generated method stub
+		super.onDestroy();
+		unregisterReceiver(quitReceiver);
+	}
+	@Override
+	public boolean onOptionsItemSelected(MenuItem it) {
+		// TODO Auto-generated method stub
+		int id = it.getItemId();
+		switch(id){
+		case R.id.about:
+			UIFactory.instance.displayAboutDialog(this);
+			return true;
+		case R.id.quit:
+			this.sendBroadcast(new Intent().setAction(QUIT));
+			return true;
+		default:
+			return super.onOptionsItemSelected(it);
+		}
+	}
+	private final static String QUIT = "com.wing.app.quit";
+	private QuitIntentReceiver quitReceiver;
+	
 }

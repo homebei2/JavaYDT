@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	package="com.wing.ydt" android:versionCode="5" android:versionName="2.0">
+	package="com.wing.ydt" android:versionCode="6" android:versionName="2.1">
 	<application android:icon="@drawable/icon" android:label="@string/app_name"
 		android:debuggable="false" android:name=".Application">
 		<activity android:name=".view.SplashActivity"
@@ -27,18 +27,34 @@
 		</activity>
 		<meta-data android:name="android.app.default_searchable"
 			android:value=".view.FavQueActivity" />
-		<meta-data android:value="0e36fd60e950461f9697e2484239445a"
-			android:name="GH_APPKEY" />
+			
+		    	<!-- AdView SDK for Wooboo -->
+    	<meta-data android:value="1" android:name="Market_ID"/>
+	<activity android:name="com.wooboo.adlib_android.AdActivity" 
+		android:configChanges="orientation|keyboardHidden" 
+		android:launchMode="singleTask" /> 
+    <activity android:name="com.wooboo.adlib_android.FullActivity" 
+		android:configChanges="orientation|keyboardHidden" 
+		android:launchMode="singleTask" />
+
+    	<!-- AdView SDK for Youmi --> 
+    	<activity android:name="net.youmi.android.AdActivity"
+		android:configChanges="keyboard|keyboardHidden|orientation"/>
 		<meta-data android:name="debug" android:value="false" />
+		
+		<meta-data android:value="SDK20121518520301a7nfrq7v3tyz47t" android:name="ADVIEW_SDK_KEY" />	
 	</application>
 	<uses-sdk android:minSdkVersion="4" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
-	<uses-permission android:name="android.permission.RESTART_PACKAGES" />
-	<!-- Guohead SDK for Youmi -->
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+	
+	<uses-permission android:name="android.permission.VIBRATE" /><!-- smartmad --> 
+	<uses-permission android:name="android.permission.RECORD_AUDIO" /><!-- smartmad --> 
 
 </manifest> 

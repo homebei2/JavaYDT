@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.GestureDetector;
 import android.view.Menu;
@@ -22,7 +23,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.LinearLayout.LayoutParams;
 
-import com.guohead.sdk.GuoheAdLayout;
+import com.adview.AdViewInterface;
+import com.adview.AdViewLayout;
+import com.adview.AdViewTargeting;
+import com.adview.AdViewTargeting.RunMode;
+import com.adview.AdViewTargeting.UpdateMode;
 import com.wing.ydt.Application;
 import com.wing.ydt.R;
 import com.wing.ydt.db.DBAdapter;
@@ -31,7 +36,7 @@ import com.wing.ydt.util.ColourUtil;
 import com.wing.ydt.vo.ListItem;
 import com.wing.ydt.vo.Message;
 
-public class MessageActivity extends BaseActivity {
+public class MessageActivity extends BaseActivity implements AdViewInterface {
 	private ArrayList<ListItem> listModel;
 	private Message item;
 	private int total, num;
@@ -75,11 +80,13 @@ public class MessageActivity extends BaseActivity {
 		
 		initView(true);
 		
-		RelativeLayout.LayoutParams GuoheAdLayoutParams = new RelativeLayout.LayoutParams(
-				LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT);
-		GuoheAdLayout adLayout = new GuoheAdLayout(this);
-		((LinearLayout) this.findViewById(R.id.adLayout)).addView(adLayout,
-				GuoheAdLayoutParams);
+		  /*下面两行只用于测试,完成后一定要去掉,参考文挡说明*/
+//        AdViewTargeting.setUpdateMode(UpdateMode.EVERYTIME);  //每次都从服务器取配置
+//        AdViewTargeting.setRunMode(RunMode.TEST);        //保证所有选中的广告公司都为测试状态
+        /*下面这句方便开发者进行发布渠道统计,详细调用可以参考java doc  */
+        //AdViewTargeting.setChannel(Channel.GOOGLEMARKET);
+        AdViewLayout adViewLayout = (AdViewLayout)findViewById(R.id.adview_ayout);
+        adViewLayout.setAdViewInterface(this);
 
 		gestureDetector = new GestureDetector(new GestureDetectorSimple());
 	}
@@ -291,5 +298,17 @@ public class MessageActivity extends BaseActivity {
 			topBanner.requestFocus();
 
 		}
+	}
+
+	@Override
+	public void onClickAd() {
+		// TODO Auto-generated method stub
+		Log.i("onClickAd","onClickAd");
+	}
+
+	@Override
+	public void onDisplayAd() {
+		// TODO Auto-generated method stub
+		Log.i("onDisplayAd","onDisplayAd");
 	}
 }

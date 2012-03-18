@@ -72,8 +72,8 @@ public final class R {
         public static final int About=0x7f0d0001;
         public static final int AboutLayout=0x7f0d0000;
         public static final int about=0x7f0d0019;
-        public static final int adLayout=0x7f0d0007;
         public static final int add=0x7f0d001a;
+        public static final int adview_ayout=0x7f0d0007;
         public static final int answer=0x7f0d001c;
         public static final int back=0x7f0d0012;
         public static final int button=0x7f0d0003;

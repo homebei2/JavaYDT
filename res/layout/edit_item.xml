@@ -39,7 +39,7 @@
 		android:layout_width="fill_parent" 
 		android:layout_height="wrap_content"
 		android:orientation="horizontal"
-		android:layout_above="@+id/adLayout">	 
+		android:layout_above="@+id/adview_ayout">	 
 			<Button android:id="@+id/cancel"
 			style="@style/SaveCancel"
 			android:text="@string/Ok"
@@ -51,8 +51,10 @@
 			android:onClick="cancel"
 			android:background="@drawable/tab_page_background_odd"/>
 	   </LinearLayout>
-	   <LinearLayout android:id="@+id/adLayout"
-		android:layout_width="fill_parent" android:layout_height="@dimen/ad"
-		android:layout_alignParentBottom="true">
-	   </LinearLayout>	
+	  <com.adview.AdViewLayout
+		android:id="@+id/adview_ayout"
+		android:layout_width="fill_parent"
+		android:layout_height="@dimen/ad" 
+		android:layout_alignParentBottom="true"
+		/>	
 	</RelativeLayout>

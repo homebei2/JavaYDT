@@ -17,7 +17,9 @@
 			android:paddingLeft="@dimen/item_padding_left"
 			android:textColor="@color/title_text_colour"/>
 	</ScrollView>
-	<LinearLayout android:id="@+id/adLayout"
-		android:layout_width="fill_parent" android:layout_height="@dimen/ad">
-	</LinearLayout>	
+	<com.adview.AdViewLayout
+		android:id="@+id/adview_ayout"
+		android:layout_width="fill_parent"
+		android:layout_height="@dimen/ad" 
+	/>
 </LinearLayout>
