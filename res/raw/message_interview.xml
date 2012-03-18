@@ -1,0 +1,727 @@
+<?xml version="1.0" encoding="utf-8"?>
+<messages>
+	<message>
+		<keywords>
+			<keyword>AraryList</keyword>
+			<keyword>Vector</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[AraryList与Vector的区别]]></name>
+		<body><![CDATA[ArrayList是List接口的一个可变长数组实现。实现了所有List接口的操作，并允许存储null值。除了没有进行同步，ArrayList基本等同于Vector。在Vector中几乎对所有的方法都进行了同步，但ArrayList仅对writeObject和readObject进行了同步，其它比如add(Object)、remove(int)等都没有同步。 所以：一.同步性:Vector是线程安全的，也就是说是同步的，而ArrayList是线程序不安全的，不是同步的 ；二.数据增长:当需要增长时,Vector默认增长为原来一培，而ArrayList却是原来的一半]]></body>
+		<desc>...</desc>
+	</message>	
+	<message>
+		<keywords>
+			<keyword>Hashtable</keyword>
+			<keyword>HashMap</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[Hashtable和HashMap的区别]]></name>
+		<body><![CDATA[1.Hashtable是Dictionary的子类，HashMap是Map接口的一个实现类；
+		2.Hashtable中的方法是同步的，而HashMap中的方法在缺省情况下是非同步的。即是说，在多线程应用程序中，不用专门的操作就安全地可以使用Hashtable了；而对于HashMap，则需要额外的同步机制。但HashMap的同步问题可通过Collections的一个静态方法得到解决：
+		Map Collections.synchronizedMap(Map m)这个方法返回一个同步的Map，这个Map封装了底层的HashMap的所有方法，使得底层的HashMap即使是在多线程的环境中也是安全的。
+		3.在HashMap中，null可以作为键，这样的键只有一个；可以有一个或多个键所对应的值为null。当get()方法返回null值时，即可以表示HashMap中没有该键，也可以表示该键所对应的值为null。因此，在HashMap中不能由get()方法来判断HashMap中是否存在某个键，而应该用containsKey()方法来判断。
+		4.其底层的实现机制不同，hashmap的访问速度要快于hashtable，因为它不需要进行同步检验，建议在非多线程环境中使用hashmap代替hashtable .]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>volatile</keyword>
+			<keyword>thread</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[volatile关键字的用法和原理]]></name>
+		<body><![CDATA[每个线程都有自己一个工作内存区，多个线程共享一个主内存区。线程中的本地变量存在自己的内存区中，如for（int   i=0：100）{this.i=i;}，其中i就存在线程工作内存中，即每个线程都有一个，不用也不能加volatile关键字,this.i就是共享变量。而共享的变量就存在主内存区里，但Java线程为了提高效率，会把共享变量拷贝到自己的工作区中，这就产生了变量一致性的问题。   
+		java提供的一种方法是互斥访问，互斥访问会在加锁和解锁中维持变量的一致性，另一种就是volatile关键字
+		线程改变其自身工作区中的volatile变量时，会强制立即将该值更新到主工作区中，从而保证数据的一致性。synchronized和volatile结合使用能保证多线程的完全同步。
+		线程在试图读取一个volatile变量时，会从主内存区中读取最新的值]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>final</keyword>
+			<keyword>finally</keyword>
+			<keyword>finalize</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[谈谈final, finally, finalize的区别]]></name>
+		<body><![CDATA[ 
+final 用于声明属性，方法和类，分别表示属性不可变，方法不可覆盖，类不可继承。 
+finally是异常处理语句结构的一部分，表示总是执行。 
+finalize是Object类的一个方法，在垃圾收集器执行的时候会调用被回收对象的此方法，可以覆盖此方法提供垃圾收集时的其他资源回收，例如关闭文件等。
+		]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>synchronized</keyword>
+			<keyword>Lock</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[synchronized和java.util.concurrent.locks.Lock的异同]]></name>
+		<body><![CDATA[ 
+	主要相同点：Lock能完成synchronized所实现的所有功能
+主要不同点：Lock有比synchronized更精确的线程语义和更好的性能。synchronized会自动释放锁，而Lock一定要求程序员手工释放，并且必须在finally从句中释放。]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>Anonymous Inner Class</keyword>
+			<keyword>implements</keyword>
+			<keyword>interface(</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[Anonymous Inner Class (匿名内部类) 是否可以extends(继承)其它类，是否可以implements(实现)interface(接口)?]]></name>
+		<body><![CDATA[ 
+	可以继承其他类或完成其他接口，在swing编程中常用此方式。]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>Inner Class</keyword>
+			<keyword>Static Nested Class</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[Static Nested Class 和 Inner Class的不同]]></name>
+		<body><![CDATA[ 
+	Static Nested Class是被声明为静态（static）的内部类，它可以不依赖于外部类实例被实例化。而通常的内部类需要在外部类实例化后才能实例化]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>＆</keyword>
+			<keyword>＆＆</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[&和&&的区别]]></name>
+		<body><![CDATA[ 
+＆是位运算符，表示按位与运算，＆＆是逻辑运算符，表示逻辑与（and）]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>Collection</keyword>
+			<keyword>Collections</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[Collection 和 Collections的区别]]></name>
+		<body><![CDATA[ 
+	Collection是集合类的上级接口，继承与他的接口主要有Set 和List.Collections是针对集合类的一个帮助类，
+他提供一系列静态方法实现对各种集合的搜索、排序、线程安全化等操作。]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>assert</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[什么时候用assert]]></name>
+		<body><![CDATA[ 
+	1.4新增关键字（语法），用于测试boolean表达式状态，可用于调试程序。使用方法 assert ，表示如果表达式为真（true）,则下面的语句执行，否则抛出AssertionError。另外的使用方式assert boolean表达式:，表示如果表达式为真，后面的表达式忽略，否则后面表达式的值用于AssertionError的构建参数。注意编译时要增加-source 1.4 参数，否则报错。]运行时要增加 –ea参数，否则assert行被忽略]]></body>
+		<desc>...</desc>
+	</message>
+
+
+	<message>
+		<keywords>
+			<keyword>String</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[String s = new String(\"xyz\");创建了几个String Object?]]></name>
+		<body><![CDATA[两个]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>GC</keyword>
+			<keyword>垃圾收集</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[GC是什么? 为什么要有GC?]]></name>
+		<body><![CDATA[ 
+	GC是垃圾收集的意思（Gabage Collection）,内存处理是编程人员容易出现问题的地方，忘记或者错误的内存回收会导致程序或系统的不稳定甚至崩溃，Java提供的GC功能可以自动监测对象是否超过作用域从而达到自动回收内存的目的，Java语言没有提供释放已分配内存的显示操作方法]]></body>
+		<desc>...</desc>
+	</message>
+
+	<message>
+		<keywords>
+			<keyword>Math</keyword>
+			<keyword>round</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[Math.round(11.5)等於多少? Math.round(-11.5)等於多少?]]></name>
+		<body><![CDATA[Math.round(11.5)==12Math.round(-11.5)==-11round方法返回与参数最接近的长整数，参数加1/2后求其floor.]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>转换类型</keyword>
+			<keyword>short</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[short s1 = 1; s1 = s1 + 1;有什么错?]]></name>
+		<body><![CDATA[short s1 = 1; s1 += 1;有什么错? short s1 = 1; s1 = s1 + 1; （s1+1运算结果是int型，需要强制转换类型）short s1 = 1; s1 += 1;（可以正确编译）]]></body>
+		<desc>...</desc>
+	</message>
+
+	<message>
+		<keywords>
+			<keyword>sleep</keyword>
+			<keyword>wait</keyword>
+			<keyword>Thread</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[sleep() 和 wait() 有什么区别?]]></name>
+		<body><![CDATA[sleep是线程类（Thread）的方法，导致此线程暂停执行指定时间，给执行机会给其他线程，但是监控状态依然保持，到时后会自动恢复。调用sleep不会释放对象锁。wait是Object类的方法，对此对象调用wait方法导致本线程放弃对象锁，进入等待此对象的等待锁定池，只有针对此对象发出notify方法（或notifyAll）后本线程才进入对象锁定池准备获得对象锁进入运行状态]]></body>
+		<desc>...</desc>
+	</message>
+
+	<message>
+		<keywords>
+			<keyword>length</keyword>
+			<keyword>String</keyword>
+			<keyword>数组</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[数组有没有length()这个方法? String有没有length()这个方法？]]></name>
+		<body><![CDATA[数组没有length()这个方法，有length的属性，size()方法。String有有length()这个方法。]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>Overload</keyword>
+			<keyword>Override</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[Overload和Override的区别。Overloaded的方法是否可以改变返回值的类型?]]></name>
+		<body><![CDATA[方法的重写Overriding和重载Overloading是Java多态性的不同表现。重写Overriding是父类与子类之间多态性的一种表现，重载Overloading是一个类中多态性的一种表现。如果在子类中定义某方法与其父类有相同的名称和参数，我们说该方法被重写 (Overriding)。子类的对象使用这个方法时，将调用子类中的定义，对它而言，父类中的定义如同被“屏蔽”了。如果在一个类中定义了多个同名的方法，它们或有不同的参数个数或有不同的参数类型，则称为方法的重载(Overloading)。Overloaded的方法是可以改变返回值的类型。]]></body>
+		<desc>...</desc>
+	</message>
+
+	<message>
+		<keywords>
+			<keyword>Set</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[Set里的元素是不能重复的，那么用什么方法来区分重复与否呢? 是用==还是equals()? 它们有何区别?]]></name>
+		<body><![CDATA[Set里的元素是不能重复的，那么用iterator()方法来区分重复与否。equals()是判读两个Set是否相等，equals()和==方法决定引用值是否指向同一对象equals()在类中被覆盖，为的是当两个分离的对象的内容和类型相配的话，返回真值。]]></body>
+		<desc>...</desc>
+	</message>
+
+	<message>
+		<keywords>
+			<keyword>exception</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[给我一个你最常见到的runtime exception]]></name>
+		<body><![CDATA[ArithmeticException, ArrayStoreException, BufferOverflowException, BufferUnderflowException, CannotRedoException, CannotUndoException, ClassCastException, CMMException, ConcurrentModificationException, DOMException, EmptyStackException, IllegalArgumentException, IllegalMonitorStateException, IllegalPathStateException, IllegalStateException,
+ImagingOpException, IndexOutOfBoundsException, MissingResourceException, NegativeArraySizeException, NoSuchElementException, NullPointerException, ProfileDataException, ProviderException, RasterFormatException, SecurityException, SystemException, UndeclaredThrowableException, UnmodifiableSetException, UnsupportedOperationException]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>error</keyword>
+			<keyword>exception</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[error和exception有什么区别?]]></name>
+		<body><![CDATA[error 表示恢复不是不可能但很困难的情况下的一种严重问题。比如说内存溢出。不可能指望程序能处理这样的情况。
+exception 表示一种设计或实现问题。也就是说，它表示如果程序运行正常，从不会发生的情况。]]></body>
+		<desc>...</desc>
+	</message>
+		<message>
+		<keywords>
+			<keyword>List</keyword>
+			<keyword>Collection</keyword>
+			<keyword>Map</keyword>
+			<keyword>Set</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[List, Set, Map是否继承自Collection接口?]]></name>
+		<body><![CDATA[List，Set是、Map不是]]></body>
+		<desc>...</desc>
+	</message>
+		<message>
+		<keywords>
+			<keyword>abstract</keyword>
+			<keyword>interface</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[abstract class和interface有什么区别?]]></name>
+		<body><![CDATA[声明方法的存在而不去实现它的类被叫做抽象类（abstract class），它用于要创建一个体现某些基本行为的类，并为该类声明方法，但不能在该类中实现该类的情况。不能创建abstract 类的实例。然而可以创建一个变量，其类型是一个抽象类，并让它指向具体子类的一个实例。不能有抽象构造函数或抽象静态方法。Abstract 类的子类为它们父类中的所有抽象方法提供实现，否则它们也是抽象类为。取而代之，在子类中实现该方法。知道其行为的其它类可以在类中实现这些方法。
+接口（interface）是抽象类的变体。在接口中，所有方法都是抽象的。多继承性可通过实现这样的接口而获得。接口中的所有方法都是抽象的，没有一个有程序体。接口只可以定义static final成员变量。接口的实现与子类相似，除了该实现类不能从接口定义中继承行为。当类实现特殊接口时，它定义（即将程序体给予）所有这种接口的方法。然后，它可以在实现了该接口的类的任何对象上调用接口的方法。由于有抽象类，它允许使用接口名作为引用变量的类型。通常的动态联编将生效。引用可以转换到接口类型或从接口类型转换，instanceof 运算符可以用来决定某对象的类是否实现了接口。]]></body>
+		<desc>...</desc>
+	</message>
+		<message>
+		<keywords>
+			<keyword>abstract</keyword>
+			<keyword>static</keyword>
+			<keyword>native</keyword>
+			<keyword>synchronized</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[abstract的method是否可同时是static,是否可同时是native，是否可同时是synchronized? ]]></name>
+		<body><![CDATA[不可以]]></body>
+		<desc>...</desc>
+	</message>
+		<message>
+		<keywords>
+			<keyword>implements</keyword>
+			<keyword>interface</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[接口是否可继承接口? 抽象类是否可实现(implements)接口? 抽象类是否可继承实体类(concrete class)?]]></name>
+		<body><![CDATA[接口可以继承接口。抽象类可以实现(implements)接口，抽象类是否可继承实体类，但前提是实体类必须有明确的构造函数。]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword></keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[启动一个线程是用run()还是start()?]]></name>
+		<body><![CDATA[启动一个线程是调用start()方法，使线程所代表的虚拟处理机处于可运行状态，这意味着它可以由JVM调度并执行。这并不意味着线程就会立即运行。run()方法可以产生必须退出的标志来停止一个线程。]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>Constructor</keyword>
+			<keyword>override</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[构造器Constructor是否可被override?]]></name>
+		<body><![CDATA[构造器Constructor不能被继承，因此不能重写Overriding，但可以被重载Overloading]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>String</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[是否可以继承String类?]]></name>
+		<body><![CDATA[String类是final类故不可以继承。]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword></keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[当一个线程进入一个对象的一个synchronized方法后，其它线程是否可进入此对象的其它方法?]]></name>
+		<body><![CDATA[不能，一个对象的一个synchronized方法只能由一个线程访问]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword></keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[try {}里有一个return语句，那么紧跟在这个try后的finally {}里的code会不会被执行，什么时候被执行，在return前还是后?]]></name>
+		<body><![CDATA[会执行，在return前执行。]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<type>4</type>
+		<name><![CDATA[用最有效率的方法算出2乘以8等於几?]]></name>
+		<body><![CDATA[2左移3]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>hash code</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[两个对象值相同(x.equals(y) == true)，但却可有不同的hash code，这句话对不对?]]></name>
+		<body><![CDATA[不对，有相同的hash code。]]></body>
+		<desc>http://java.e800.com.cn/articles/2008/725/1216967226206_2.html</desc>
+	</message>
+	
+	<message>
+		<keywords>
+			<keyword>参数传递</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[当一个对象被当作参数传递到一个方法后，此方法可改变这个对象的属性，并可返回变化后的结果，那么这里到底是值传递还是引用传递?]]></name>
+		<body><![CDATA[是值传递。Java 编程语言只由值传递参数。当一个对象实例作为一个参数被传递到方法中时，
+		参数的值就是对该对象的引用。对象的内容可以在被调用的方法中改变，但对象的引用是永远不会改变的。]]></body>
+		<desc></desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>swtich</keyword>
+			<keyword>case</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[swtich是否能作用在byte上，是否能作用在long上，是否能作用在String上?]]></name>
+		<body><![CDATA[switch（expr1）中，expr1是一个整数表达式。
+		因此传递给 switch 和 case 语句的参数应该是 int、 short、 char 或者 byte。long,string 都不能作用于swtich。]]></body>
+		<desc></desc>
+	</message>
+		<message>
+		<keywords>
+			<keyword>Singleton</keyword>
+			<keyword>单态</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[写一个Singleton模式代码出来]]></name>
+		<body><![CDATA[Singleton模式主要作用是保证在Java应用程序中，一个类Class只有一个实例存在。
+一般Singleton模式通常有几种种形式: 
+第一种形式: 定义一个类，它的构造函数为private的，它有一个static的private的该类变量，
+在类初始化时实例话，通过一个public的getInstance方法获取对它的引用,继而调用其中的方法。
+public class Singleton {
+private Singleton(){}
+//在自己内部定义自己一个实例，是不是很奇怪？
+//注意这是private 只供内部调用
+private static Singleton instance = new Singleton();
+//这里提供了一个供外部访问本class的静态方法，可以直接访问
+public static Singleton getInstance() {
+return instance; 
+}
+}
+第二种形式:
+public class Singleton {
+private static Singleton instance = null;
+public static synchronized Singleton getInstance() {
+//这个方法比上面有所改进，不用每次都进行生成对象，只是第一次　 　
+//使用时生成实例，提高了效率！
+if (instance==null)
+instance＝new Singleton();
+return instance; }
+}]]></body>
+		<desc></desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>ArrayList</keyword>
+			<keyword>LinkedList</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[平时除了ArrayList和LinkedList外，还用过的List有哪些？
+ArrayList和LinkedList的区别？]]></name>
+		<body><![CDATA[毫无疑问，1:两者的内部数据结构不同， ArrayList内部元素容器是一个Object的数组， 
+	而LinkedList内部实际上一个链表的数据结构，其有一个内部类来表示链表.
+		2:两者的父类不同，也就决定了两者的存储形式不同。 ArrayList继承于 AbstractList,而LinkedList继承于AbstractSequentialList. 两者都实现了List的骨干结构，只是前者的访问形式趋向于 “随机访问”数据存储（如数组），后者趋向于 “连续访问”数据存储（如链接列表）
+		3:两者的效率问题， ArrayList基于数组实现，所以毫无疑问可以直接用下标来索引，其索引数据快，插入元素设计到数组元素移动，或者数组扩充，所以插入元素要慢。LinkedList基于链表结构，插入元素只需要改变插入元素的前后项的指向即可，故插入数据要快，而索引元素需要向前向后遍历，所以索引元素要慢。 
+		]]></body>
+		<desc></desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>Properties</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[Properties类的特点？ 线程安全吗? ]]></name>
+		<body><![CDATA[Properties 继承于Hashtable,,所以它是线程安全的.
+	其特点是:它表示的是一个持久的属性集，它可以保存在流中或者从流中加载，属性列表的每一个键和它所对应的值都是一个“字符串”
+     	其中，常用的方法是load()方法，从流中加载属性：]]></body>
+		<desc></desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>String</keyword>
+			<keyword>StringBuffer</keyword>
+			<keyword>StringBuilder</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[String,StringBuffer和StringBuilder的用法]]></name>
+		<body><![CDATA[String 字符串常量、StringBuffer 字符串变量（线程安全）、StringBuilder 字符串变量（非线程安全);
+		简要的说， String 类型和 StringBuffer 类型的主要性能区别其实在于 String 是不可变的对象, 因此在每次对 String 类型进行改变的时候其实都等同于生成了一个新的 String 对象，然后将指针指向新的 String 对象，所以经常改变内容的字符串最好不要用 String ，因为每次生成对象都会对系统性能产生影响，特别当内存中无引用对象多了以后， JVM 的 GC 就会开始工作，那速度是一定会相当慢的。
+ 而如果是使用 StringBuffer 类则结果就不一样了，每次结果都会对 StringBuffer 对象本身进行操作，
+ 而不是生成新的对象，再改变对象引用。所以在一般情况下我们推荐使用 StringBuffer ，
+ 特别是字符串对象经常改变的情况下。而在某些特别情况下， String 对象的字符串拼接其实是被 JVM 解释成了
+  StringBuffer 对象的拼接，所以这些时候 String 对象的速度并不会比 StringBuffer 对象慢，
+  而特别是以下的字符串对象生成中， String 效率是远要比 StringBuffer 快的,
+  java.lang.StringBuilder一个可变的字符序列是5.0新增的。此类提供一个与 StringBuffer 兼容的 API，但不保证同步。
+  该类被设计用作 StringBuffer 的一个简易替换，用在字符串缓冲区被单个线程使用的时候（这种情况很普遍）。
+  如果可能，建议优先采用该类，因为在大多数实现中，它比 StringBuffer 要快。两者的方法基本相同。
+		]]></body>
+		<desc></desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>throw</keyword>
+			<keyword>throws</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[throw 和throws的区别
+		]]></name>
+		<body><![CDATA[在java代码中如果发生异常的话，jvm会抛出异常对象，导致程序代码中断，
+		这个时候jvm在做的操作就是：创建异常对象，然后抛出，throw的作用 :手动抛出异常 ;
+		throws的作用:声明方法可能回避的异常
+		]]></body>
+		<desc></desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>Class</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[Java中Class类工作原理详解]]></name>
+		<body><![CDATA[类是程序的一部分，每个类都有一个Class对象。换言之，每当编写并且编译了一个新类，就会产生一个Class对象（恰当地说，是被保存在一个同名的.class文件中）。在运行时，当我们想生成这个类的对象时，运行这个程序的 Java虚拟机（JVM）首先检查这个类的Class对象是否已经加载。如果尚未加载，JVM就会根据类名查找.class文件，并将其载入。 
+一旦某个类的Class对象被载入内存，它就被用来创建这个类的所有对象]]></body>
+		<desc></desc>
+	</message> 
+	<message>
+		<keywords>
+			<keyword>Class</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[获取Class实例的三种方式]]></name>
+		<body><![CDATA[1）利用对象调用getClass()方法获取该对象的Class实例。 
+2）使用Class类的静态方法forName()，用类的名字获取一个Class实例。 
+3）运用.class的方式来获取Class实例，对于基本数据类型的封装类，还可以采用.TYPE来获取相对应的基本数据类型的Class实例。 
+]]></body>
+		<desc></desc>
+	</message> 
+<message>
+		<keywords>
+			<keyword>int</keyword>
+			<keyword>Integer</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[int 和 Integer 有什么区别 ]]></name>
+		<body><![CDATA[Java 提供两种不同的类型：引用类型和原始类型（或内置类型）。Int是java的原始数据类型，Integer是java为int提供的封装类。Java为每个原始类型提供了封装类。 原始类型 封装类 boolean Boolean char Character byte Byte short Short int Integer long Long float Float double Double 　引用类型和原始类型的行为完全不同，并且它们具有不同的语义。引用类型和原始类型具有不同的特征和用法，它们包括：大小和速度问题，这种类型以哪种类型的数据结构存储，当引用类型和原始类型用作某个类的实例数据时所指定的缺省值。对象引用实例变量的缺省值为 null，而原始类型实例变量的缺省值与它们的类型有关。]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>数据类型</keyword>
+			<keyword>String</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[String是最基本的数据类型吗]]></name>
+		<body><![CDATA[基本数据类型包括byte、int、char、long、float、double、boolean和short。 　java.lang.String类是final类型的，因此不可以继承这个类、不能修改这个类。为了提高效率节省空间，我们应该用StringBuffer类]]></body>
+		<desc>...</desc>
+	</message>
+		<message>
+		<keywords>
+			<keyword>Servlet</keyword>
+			<keyword>CGI</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[说出Servlet的生命周期，并说出Servlet和CGI的区别]]></name>
+		<body><![CDATA[Servlet被服务器实例化后，容器运行其init方法，请求到达时运行其service方法，service方法自动派遣运行与请求对应的doXXX方法（doGet，doPost）等，当服务器决定将实例销毁的时候调用其destroy方法。 与cgi的区别在于servlet处于服务器进程中，它通过多线程方式运行其service方法，一个实例可以服务于多个请求，并且其实例一般不会销毁，而CGI对每个请求都产生新的进程，服务完成后就销毁，所以效率上低于servlet]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>EJB</keyword>
+			<keyword>EntityBean</keyword>
+			<keyword>SessionBean</keyword>
+			<keyword>StatefulBean</keyword>
+			<keyword>StatelessBean</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[EJB是基于哪些技术实现的？并说出SessionBean和EntityBean的区别，StatefulBean和StatelessBean的区别]]></name>
+		<body><![CDATA[EJB包括Session Bean、Entity Bean、Message Driven Bean，基于JNDI、RMI、JAT等技术实现。 SessionBean在J2EE应用程序中被用来完成一些服务器端的业务操作，例如访问数据库、调用其他EJB组件。EntityBean被用来代表应用系统中用到的数据。 　对于客户机，SessionBean是一种非持久性对象，它实现某些在服务器上运行的业务逻辑。 　对于客户机，EntityBean是一种持久性对象，它代表一个存储在持久性存储器中的实体的对象视图，或是一个由现有企业应用程序实现的实体。 　Session Bean 还可以再细分为 Stateful Session Bean 与 Stateless Session Bean ，这两种的 Session Bean都可以将系统逻辑放在 method之中执行，不同的是 Stateful Session Bean 可以记录呼叫者的状态，因此通常来说，一个使用者会有一个相对应的 Stateful Session Bean 的实体。Stateless Session Bean 虽然也是逻辑组件，但是他却不负责记录使用者状态，也就是说当使用者呼叫 Stateless Session Bean 的时候，EJB Container 并不会找寻特定的 Stateless Session Bean 的实体来执行这个 method。换言之，很可能数个使用者在执行某个 Stateless Session Bean 的 methods 时，会是同一个 Bean 的 Instance 在执行。从内存方面来看， Stateful Session Bean 与 Stateless Session Bean 比较， Stateful Session Bean 会消耗 J2EE Server 较多的内存，然而 Stateful Session Bean 的优势却在于他可以维持使用者的状态。]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>同步</keyword>
+			<keyword>异步</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[同步和异步有何异同，在什么情况下分别使用他们？举例说明。]]></name>
+		<body><![CDATA[果数据将在线程间共享。例如正在写的数据以后可能被另一个线程读到，或者正在读的数据可能已经被另一个线程写过了，那么这些数据就是共享数据，必须进行同步存取。 当应用程序在对象上调用了一个需要花费很长时间来执行的方法，并且不希望让程序等待方法的返回时，就应该使用异步编程，在很多情况下采用异步途径往往更有效率。
+		]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>heap</keyword>
+			<keyword>stack</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[heap和stack有什么区别]]></name>
+		<body><![CDATA[栈是一种线形集合，其添加和删除元素的操作应在同一段完成。栈按照后进先出的方式进行处理。堆是栈的一个组成元素
+		]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>forward</keyword>
+			<keyword>redirect</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[forward 和redirect的区别]]></name>
+		<body><![CDATA[forward是服务器请求资源，服务器直接访问目标地址的URL，把那个URL的响应内容读取过来，然后把这些内容再发给浏览器，浏览器根本不知道服务器发送的内容是从哪儿来的，所以它的地址栏中还是原来的地址。
+      redirect就是服务端根据逻辑,发送一个状态码,告诉浏览器重新去请求那个地址，一般来说浏览器会用刚才请求的所有参数重新请求，所以session,request参数都可以获取。]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>EJB</keyword>
+			<keyword>JAVA BEAN</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[EJB与JAVA BEAN的区别？]]></name>
+		<body><![CDATA[Java Bean 是可复用的组件，对Java Bean并没有严格的规范，理论上讲，任何一个Java类都可以是一个Bean。但通常情况下，由于Java Bean是被容器所创建（如Tomcat）的，所以Java Bean应具有一个无参的构造器，另外，通常Java Bean还要实现Serializable接口用于实现Bean的持久性。Java Bean实际上相当于微软COM模型中的本地进程内COM组件，它是不能被跨进程访问的。Enterprise Java Bean 相当于DCOM，即分布式组件。它是基于Java的远程方法调用（RMI）技术的，所以EJB可以被远程访问（跨进程、跨计算机）。但EJB必须被布署在 诸如Webspere、WebLogic这样的容器中，EJB客户从不直接访问真正的EJB组件，而是通过其容器访问。EJB容器是EJB组件的代理， EJB组件由容器所创建和管理。客户通过容器来访问真正的EJB组件。]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>INCLUDE</keyword>
+			<keyword>JSP</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[JSP中动态INCLUDE与静态INCLUDE的区别？]]></name>
+		<body><![CDATA[动态INCLUDE用jsp:include动作实现 jsp:include page="included.jsp" flush="true"它总是会检查所含文件中的变化，适合用于包含动态页面，并且可以带参数。
+静态INCLUDE用include伪码实现,定不会检查所含文件的变化，适用于包含静态页面@ include file="included.htm" ]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>数据连接池</keyword>
+			<keyword>Jdbc</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[说出数据连接池的工作机制是什么?]]></name>
+		<body><![CDATA[J2EE 服务器启动时会建立一定数量的池连接，并一直维持不少于此数目的池连接。客户端程序需要连接时，池驱动程序会返回一个未使用的池连接并将其表记为忙。如果 当前没有空闲连接，池驱动程序就新建一定数量的连接，新建连接的数量由配置参数决定。当使用的池连接调用完成后，池驱动程序将此连接表记为空闲，其他调用 就不可以使用这个连接]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>异常处理机制</keyword>
+			<keyword>Exception</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[Java中的异常处理机制的简单原理和应用]]></name>
+		<body><![CDATA[当JAVA程序违反了JAVA的语义规则时，JAVA虚拟机就会将发生的错误表示为一个异常。违反语义规则包括2种情况。一种是JAVA类库内置的语义检查。例如数组下标越界,会引发IndexOutOfBoundsException;访问null的对象时会引发NullPointerException。另一种情况就是JAVA允许程序员扩展这种语义检查，程序员可以创建自己的异常，并自由选择在何时用throw关键字引发异常。所有的异常都是java.lang.Throwable的子类。]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>垃圾回收</keyword>
+			<keyword>GC</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[垃圾回收的优点和原理。并考虑2种回收机制]]></name>
+		<body><![CDATA[Java语言中一个显著的特点就是引入了垃圾回收机制，使c++程序员最头疼的内存管理的问题迎刃而解，它使得Java程序员在编写程序的时候不再需要考虑内存管理。由于有个垃圾回收机制，Java中的对象不再有"作用域"的概念，只有对象的引用才有"作用域"。垃圾回收可以有效的防止内存泄露，有效的使用可以使用的内存。垃圾回收器通常是作为一个单独的低级别的线程运行，不可预知的情况下对内存堆中已经死亡的或者长时间没有使用的对象进行清楚和回收，程序员不能实时的调用垃圾回收器对某个对象或所有对象进行垃圾回收。回收机制有分代复制垃圾回收和标记垃圾回收，增量垃圾回收。]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>线程同步</keyword>
+			<keyword>notify</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[请说出你所知道的线程同步的方法]]></name>
+		<body><![CDATA[wait():使一个线程处于等待状态，并且释放所持有的对象的lock。
+sleep():使一个正在运行的线程处于睡眠状态，是一个静态方法，调用此方法要捕捉InterruptedException异常。
+notify():唤醒一个处于等待状态的线程，注意的是在调用此方法的时候，并不能确切的唤醒某一个等待状态的线程，而是由JVM确定唤醒哪个线程，而且不是按优先级。
+notityAll():唤醒所有处入等待状态的线程，注意并不是给所有唤醒线程一个对象的锁，而是让它们竞争。]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>List</keyword>
+			<keyword>Map</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[你所知道的集合类都有哪些？主要方法？]]></name>
+		<body><![CDATA[最常用的集合类是 List 和 Map。 List 的具体实现包括 ArrayList 和 Vector，它们是可变大小的列表，比较适合构建、存储和操作任何类型对象的元素列表。 List 适用于按数值索引访问元素的情形。 
+Map 提供了一个更通用的元素存储方法。 Map 集合类用于存储元素对（称作"键"和"值"），其中每个键映射到一个值。]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>多线程</keyword>
+			<keyword>同步</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[多线程有几种实现方法,都是什么?同步有几种实现方法,都是什么? ]]></name>
+		<body><![CDATA[多线程有两种实现方法，分别是继承Thread类与实现Runnable接口 
+同步的实现方面有两种，分别是synchronized,wait与notify
+		]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>内置对象</keyword>
+			<keyword>Jsp</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[JSP的内置对象及方法]]></name>
+		<body><![CDATA[request表示HttpServletRequest对象。它包含了有关浏览器请求的信息，并且提供了几个用于获取cookie, header, 和session数据的有用的方法。 
+response表示HttpServletResponse对象，并提供了几个用于设置送回浏览器的响应的方法（如cookies,头信息等） 
+out对象是javax.servlet.jsp.JspWriter的一个实例，并提供了几个方法使你能用于向浏览器回送输出结果。 
+pageContext表示一个javax.servlet.jsp.PageContext对象。它是用于方便存取各种范围的名字空间、servlet相关的对象的API，并且包装了通用的servlet相关功能的方法。 
+session表示一个请求的javax.servlet.http.HttpSession对象。Session可以存贮用户的状态信息 
+applicaton 表示一个javax.servle.ServletContext对象。这有助于查找有关servlet引擎和servlet环境的信息 
+config表示一个javax.servlet.ServletConfig对象。该对象用于存取servlet实例的初始化参数。 
+page表示从该页面产生的一个servlet实例。]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>Thread</keyword>
+			<keyword>线程状态</keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[线程的基本概念、线程的基本状态以及状态之间的关系]]></name>
+		<body><![CDATA[线程指在程序执行过程中，能够执行程序代码的一个执行单位，每个程序至少都有一个线程，也就是程序本身。
+Java中的线程有四种状态分别是：运行、就绪、挂起、结束]]></body>
+		<desc>...</desc>
+	</message>
+<!-- 	<message>
+		<keywords>
+			<keyword></keyword>
+			<keyword></keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[ ]]></name>
+		<body><![CDATA[]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword></keyword>
+			<keyword></keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[ ]]></name>
+		<body><![CDATA[]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword></keyword>
+			<keyword></keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[ ]]></name>
+		<body><![CDATA[]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword></keyword>
+			<keyword></keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[ ]]></name>
+		<body><![CDATA[]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword></keyword>
+			<keyword></keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[ ]]></name>
+		<body><![CDATA[]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword></keyword>
+			<keyword></keyword>
+		</keywords>
+		<type>4</type>
+		<name><![CDATA[ ]]></name>
+		<body><![CDATA[]]></body>
+		<desc>...</desc>
+	</message> -->
+</messages>

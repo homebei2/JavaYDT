@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/topBanner"
+	android:layout_width="fill_parent" 
+	android:layout_height="@dimen/topbanner"
+	android:background="@drawable/header_bg">
+	<ImageButton android:id="@+id/back"
+			android:layout_width="wrap_content" 
+			android:layout_height="fill_parent" 
+			android:src="@drawable/back_button_selector"
+			android:layout_alignParentLeft="true"
+			android:paddingLeft="0dp"
+			android:onClick="topBannerClick"/>
+	<TextView android:id="@+id/title"
+			android:text="@string/app_name"
+			android:layout_centerInParent="true"	
+			style="@style/HeaderTitle"
+			android:layout_toLeftOf="@+id/favorite"
+			android:layout_toRightOf="@+id/back"
+			android:layout_width="wrap_content" 
+			android:layout_height="fill_parent" />
+			
+	<ImageButton android:id="@+id/search"
+			android:layout_width="wrap_content" 
+			android:layout_height="fill_parent" 
+			android:src="@drawable/search_button_selector"
+			android:layout_alignParentRight="true"
+			android:paddingRight="0dp"
+			android:onClick="topBannerClick"/>
+	<ImageButton android:id="@+id/favorite"
+			android:layout_width="wrap_content" 
+			android:layout_height="fill_parent" 
+			android:onClick="topBannerClick"
+			android:layout_toLeftOf="@+id/search"	
+			android:visibility="gone"/>
+</RelativeLayout>

@@ -1,0 +1,24 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent"
+    android:background="@drawable/tab_page_background">
+   	<include layout="@layout/top_banner"/>
+   	<LinearLayout 
+	  	android:id="@+id/button"
+		android:layout_width="fill_parent" 
+		android:layout_height="@dimen/facebutton"
+		android:orientation="horizontal"
+		android:background="@drawable/header_bg">	 
+			<Button android:id="@+id/face"
+			style="@style/FaceButton"	
+			android:text="@string/message_1"/>
+			<Button android:id="@+id/unface"
+			style="@style/FaceButton"		
+			android:text="@string/message_2"/>
+	   </LinearLayout>
+    <ListView android:id="@android:id/list"
+        android:layout_width="fill_parent" 
+        android:layout_height="fill_parent"/>
+        <!--    android:stackFromBottom="true" -->
+</LinearLayout>

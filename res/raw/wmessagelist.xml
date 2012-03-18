@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wmessagelistes>
+	<wmessagelist>
+		<type>5</type>
+		<name>JAVA开发工程师笔试题(一)</name>
+		<desc>......</desc>
+	</wmessagelist>	
+	<wmessagelist>
+		<type>5</type>
+		<name>JAVA开发工程师笔试题(二)</name>
+		<desc>......</desc>
+	</wmessagelist>
+	<wmessagelist>
+		<type>5</type>
+		<name>JAVA开发工程师笔试题(三)</name>
+		<desc>......</desc>
+	</wmessagelist>
+</wmessagelistes>

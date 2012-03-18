@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<messages>
+	<message>
+		<keywords>
+			<keyword>日志</keyword>
+			<keyword>调试</keyword>
+		</keywords>
+		<type>6</type>
+		<name><![CDATA[应用程序中添加日志记录的目的]]></name>
+		<body><![CDATA[监视代码中变量的变化情况，周期性的记录到文件中供其他应用进行统计分析工作；跟踪代码运行时轨迹，作为日后审计的依据；担当集成开发环境中的调试器的作用，向文件或控制台打印代码的调试信息。]]></body>
+		<desc>...</desc>
+	</message>	
+	<message>
+		<keywords>
+			<keyword>Log4j</keyword>
+			<keyword>Apache</keyword>
+		</keywords>
+		<type>6</type>
+		<name><![CDATA[Log4j简介]]></name>
+		<body><![CDATA[Log4j是Apache的一个开放源代码项目，通过使用Log4j，我们可以控制日志信息输送的目的地是控制台、文件、GUI组件、甚至是套接口服务 器、NT的事件记录器、UNIX Syslog守护进程等；我们也可以控制每一条日志的输出格式；通过定义每一条日志信息的级别，我们能够更加细致地控制日志的生成过程。最令人感兴趣的就 是，这些可以通过一个配置文件来灵活地进行配置，而不需要修改应用的代码]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>Log4j</keyword>
+			<keyword>组件</keyword>
+		</keywords>
+		<type>6</type>
+		<name><![CDATA[Log4j的组件]]></name>
+		<body><![CDATA[Loggers(记录器)，Appenders(输出源)和Layouts(布局)，这里可简单理解为日志类别，日志要输出的地方和日志以何种形式输出
+		Loggers组件在此系统中被分为五个级别：DEBUG、INFO、WARN、ERROR和FATAL。这五个级别是有顺序的，DEBUG 低于 INFO 低于WARN低于 ERROR 低于 FATAL；Appenders禁用与使用日志请求只是Log4j其中的一个小小的地方，Log4j日志系统允许把日志输出到不同的地方，如控制台（Console）、文件（Files）、根据天数或者文件大小产生新的文件、以流的形式发送到其它地方等等
+		Layouts有时用户希望根据自己的喜好格式化自己的日志输出。Log4j可以在Appenders的后面附加Layouts来完成这个功能。Layouts提供了 四种日志输出样式，如根据HTML样式、自由指定样式、包含日志级别与信息的样式和包含日志时间、线程、类别等信息的样式等等。]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>Log4j</keyword>
+			<keyword>配置</keyword>
+		</keywords>
+		<type>6</type>
+		<name><![CDATA[Log4j比较全面的配置]]></name>
+		<body><![CDATA[log4j.rootLogger=DEBUG,CONSOLE,A1,im   
+ log4j.addivity.org.apache=true   
+ # 应用于控制台 
+ log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender   
+ log4j.appender.Threshold=DEBUG   
+ log4j.appender.CONSOLE.Target=System.out   
+ log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout   
+ log4j.appender.CONSOLE.layout.ConversionPattern=[framework] %d - %c -%-4r [%t] %-5p %c %x - %m%n   
+ #log4j.appender.CONSOLE.layout.ConversionPattern=[start]%d{DATE}[DATE]%n%p[PRIORITY]%n%x[NDC]%n%t[THREAD] n%c[CATEGORY]%n%m[MESSAGE]%n%n    
+ #应用于文件 
+ log4j.appender.FILE=org.apache.log4j.FileAppender   
+ log4j.appender.FILE.File=file.log   
+ log4j.appender.FILE.Append=false   
+ log4j.appender.FILE.layout=org.apache.log4j.PatternLayout   
+ log4j.appender.FILE.layout.ConversionPattern=[framework] %d - %c -%-4r [%t] %-5p %c %x - %m%n   
+ # Use this layout for LogFactor 5 analysis   
+ # 应用于文件回滚 
+ log4j.appender.ROLLING_FILE=org.apache.log4j.RollingFileAppender   
+ log4j.appender.ROLLING_FILE.Threshold=ERROR   
+ log4j.appender.ROLLING_FILE.File=rolling.log  //文件位置,也可以用变量${java.home}、rolling.log  
+ log4j.appender.ROLLING_FILE.Append=true       //true:添加  false:覆盖  
+ log4j.appender.ROLLING_FILE.MaxFileSize=10KB   //文件最大尺寸  
+ log4j.appender.ROLLING_FILE.MaxBackupIndex=1  //备份数   
+ log4j.appender.ROLLING_FILE.layout=org.apache.log4j.PatternLayout   
+ log4j.appender.ROLLING_FILE.layout.ConversionPattern=[framework] %d - %c -%-4r [%t] %-5p %c %x - %m%n   
+ #应用于socket 
+ log4j.appender.SOCKET=org.apache.log4j.RollingFileAppender   
+ log4j.appender.SOCKET.RemoteHost=localhost   
+ log4j.appender.SOCKET.Port=5001    
+ log4j.appender.SOCKET.LocationInfo=true   
+ # Set up for Log Facter 5   
+ log4j.appender.SOCKET.layout=org.apache.log4j.PatternLayout   
+ log4j.appender.SOCET.layout.ConversionPattern=[start]%d{DATE}[DATE]%n%p[PRIORITY]%n%x[NDC]%n%t[THREAD]%n%c[CATEGORY]%n%m[MESSAGE]%n%n   
+ # Log Factor 5 Appender 
+ log4j.appender.LF5_APPENDER=org.apache.log4j.lf5.LF5Appender   
+ log4j.appender.LF5_APPENDER.MaxNumberOfRecords=2000   
+ # 发送日志给邮件   
+ log4j.appender.MAIL=org.apache.log4j.net.SMTPAppender   
+ log4j.appender.MAIL.Threshold=FATAL   
+ log4j.appender.MAIL.BufferSize=10   
+ log4j.appender.MAIL.From=web@www.wuset.com   
+ log4j.appender.MAIL.SMTPHost=www.wusetu.com   
+ log4j.appender.MAIL.Subject=Log4J Message   
+ log4j.appender.MAIL.To=web@www.wusetu.com   
+ log4j.appender.MAIL.layout=org.apache.log4j.PatternLayout   
+ log4j.appender.MAIL.layout.ConversionPattern=[framework] %d - %c -%-4r [%t] %-5p %c %x - %m%n    
+ # 用于数据库 
+ log4j.appender.DATABASE=org.apache.log4j.jdbc.JDBCAppender   
+ log4j.appender.DATABASE.URL=jdbc:mysql://localhost:3306/test   
+ log4j.appender.DATABASE.driver=com.mysql.jdbc.Driver   
+ log4j.appender.DATABASE.user=root   
+ log4j.appender.DATABASE.password=    
+ log4j.appender.DATABASE.sql=INSERT INTO LOG4J (Message) VALUES (''[framework] %d - %c -%-4r [%t] %-5p %c %x - %m%n'')    
+ log4j.appender.DATABASE.layout=org.apache.log4j.PatternLayout   
+ log4j.appender.DATABASE.layout.ConversionPattern=[framework] %d - %c -%-4r [%t] %-5p %c %x - %m%n   
+ log4j.appender.A1=org.apache.log4j.DailyRollingFileAppender   
+ log4j.appender.A1.File=SampleMessages.log4j   
+ log4j.appender.A1.DatePattern=yyyyMMdd-HH''.log4j''   
+ log4j.appender.A1.layout=org.apache.log4j.xml.XMLLayout   
+ #自定义Appender 
+ log4j.appender.im = net.cybercorlin.util.logger.appender.IMAppender   
+ log4j.appender.im.host = mail.cybercorlin.net   
+ log4j.appender.im.username = username   
+ log4j.appender.im.password = password   
+ log4j.appender.im.recipient =corlin@cybercorlin.net   
+ log4j.appender.im.layout=org.apache.log4j.PatternLayout    
+ log4j.appender.im.layout.ConversionPattern =[framework] %d - %c -%-4r [%t] %-5p %c %x - %m%n   
+]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>Log4j</keyword>
+			<keyword>配置</keyword>
+		</keywords>
+		<type>6</type>
+		<name><![CDATA[Log4j的配置]]></name>
+		<body><![CDATA[1、 建立Logger实例：
+　　语法表示：public static Logger getLogger( String name)  
+　　实际使用：static Logger logger = Logger.getLogger(ServerWithLog4j.class.getName ()) ;  
+2、 读取配置文件：
+　　获得了Logger的实例之后，接下来将配置Log4j使用环境：  
+　　语法表示:  
+　　BasicConfigurator.configure()：自动快速地使用缺省Log4j环境。  
+　　PropertyConfigurator.configure(String configFilename)：读取使用Java的特性文件编写的配置文件。  
+　　DOMConfigurator.configure(String filename)：读取XML形式的配置文件。  
+　　实际使用：  
+    PropertyConfigurator.configure("ServerWithLog4j.properties");  
+3、 插入日志信息  
+　　完成了以上连个步骤以后，下面就可以按日志的不同级别插入到你要记录日志的任何地方了。  
+　　语法表示：
+　　Logger.debug(Object message);//调试信息  
+　　Logger.info(Object message);//一般信息  
+　　Logger.warn(Object message);//警告信息  
+　　Logger.error(Object message);//错误信息  
+　　Logger.fatal(Object message);//致命错误信息  
+　　实际使用：logger.info("ServerSocket before accept: " + server); 
+]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>strut2</keyword>
+			<keyword>异常处理</keyword>
+		</keywords>
+		<type>6</type>
+		<name><![CDATA[strut2 异常处理机制]]></name>
+		<body><![CDATA[1：action 加入try catch 自行处理，比较繁琐不建议使用
+		2：使用strut2框架异常处理机制
+ Action.execute()中已经抛出Exception，只需要在struts.xml中配置，
+框架就可以自行异常处理。 struts.xml 可以声明异常元素，有局部和全局之分，类似result配置
+exception-mapping exception="java.sql.SQLException" result="sql"
+全局异常元素，result name应该用全局result元素，局部异常变量result
+可以用全局和局部都可以。局部和全局异常变量相同，在相应action下局部异常元素会覆盖全局的。
+]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>XML</keyword>
+			<keyword>AJAX</keyword>
+		</keywords>
+		<type>6</type>
+		<name><![CDATA[ajax]]></name>
+		<body><![CDATA[AJAX即“Asynchronous JavaScript and XML”（异步JavaScript和XML)，AJAX并非缩写词
+		Ajax（Asynchronous JavaScript + XML）的定义 
+基于web标准（standards-based presentation）XHTML+CSS的表示； 
+使用 DOM（Document Object Model）进行动态显示及交互； 
+使用 XML 和 XSLT 进行数据交换及相关操作； 
+使用 XMLHttpRequest 进行异步数据查询、检索；]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>面向服务</keyword>
+			<keyword>SOA</keyword>
+		</keywords>
+		<type>6</type>
+		<name><![CDATA[SOA]]></name>
+		<body><![CDATA[面向服务的体系结构（Service-Oriented Architecture，SOA）是一个组件模型，它将应用程序的不同功能单元（称为服务）通过这些服务之间定义良好的接口和契约联系起来。接口是采用中立的方式进行定义的，它应该独立于实现服务的硬件平台、操作系统和编程语言。这使得构建在各种这样的系统中的服务可以一种统一和通用的方式进行交互。]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>SOAP</keyword>
+			<keyword>WSDL</keyword>
+			<keyword>UDDI</keyword>
+		</keywords>
+		<type>6</type>
+		<name><![CDATA[SOA基础结构]]></name>
+		<body><![CDATA[SOAP， WSDL， UDDI 　　WSDL，UDDI和SOAP是SOA基础的基础部件。WSDL用来描述服务；UDDI用来注册和查找服务；而SOAP，作为传输层，用来在消费者和服务提供者之间传送消息。SOAP是Web服务的默认机制，其他的技术为可以服务实现其他类型的绑定。一个消费者可以在UDDI注册表（registry）查找服务，取得服务的WSDL描述，然后通过SOAP来调用服务。]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>跨平台</keyword>
+			<keyword>XML</keyword>
+		</keywords>
+		<type>6</type>
+		<name><![CDATA[xml]]></name>
+		<body><![CDATA[XML（Extensible Markup Language）即可扩展标记语言，它与HTML一样，都是SGML(Standard Generalized Markup Language,标准通用标记语言)。Xml是Internet环境中跨平台的，依赖于内容的技术，是当前处理结构化文档信息的有力工具。]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>解析</keyword>
+			<keyword>SAX</keyword>
+		</keywords>
+		<type>6</type>
+		<name><![CDATA[解析xml四种方式  ]]></name>
+		<body><![CDATA[DOM;SAX;JDOM;DOM4J 其中SAX；DOM4J较好]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>树</keyword>
+			<keyword>DOM</keyword>
+		</keywords>
+		<type>6</type>
+		<name><![CDATA[DOM解析]]></name>
+		<body><![CDATA[DOM是用与平台和语言无关的方式表示XML文档的官方W3C标准。DOM是以层次结构组织的节点或信息片断的集合。这个层次结构允许开发人
+员在树中寻找特定信息。分析该结构通常需要加载整个文档和构造层次结构，然后才能做任何工作。由于它是基于信息层次的，因而DOM被认为
+是基于树或基于对象的。DOM以及广义的基于树的处理具有几个优点。首先，由于树在内存中是持久的，因此可以修改它以便应用程序能对数据
+和结构作出更改。它还可以在任何时候在树中上下导航，而不是像SAX那样是一次性的处理。DOM使用起来也要简单得多。 　另一方面，对于特别大的文档，解析和加载整个文档可能很慢且很耗资源，因此使用其他手段来处理这样的数据会更好。这些基于事件的
+]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>SAX</keyword>
+			<keyword>流</keyword>
+		</keywords>
+		<type>6</type>
+		<name><![CDATA[SAX]]></name>
+		<body><![CDATA[这种处理的优点非常类似于流媒体的优点。分析能够立即开始，而不是等待所有的数据被处理。而且，由于应用程序只是在读取数据时检
+查数据，因此不需要将数据存储在内存中。这对于大型文档来说是个巨大的优点。事实上，应用程序甚至不必解析整个文档；它可以在某个条
+件得到满足时停止解析。一般来说，SAX还比它的替代者DOM快许多
+]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>SAX</keyword>
+			<keyword>Dom</keyword>
+		</keywords>
+		<type>6</type>
+		<name><![CDATA[SAX Dom的比较]]></name>
+		<body><![CDATA[DOM采用建立树形结构的方式访问XML文档，而SAX采用的事件模型。 
+　　DOM解析器把XML文档转化为一个包含其内容的树，并可以对树进行遍历。用DOM解析模型的优点是编程容易，开发人员只需要调用建树的指
+令，然后利用navigation APIs访问所需的树节点来完成任务。可以很容易的添加和修改树中的元素。然而由于使用DOM解析器的时候需要处理
+整个XML文档，所以对性能和内存的要求比较高，尤其是遇到很大的XML文件的时候。由于它的遍历能力，DOM解析器常用于XML文档需要频繁的
+改变的服务中。 
+　　SAX解析器采用了基于事件的模型，它在解析XML文档的时候可以触发一系列的事件，当发现给定的tag的时候，它可以激活一个回调方法，
+告诉该方法制定的标签已经找到。SAX对内存的要求通常会比较低，因为它让开发人员自己来决定所要处理的tag。特别是当开发人员只需要处
+理文档中所包含的部分数据时，SAX这种扩展能力得到了更好的体现。但用SAX解析器的时候编码工作会比较困难，而且很难同时访问同一个文
+档中的多处不同数据。 
+]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>数据持久化</keyword>
+			<keyword>Hibernate</keyword>
+		</keywords>
+		<type>6</type>
+		<name><![CDATA[Hibernate]]></name>
+		<body><![CDATA[Hibernate是一个开放源代码的对象关系映射框架，它对JDBC进行了非常轻量级的对象封装，使得Java程序员可以随心所欲的使用对象编程思维来操纵数据库。 Hibernate可以应用在任何使用JDBC的场合，既可以在Java的客户端程序使用，也可以在Servlet/JSP的Web应用中使用，最具革命意义的是，Hibernate可以在应用EJB的J2EE架构中取代CMP，完成数据持久化的重任。]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>接口</keyword>
+			<keyword>Hibernate</keyword>
+		</keywords>
+		<type>6</type>
+		<name><![CDATA[Hibernate核心接口]]></name>
+		<body><![CDATA[Hibernate的核心接口一共有5个，分别为:Session、SessionFactory、Transaction、Query和Configuration。这5个核心接口在任何开发中都会用到。通过这些接口，不仅可以对持久化对象进行存取，还能够进行事务控制。
+　　Session接口负责执行被持久化对象的CRUD操作(CRUD的任务是完成与数据库的交流，包含了很多常见的SQL语句。)。但需要注意的是Session对象是非线程安全的。同时，Hibernate的session不同于JSP应用中的HttpSession。这里当使用session这个术语时，其实指的是Hibernate中的session，而以后会将HttpSesion对象称为用户session。
+SessionFactory接口负责初始化Hibernate。它充当数据存储源的代理，并负责创建Session对象。这里用到了工厂模式。需要注意的是SessionFactory并不是轻量级的，因为一般情况下，一个项目通常只需要一个SessionFactory就够，当需要操作多个数据库时，可以为每个数据库指定一个SessionFactory。
+　　Configuration接口负责配置并启动Hibernate，创建SessionFactory对象。在Hibernate的启动的过程中，Configuration类的实例首先定位映射文档位置、读取配置，然后创建SessionFactory对象。
+　　Transaction接口负责事务相关的操作。它是可选的，开发人员也可以设计编写自己的底层事务处理代码。
+　　Query和Criteria接口负责执行各种数据库查询。它可以使用HQL语言或SQL语句两种表达方式。]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>Spring</keyword>
+		</keywords>
+		<type>6</type>
+		<name><![CDATA[Spring]]></name>
+		<body><![CDATA[Spring是一个开源框架，它由Rod Johnson创建。它是为了解决企业应用开发的复杂性而创建的。Spring使用基本的JavaBean来完成以前只可能由EJB完成的事情 Spring是一个轻量级的控制反转(IoC)和面向切面(AOP)的容器框架。 ]]></body>
+		<desc>...</desc>
+	</message>
+<!--	<message>
+		<keywords>
+			<keyword></keyword>
+			<keyword></keyword>
+		</keywords>
+		<type>6</type>
+		<name><![CDATA[]]></name>
+		<body><![CDATA[]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword></keyword>
+			<keyword></keyword>
+		</keywords>
+		<type>6</type>
+		<name><![CDATA[]]></name>
+		<body><![CDATA[]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword></keyword>
+			<keyword></keyword>
+		</keywords>
+		<type>6</type>
+		<name><![CDATA[]]></name>
+		<body><![CDATA[]]></body>
+		<desc>...</desc>
+	</message> -->
+
+</messages>

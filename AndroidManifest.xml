@@ -1,29 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="com.wing.ydt"
-      android:versionCode="2"
-      android:versionName="1.1">
-    <application android:icon="@drawable/icon"  android:screenOrientation="portrait" android:label="@string/app_name">
-        <activity android:name=".view.SplashActivity"
-                  android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-    <activity android:name=".view.WMessageActivity"   android:screenOrientation="portrait"  android:label="@string/wmessage"></activity>
-    <activity android:name=".view.ListWMessListActivity"   android:screenOrientation="portrait"  android:label="@string/wmesslist"></activity>
-    <activity android:name=".view.MessageActivity"   android:screenOrientation="portrait"  android:label="@string/message"></activity>
-    <activity android:name=".view.ListMessActivity"   android:screenOrientation="portrait" android:label="@string/search_messages"></activity>
-	
-	<meta-data android:value="0e36fd60e950461f9697e2484239445a" android:name="GH_APPKEY" />
-    </application>
-    <uses-sdk android:minSdkVersion="3" />
-    <uses-permission android:name="android.permission.INTERNET" />
+	package="com.wing.ydt" android:versionCode="5" android:versionName="2.0">
+	<application android:icon="@drawable/icon" android:label="@string/app_name"
+		android:debuggable="false" android:name=".Application">
+		<activity android:name=".view.SplashActivity"
+			android:screenOrientation="portrait"
+			android:theme="@android:style/Theme.NoTitleBar">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+		<activity android:name=".view.HomeActivity" android:theme="@android:style/Theme.NoTitleBar"
+			android:screenOrientation="portrait" />
+		<activity android:name=".view.MessageActivity" android:theme="@android:style/Theme.NoTitleBar"
+			android:launchMode="singleTask" android:screenOrientation="portrait" />
+		<activity android:name=".view.EditActivity" android:theme="@android:style/Theme.NoTitleBar"
+			android:screenOrientation="portrait" />
+		<activity android:name=".view.FavQueActivity" android:theme="@android:style/Theme.NoTitleBar"
+			android:launchMode="singleTask" android:screenOrientation="portrait">
+			<intent-filter>
+				<action android:name="android.intent.action.SEARCH" />
+			</intent-filter>
+			<meta-data android:name="android.app.searchable"
+				android:resource="@xml/searchable" />
+		</activity>
+		<meta-data android:name="android.app.default_searchable"
+			android:value=".view.FavQueActivity" />
+		<meta-data android:value="0e36fd60e950461f9697e2484239445a"
+			android:name="GH_APPKEY" />
+		<meta-data android:name="debug" android:value="false" />
+	</application>
+	<uses-sdk android:minSdkVersion="4" />
+	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	<uses-permission android:name="android.permission.RESTART_PACKAGES" />
 	<!-- Guohead SDK for Youmi -->
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 

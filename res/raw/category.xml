@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<categories>
+	<category>
+		<type>1</type>
+		<name><![CDATA[Java基础知识]]></name>
+		<desc>不积硅步无以至千里不积小流无以成江海，此是基础</desc>
+	</category>	
+	<category>
+		<type>2</type>
+		<name><![CDATA[数据库知识]]></name>
+		<desc>海纳百川有容乃大，数据库是海，不会游泳是不行地</desc>
+	</category>	
+	<category>
+		<type>3</type>
+		<name><![CDATA[设计模式、算法]]></name>
+		<desc>优秀的设计模式与算法，是优秀软件的筋骨</desc>
+	</category>
+	<category>
+		<type>4</type>
+		<name><![CDATA[面试题]]></name>
+		<desc>知无不言、言无不尽</desc>
+	</category>	
+ 	<category>
+		<type>5</type>
+		<name><![CDATA[笔试套题]]></name>
+		<desc>知名公司笔试套题</desc>
+	</category>
+	<category>
+		<type>6</type>
+		<name><![CDATA[其他...]]></name>
+		<desc>兼容并蓄、厚积薄发</desc>
+	</category>	
+	<category>
+		<type>7</type>
+		<name><![CDATA[收藏夹]]></name>
+		<desc>归纳总结是进步的阶梯</desc>
+	</category>
+
+</categories>

@@ -3,7 +3,6 @@ package com.wing.ydt.util;
 import java.util.Date;
 
 import android.graphics.Paint;
-import android.util.Log;
 
 public class StringUtil {
 
@@ -185,5 +184,11 @@ public class StringUtil {
 		} else {
 			return false;
 		}
+	}
+	public static String format(String string){
+		return string.replace("B£®", "\nB£®").replace("C£®", "\nC£®").replace("D£®", "\nD£®")
+		.replace("A:", "A£®").replace("B:", "\nB£®").replace("C:", "\nC£®").replace("D:", "\nD:")
+		.replace("{", "{\n\t").replace("}", "\n}").replace(";", ";\n").replace("\\", "\n\\").replace("¡£", "¡£\n")
+		.replace("log4j.appender", "{\nlog4j.appender");
 	}
 }

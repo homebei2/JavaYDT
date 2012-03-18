@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="utf-8"?>
+<messages>
+	<message>
+		<keywords>
+			<keyword>newInstance</keyword>
+			<keyword>Class</keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[Class.newInstance()]]></name>
+		<body><![CDATA[使用所选的Class对象生成该类的新实例。
+		它调用了缺省（无参数）的类构造器生成新的对象。
+		所以使用newInstance()创建的类必须有一个缺省构造器。
+		对于newInstance ()来说，可以在原先没有任何对象存在的情况下，使用它创建一个新的对象。 ]]></body>
+		<desc>...</desc>
+	</message>	
+	<message>
+		<keywords>
+			<keyword>getInterfaces</keyword>
+			<keyword>Class</keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[Class.getInterfaces() ]]></name>
+		<body><![CDATA[Class.getInterfaces()方法返回Class对象的数组，
+		这些对象代表的是某个Class对象所包含的接口。 
+]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>Constructor</keyword>
+			<keyword>reflect</keyword>
+			<keyword>invoke</keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[Class类反射机制]]></name>
+		<body><![CDATA[Java附带的库 java.lang.reflect包含了Field、Method以及Constructor类（每个类都实现了Member接口）。
+		这些类型的对象是由JVM在运行时创建的，用以表示未知类里对应的成员。
+		这样可以使用Constructor创建新的对象，用get()和set()方法读取和修改与 Field对象关联的字段，
+		用invoke()方法调用与Method对象关联的方法。另外，还可以调用getFields()、getMethods、 getConstrucotrs()方法，
+		返回表示字段、方法以及构造器的对象的数组。]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>final</keyword>
+			<keyword>finally</keyword>
+			<keyword>finalize</keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[动态调用一个类的实例]]></name>
+		<body><![CDATA[  public static void main(String[] args) {            
+         try {
+             Class c = Class.forName(com.zj.sample.Point);   
+             Constructor[] cons = c.getDeclaredConstructors();   
+             Class[] params = cons[0].getParameterTypes();
+             // 察看构造器的参数信息   
+             Object[] paramValues = new Object[params.length];
+             // 构建数组传递参数   
+             for (int i = 0; i  params.length; i++) {  
+                if (params[i].isPrimitive())
+                //判断class对象表示是否是基本数据类型   
+                {  paramValues[i] = new Integer(i); }   
+             }
+             Object o = cons[0].newInstance(paramValues);
+             // 创建一个对象的实例   
+             Method[] ms = c.getDeclaredMethods();
+             // 调用方法   
+             ms[0].invoke(o, null);
+             // 用指定的参数调用（output方法没有参数，null）  
+         } catch (Exception e) {   
+             e.printStackTrace();   
+         } ]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>synchronized</keyword>
+			<keyword>Lock</keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[synchronized和java.util.concurrent.locks.Lock的异同]]></name>
+		<body><![CDATA[ 
+	主要相同点：Lock能完成synchronized所实现的所有功能
+	主要不同点：Lock有比synchronized更精确的线程语义和更好的性能。
+	synchronized会自动释放锁，
+	而Lock一定要求程序员手工释放，并且必须在finally从句中释放。]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>Java</keyword>
+			<keyword>关键字</keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[Java的基本符号（token）]]></name>
+		<body><![CDATA[Java的单词符号有五种：关键字、标识符、常量、分隔符和操作符。]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>observable</keyword>
+			<keyword>Observer</keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[observable和Observer对象]]></name>
+		<body><![CDATA[observable类为你提供了一个有趣的机制，将一个类对象中的变化传达给人里的其他类刊象、
+		这个机制的种用途是用GUI编程，在那里你经常有一个代表应用中所有的数据对象--比如文本文档。
+		或一个物理对象的几何模型以及代表在独立窗口中显示数据的视图的几个其他对象，
+		每一个窗口显下不同表示法或许是数
+		据的一个子集这被称作应用的文档/视图结构
+		〔dncument/vicw architecture ）向一时称作模型/视图结构（model/Viewarchitecture,
+		这是模型/视图/控制器结构的缩写]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword></keyword>
+			<keyword></keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[ Java和 C、 C++ 
+		]]></name>
+		<body><![CDATA[1.全局变量
+Java程序中,不能在所有类之外定义全局变量,只能通过在一个类中定义公用、静态的变量来实现一个全局变量。例如:
+ClassGlobalVar{
+publicstaticglobal_var;}
+在类GlobalVar中定义变量global_var为publicstatic,使得其它类可以访问和修改该变量。
+Java对全局变量进行了更好的封装。而在C和C++中,依赖于不加封装的全局变量常常造成系统的崩溃。
+2.Goto
+Java不支持C、C++中的goto语句,而是通过例外处理语句try,Catch,final等来代替C、C++中用goto来处理遇到错误时跳转的情况,使程序更可读且更结构化。
+3.指针
+指针是C、C++中最灵活,也是最容易产生错误的数据类型。由指针所进行的内存地址操作常会造成不可预知的错误,同时通过指针对某个内存地址进行显式类型转换后,可以访问一个C++中的私有成员,从而破坏安全性,造成系统的崩溃。而Java对指针进行完全的控制,程序员不能直接进行任何指针操作,例如把整数转化为指针,或者通过指针释放某一内存地址等。同时,数组作为类在Java中实现,良好地解决了数组访问越界这一C、C++中不作检查的错误。
+4.内存管理
+在C中,程序员通过库函数malloc()和free()来分配和释放内存,C++中则通过运算符new和delete来分配和释放内存。再次释放已释放的内存块或未被分配的内存块,会造成系统的崩溃;同样,忘记释放不再使用的内存块也会逐渐耗尽系统资源。而在Java中,所有的数据结构都是对象,通过运算符new为它们分配内存堆。通过new得到对象的处理权,而实际分配给对象的内存可能随程序运行而改变,Java对此自动地进行管理并且进行垃圾收集,有效防止了由于程序员的误操作而导致的错误,并且更好地利用了系统资源。
+5.数据类型的支持
+在C、C++中,对于不同的平台,编译器对于简单数据类型如int,float等分别分配不同长度的字节数,例如:int在IBMPC中为16位,在VAX-11中为32位,这导致了代码的不可移植性,但在Java中,对于这些数据类型总是分配固定长度的位数,如对int型,它总占32位,这就保证了Java的平台无关性。
+6.类型转换
+在C、C++中,可以通过指针进行任意的类型转换,常常带来不安全性,而Java中,运行时系统对对象的处理要进行类型相容性检查,以防止不安全的转换。
+7.头文件
+C、C++中用头文件来声明类的原型以及全局变量、库函数等,在大的系统中,维护这些头文件是很困难的。而Java不支持头文件,类成员的类型和访问权限都封装在一个类中,运行时系统对访问进行控制,防止对私有成员的操作。同时,Java中用import语句来与其它类进行通讯,以便使用它们的方法。
+8.结构和联合
+C、C++中的结构和联合中所有成员均为公有,这就带来了安全性问题。Java中不包含结构和联合,所有的内容都封装在类中。
+9.预处理
+C、C++中用宏定义来实现的代码给程序的可读性带来了困难。在Java中,不支持宏,它通过关键字final来声明一个常量,以实现宏定义中广泛使用的常量定义。 
+]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>面 向 对 象</keyword>
+			<keyword>可 移 植</keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[Java语 言 特点]]></name>
+		<body><![CDATA[Java语 言 有 下 面 一 些 特 点 :简 单 、 面 向 对 象 、 分 布 式 、解释 执 行 、 鲁 棒 、安 全 、 体 系 结 构 中 立 、 可 移 植 、 高 性 能、 多 线 程 以 及 动 态 性。 ]]></body>
+		<desc>...</desc>
+	</message>
+	
+	<message>
+		<keywords>
+			<keyword></keyword>
+			<keyword></keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[final关键字]]></name>
+		<body><![CDATA[（1）一个对象是常量，不代表不能转变对象的成员，仍可以其成员进行操作。
+　　（2）常量在使用前必须赋值，但除了在声明的同时初始化外，就只能在构造方法中初始化。
+　　（3）final修饰的方法不能被重置（在子类中不能出现同名方法）。
+　　（4）如果声明一个类为final，则所有的方法均为final，无论其是否被final修饰，但数据成员可为final也可不是。
+]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>public</keyword>
+			<keyword>private</keyword>
+			<keyword>protected</keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[有关public、private和protected]]></name>
+		<body><![CDATA[（1）无public修饰的类，可以被其他类访问的条件是：a.两个类在同一文件中，b.两个类在同一文件夹中，c.两个类在同一软件包中。
+　　（2）protected：继承类和同一软件包的类可访问。
+　　（3）如果构造方法为private，那么在其他类中不能创建该类的对象。
+		]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>接口</keyword>
+			<keyword>interface</keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[接口(interface)]]></name>
+		<body><![CDATA[如果一个抽象类中的所有方法都是抽象的，我们就可以将这个类用另外一种方式来定义，也就是接口定义。接口是抽象方法和常量值的定义的集合，从本质上讲，接口是一种特殊的抽象类，这种抽象类中只包含常量和方法的定义，而没有变量和方法的实现。 
+接口中的成员都是public访问类型的。接口里的变量默认是用public static final标识的 。
+我们可以定义一个新的接口用extends关键字去继承一个已有的接口 
+我们也可以定义一个类用implements关键字去实现一个接口中的所有方法，我们还可以去定义一个抽象类用implements关键字去实现一个接口中定义的部分方法。 
+一个类可以继承一个父类的同时，实现一个或多个接口，extends关键字必须位于implemnets关键字之前 ]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>抽象类</keyword>
+			<keyword>abstract</keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[抽象类]]></name>
+		<body><![CDATA[java中可以定义一些不含方法体的方法，它的方法体的实现交给该类的子类根据自己的情况去实现，这样的方法就是抽象方法，包含抽象方法的类就叫抽象类。
+抽象类必须用abstract关键字来修饰；抽象方法也必须用abstract来修饰。
+抽象类不能被实例化，也就是不能用new关键字去产生对象。
+抽象方法只需声明，而不需实现。
+含有抽象方法的类必须被声明为抽象类，抽象类的子类必须覆盖所有的抽象方法后才能被实例化，否则这个子类还是个抽象类。 
+		]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>匿名对象</keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[匿名对象]]></name>
+		<body><![CDATA[我们也可以不定义对象的句柄，而直接调用这个对象的方法。这样的对象叫做匿名对象， 如：new Person().shout(); 
+如果对一个对象只需要进行一次方法调用，那么就可以使用匿名对象。 
+我们经常将匿名对象作为实参传递给一个函数调用]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>数组</keyword>
+			<keyword>函数</keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[与数组操作相关的函数 ]]></name>
+		<body><![CDATA[使用System.arraycopy()函数拷贝数组 
+用Arrays.sort 来排序数组]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>运算符</keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[java中的运算符]]></name>
+		<body><![CDATA[运算符共分以下几种： 
+算术运算符
+赋值运算符
+比较运算符
+逻辑运算符
+移位运算符]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>类型转换</keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[类型转化 ]]></name>
+		<body><![CDATA[自动类型转换（也叫隐式类型转换） 
+强制类型转换（也叫显式类型转换） 
+类型转换的原理及什么时候要用强制类型转换
+表达式的数据类型自动提升
+所有的byte型、short型和char的值将被提升到int型。
+如果一个操作数是long型，计算结果就是long型；
+如果一个操作数是float型，计算结果就是float型；
+如果一个操作数是double型，计算结果就是double型。
+分析 System.out.println(‘a’+1)与 System.out.println(“”+’a’+1) 的区别。结果分别是:98/a1]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>变量</keyword>
+			<keyword>取值范围</keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[变量字节大小及有效取值范围]]></name>
+		<body><![CDATA[byte占用一个字节，数字大小为-27—27-1
+short占用两个字节，数字大小为-215—215-1 
+int占用四个字节，数字大小为-231—231-1 
+long占用八个字节，数字大小为-263—263-1 
+float占用四个字节，数字大小为1.4E-45~3.4E+38 , -1.4E-45~-3.4E+38 。用二进制的指数形式表示一个浮点数的格式，如：101*22 , 101*2-3
+double占用八个字节，数字大小为4.9E-324~1.7E+308, -4.9E-324~-1.7E+308 。
+char占两个字节，数字大小为0—216-1，是unicode编码。字符的本来面目，我们为什么可以直接将一个数字赋给字符变量。
+Boolean占一个字节，其取值只有两个，true和false。]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>JVM</keyword>
+			<keyword>虚拟</keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[JVM（虚拟机）的运行过程]]></name>
+		<body><![CDATA[代码的装入; 代码的校验; 代码的执行(解释执行)]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>字符集</keyword>
+			<keyword>unicode</keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[Java的字符集 ]]></name>
+		<body><![CDATA[Java 采用一种称为unicode的字符集，该字符集合是一种新的编码标准，与常见的ASCII码的区别在于： unicode使用16位二进制而不是8位来表示一个字符。 unicode字符集中增加了许多非拉丁语字符。]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>关键字</keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[关键字]]></name>
+		<body><![CDATA[关键字是为特定目的而保留的保留字，程序员不要将关键字作为自己的标识符。 Java的关键字有：abstract boolean break byte case catch char class continue do double else extends false find finally float for implements import instanceof int interface long native new null package private public return short static super switch synchronized this throw true try void while ]]></body>
+		<desc>...</desc>
+	</message>
+	
+	<message>
+		<keywords>
+			<keyword>注释</keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[Java的注释 ]]></name>
+		<body><![CDATA[Java的注释有三种形式： 
+单行注释 如：//Comment on one line 多行注释 如：/* Comment on one     or more lines */ 文档注释 如：/** Document     Comment */ 
+		]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>操作符</keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[Java的操作符 ]]></name>
+		<body><![CDATA[根据操作对象的个数操作符可分为一元、二元或三元操作符。根据操作符的功能，又可分为算术、逻辑、关系等操作符。
+		算术操作符 、赋值操作符与复合赋值操作符 、位操作符和移位操作符 、关系操作符 ]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>变量</keyword>
+			<keyword>常量</keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[ 变量和常量 ]]></name>
+		<body><![CDATA[变量代表程序的状态。程序通过改变变量的值来改变整个程序的状态，或者说得更大一些，也就是实现程序的功能逻辑。为了方便的引用变量的值，在程序中需要为变量设定一个名称，这就是变量名。
+		 常量代表程序运行过程中不能改变的值。 常量在程序运行过程中主要有2个作用：代表常数，便于程序的修改 增强程序的可读性  常量的语法格式和变量类型，只需要在变量的语法格式前面添加关键字final即可。在Java编码规范中，要求常量名必须大写。	
+		]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>流程控制</keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[流程控制]]></name>
+		<body><![CDATA[流程就是指程序执行的顺序，流程控制就是指通过控制程序执行的顺序实现要求的功能。
+		流程控制在程序语言实现时，通过三类控制语句进行实现：
+    顺序语句顺序语句是一种自然的语句，没有特定的语法格式，总体的执行流程就是先写的代码先执行，后写的代码后执行。
+    使用顺序语句时，需要特别注意代码的执行顺序。
+条件语句条件语句，又称判断语句或分支语句，在程序中有对应的语法格式，执行流程是根据条件是否成立，决定代码是否执行。如果条件成立，也就是true，则执行对应的代码，否则不执行。
+使用条件语句时，需要特别注意条件是否准确以及功能部分的书写。
+循环语句循环语句是一种计算机内部特有的语句，指重复执行的代码，在程序中有对应的语法格式，执行的流程是每次判断条件是否成立，然后决定是否重复执行。循环语句是流程控制部分最灵活、最复杂，也是功能最强大的一类语句。
+   使用循环语句时，需要注意循环条件以及循环功能部分的书写。]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>if else</keyword>
+			<keyword>switch</keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[条件语句 ]]></name>
+		<body><![CDATA[if（条件1）功能代码1；else if（条件2）功能代码2； else功能代码3；
+switch语句的语法格式为： switch（表达式）{ case 值1：
+    功能代码1；[break；]
+    case 值2：
+    功能代码2；[break；]
+    default：
+    功能代码1； [break；] 
+    }
+	
+		]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>do while</keyword>
+			<keyword>for</keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[循环语句]]></name>
+		<body><![CDATA[ while语句语法格式：while（循环条件）
+    循环体；为了结构清楚，并且使循环体部分可以书写多行代码，一般把循环体处理成代码块，则语法格式变为：
+    while（循环条件）{
+    	循环体；  }
+    do-while语句的语法格式为：
+    do{
+    循环体；
+    }while（循环条件）；
+   语法说明：在do-while语句中，循环体部分是重复执行的代码部分，循环条件指循环成立的条件，要求循环条件是boolean类型，值为true时循环执行，否则循环结束，最后整个语句以分号结束。
+    执行流程：当执行到do-while语句时，首先执行循环体，然后再判断循环条件，如果循环条件不成立，则循环结束，如果循环条件成立，则继续执行循环体，循环体执行完成以后再判断循环条件，依次类推。
+		 for语句的语法格式为：
+    for（初始化语句；循环条件；迭代语句）{ 循环体； }
+执行流程： 1、 执行初始化语句 2、 判断循环条件，如果循环条件为false，则结束循环，否则执行下一步
+    3、 执行循环体4、 执行迭代语句 5、 跳转到步骤2重复执行需要注意的是：for语句中的各个语句都可以为空，初始化语句在for语句执行时执行且只执行一次。
+		]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>动态初始化</keyword>
+			<keyword>静态初始化</keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[ 数组初始化]]></name>
+		<body><![CDATA[静态初始化 数据类型[] 数组名称 = {值1，值2，……，值n}； 动态初始化 动态初始化的语法格式：数据类型[] 数组名称 = new 数据类型[长度]；]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>类</keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[类的概念]]></name>
+		<body><![CDATA[类是一组事物共有特征和功能的描述。类是对于一组事物的总体描述，是按照面向对象技术进行设计时最小的单位，也是组成项目的最基本的模块。类的概念是抽象的，类似于建筑设计中的图纸，是对于现实需要代表的具体内容的抽象。类只包含框架结构，而不包含具体的数据。所以类代表的是总体，而不代表某个特定的个体。
+	]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>类</keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[对象的存储形式]]></name>
+		<body><![CDATA[ 对象是一个复合数据类型的变量，其存储方式和一般变量的存储方式也不相同。在Java的执行环境中，存储区域一般分为两类： l　栈内存
+    该区域存储基本数据类型
+    l　堆内存
+  存储实际的对象内容。而实际的对象存储比一般变量复杂，对象的存储分为两部分：对象的内容、对象内容的起始地址。
+]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>类</keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[Random类 ]]></name>
+		<body><![CDATA[ Random类中实现的随机算法是伪随机，也就是有规则的随机。在进行随机时，随机算法的起源数字称为种子数（seed），在种子数的基础上进行一定的变换，从而产生需要的随机数字。
+    相同种子数的Random对象，相同次数生成的随机数字是完全相同的。也就是说，两个种子数相同的Random对象，第一次生成的随机数字完全相同，第二次生成的随机数字也完全相同。这点在生成多个随机数字时需要特别注意。
+		]]></body>
+		<desc>...</desc>
+	</message>
+	
+	<message>
+		<keywords>
+			<keyword>进制</keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[进制的概念 ]]></name>
+		<body><![CDATA[ 计算机编程中常用的进制有二进制、八进制、十进制和十六进制，十进制还是最主要的表达形式。在编程中，大家书写的数值默认为十进制。
+		对于进制，有两个最基本的概念：基数和运算规则。
+    l 基数基数指一种进制中组成的基本数字，也就是不能再拆分的数字。例如十进制是0-9，二进制是0和1，八进制是0-7，十六进制是0-9，A-F（大小写均可）。或者可以简单的这样记忆，假设是n进制的话，基数就是[0，n-1]的数字，基数的个数和进制值相同，十进制有十个基数，依次类推。
+    l 运算规则运算规则就是进位或借位规则，这个类似于一般计算机书籍中位权的概念，例如对于十进制来说，该规则是“满十进一，借一当十”，也就是低位的数字满十了向高位进一，从高位借到的一，相当于低位上的十。其它的进制也是这样，对于二进制来说，就是“满二进一，借一当二”，八进制和十六进制也是这样
+		]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>网络传输</keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[网络传输过程中的中文问题]]></name>
+		<body><![CDATA[网络传输过程中的中文问题也比较突出，出现该问题的原因和前面IO部分介绍的一致，都是由于传输过程中客户端程序和服务器端程序采用的字符集不一致，在解决该问题以前首先进行如下的思考：
+    是否在网络中一定要传输中文字符？
+    从前面的示例中可以看出，通过一定的协议格式设计，可以避免在网络中传输中文字符，这样就从基础上避免了中文问题的出现。例如在程序中需要传输“成功”、“失败”这样的中文字符串，在协议中可以约定数字0代表“成功”、1代表“失败”，这样在网络上传输数字即可，在客户端和服务器端进行简单的变换即可。
+    其实这也是设计网络协议时基本的设计技巧，通过合理的使用该技巧既可以减少网络传输的数据量，也可以从根本上避免网络传输过程中的中文问题。
+    如果必须在网络中传输中文字符，例如QQ中的聊天信息，这就需要使客户端程序使用的字符集编码和服务器端程序使用的字符集编码保持一致，这是中文问题解决的最基本的思路实现。
+]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>网络编程</keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[客户端网络编程步骤]]></name>
+		<body><![CDATA[客户端（Client）是指网络编程中首先发起连接的程序，客户端一般实现程序界面和基本逻辑实现，在进行实际的客户端编程时，无论客户端复杂还是简单，以及客户端实现的方式，客户端的编程主要由三个步骤实现：
+    1、  建立网络连接
+    客户端网络编程的第一步都是建立网络连接。在建立网络连接时需要指定连接到的服务器的IP地址和端口号，建立完成以后，会形成一条虚拟的连接，后续的操作就可以通过该连接实现数据交换了。
+    2、  交换数据
+    连接建立以后，就可以通过这个连接交换数据了。交换数据严格按照请求响应模型进行，由客户端发送一个请求数据到服务器，服务器反馈一个响应数据给客户端，如果客户端不发送请求则服务器端就不响应。
+    根据逻辑需要，可以多次交换数据，但是还是必须遵循请求响应模型。
+    3、  关闭网络连接
+    在数据交换完成以后，关闭网络连接，释放程序占用的端口、内存等系统资源，结束网络编程。
+    最基本的步骤一般都是这三个步骤，在实际实现时，步骤2会出现重复，在进行代码组织时，由于网络编程是比较耗时的操作，所以一般开启专门的现场进行网络通讯。
+]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword>网络编程</keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[服务器端网络编程步骤]]></name>
+		<body><![CDATA[服务器端（Server）是指在网络编程中被动等待连接的程序，服务器端一般实现程序的核心逻辑以及数据存储等核心功能。服务器端的编程步骤和客户端不同，是由四个步骤实现，依次是：
+    1、  监听端口
+    服务器端属于被动等待连接，所以服务器端启动以后，不需要发起连接，而只需要监听本地计算机的某个固定端口即可。
+    这个端口就是服务器端开放给客户端的端口，服务器端程序运行的本地计算机的IP地址就是服务器端程序的IP地址。
+    2、  获得连接
+    当客户端连接到服务器端时，服务器端就可以获得一个连接，这个连接包含客户端的信息，例如客户端IP地址等等，服务器端和客户端也通过该连接进行数据交换。
+    一般在服务器端编程中，当获得连接时，需要开启专门的线程处理该连接，每个连接都由独立的线程实现。
+    3、  交换数据
+    服务器端通过获得的连接进行数据交换。服务器端的数据交换步骤是首先接收客户端发送过来的数据，然后进行逻辑处理，再把处理以后的结果数据发送给客户端。简单来说，就是先接收再发送，这个和客户端的数据交换数序不同。
+    其实，服务器端获得的连接和客户端连接是一样的，只是数据交换的步骤不同。
+    当然，服务器端的数据交换也是可以多次进行的。
+    在数据交换完成以后，关闭和客户端的连接。
+    4、  关闭连接
+    当服务器程序关闭时，需要关闭服务器端，通过关闭服务器端使得服务器监听的端口以及占用的内存可以释放出来，实现了连接的关闭。
+]]></body>
+		<desc>...</desc>
+	</message>
+	<!--<message>
+		<keywords>
+			<keyword></keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[ ]]></name>
+		<body><![CDATA[ ]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword></keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[ ]]></name>
+		<body><![CDATA[ ]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword></keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[ ]]></name>
+		<body><![CDATA[ ]]></body>
+		<desc>...</desc>
+	</message>
+	<message>
+		<keywords>
+			<keyword></keyword>
+		</keywords>
+		<type>1</type>
+		<name><![CDATA[ ]]></name>
+		<body><![CDATA[ ]]></body>
+		<desc>...</desc>
+	</message>-->
+</messages>

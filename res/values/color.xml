@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  Welcome -->
+    <color name="answer_color">#00A8CB</color>
+    <color name="select">#231F20</color>
+    <color name="def">#1A1A1A</color>
+    <color name="welcome_classics_color">#C31887</color>
+        <!--  Top Level Lists  -->
+    <color name="top_level_item_selected">#CCCCCC</color>
+    <color name="top_level_item_clicked">#8B8B8B</color>
+    
+    <color name="title_text_colour">#231F20</color>
+    <color name="header_title_colour">#000000</color>
+</resources>

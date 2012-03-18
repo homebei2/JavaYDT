@@ -1,25 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, LoadDatabse!</string>
-    <string name="app_name">Java程序员应试一点通</string>
-    <string name="show_message">显示答案</string>
-    <string name="prev_message">上翻</string>
-    <string name="next_message">下翻</string>
-    <string name="message">知识点</string>
-    <string name="wmessage">笔试题</string>
-    <string name="wmesslist">笔试题库</string>
-    <string name="no_message">对不起没有找到相关数据 !</string>
-    <string name="search_messages">查询结果</string>
-    <string name="not_null">查询字段不能为空</string>
-    <string name="Home">主页</string>
-    <string name="Favorite">收藏夹</string>
-     <string name="About">版本信息</string>
-     <string name="Quit">退出</string>
-      <string name="firstM">This is the First Message!</string>
-       <string name="lastM">This is the Last Message!</string>
-       <string name="answer">答案:    </string>
+	<string name="app_name">Java程序员应试一点通</string>
+	<string name="About">关于</string>
+	<string name="Quit">退出</string>
+	<string name="Home">首页</string>
+	<string name="Add">新增</string>
+	<string name="Edit">编辑</string>
+	<string name="Delete">删除</string>
+	<string name="Ok">保存</string>
+	<string name="Cancel">放弃</string>
+	<string name="Cannot_Delete">系统自带顶级类别目录不能删除,程序升级会用到...</string>
+	<string name="Delete_Message">确认删除：【%s 】么？确认将会删除当前及其相关数据,无法恢复,请慎重选择!</string>	
+	<string name="Mfirst">好的开始时成功的一半，恭喜你成功一半了O(∩_∩)O~,不过这是第一条数据您不能后退呀( ⊙ o ⊙ )！</string>
+	<string name="Mlast">苦海无边，回头是岸!已经是最后一条数据了哦O(∩_∩)O~</string>
+	
+	<string name="Back">上一条</string>
+	<string name="Go">下一条</string>
+	<string name="Answer">显示答案</string>
+	<string name="FavoList">收藏夹</string>
+	<string name="answer">\n答案:\t\n</string>
+	<string name="select">\n备选项:\t\n</string>
 	<string name="favo_message">收藏</string>
-	<string name="thanks">致谢</string>
-	<string name="app_about">\t\t\tJava 一点通   \t\t\t\t\t1.1 Version \n  感谢您使用本软件，欢迎提意见或者分享资料 \n 
-	                        \t by yale.yang.chu@gmail.com</string>
+	<string name="search_hint">搜索知识点</string>
+	
+	
+	
+	
+	<string name="search_title">搜索</string>
+	
+	<string name="type_hint">题目所属类别：%s</string>
+	<string name="name_hint">添加类别：输入类别正名\n添加面试题：输入面试题题目\n添加笔试题：输入笔试题题目\n</string>
+	<string name="answer_hint">添加笔试题：输入笔试题题目\n</string>
+	<string name="body_hint">添加类别：输入类别描述\n添加面试题：输入面试题答案\n添加笔试题：输入笔试题备选答案或者描述\n</string>
+	
+	<string name="message_1">面试题库</string>
+	<string name="message_2">笔试题库</string>
+	<string name="num_total">第%1$d条,共%2$d条</string>	
+	<string name="app_about">Java 一点通\n 
+版本号：%s\n
+作者：Yale.chu\n
+邮箱：yale.yang.chu@gmail.com\n
+在学习和程序编写中可能不会去注意的细节或底层问题可能成为
+跳槽过程中面试笔试的难关，其实面试笔试试题都是有规律性和
+技巧性知识性的东西，多看多想终可过关，所以做了这样一个程序
+希望大家都找到满意的工作，Good Luck!\n
+功能使用说明\n
+1:通过Menu菜单可以添加自己的笔试面试题库信息。\n
+2:长按菜单和面试题可修改、删除相应信息。\n
+3:在笔试题面试题界面上下滑动可见答案，左右滑动可进入前后试题.\n
+4:在笔试题面试题界面右上角有收藏夹图标，可进行收藏活取消操作\n
+5:左上角回退图标可回退到上一界面,右上角搜索图标可进行全局关键字搜索
+感谢您使用本软件，如果您有什么建议和意见请给我发邮件!\n
+由于时间关系，题库不是很多，请见谅！如果您有更多题库愿意于大家分享
+请也发邮件给我，再次带读者感谢!\n
+			\t\t\tYale.chu</string>
+	<string name="AboutUser">相关应用</string>
+	<string name="AboutOK">好的</string>
 </resources>

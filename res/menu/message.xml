@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:id="@+id/back" android:visible="true" android:title="@string/Back" />
+	<item android:id="@+id/answer" android:visible="true" android:title="@string/Answer" />
+	<item android:id="@+id/go" android:visible="true" android:title="@string/Go" />
+	<item android:id="@+id/favo" android:visible="true" android:title="@string/FavoList" />
+	<item android:id="@+id/about" android:visible="true" android:title="@string/About" />
+	<item android:id="@+id/quit" android:visible="true" android:title="@string/Quit" />
+</menu>

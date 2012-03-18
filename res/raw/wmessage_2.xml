@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="utf-8"?>
+<messages>
+	<message>
+		<list_id>2</list_id>
+		<name>class Super{
+public float getNum(){return 3.0f;}
+}
+Public class Sub extends Super{
+}
+下面的哪个方法放在Sub将引起编译错误？
+</name>
+		<body><![CDATA[A:  Public float getNum(){return 4.0f;}   
+B:  Public void getNum(){}  
+C:  Public void getNum(double d){}   
+D: Public double getNum(float d){return 4.0d;}   
+ ]]></body>
+		<answer><![CDATA[B]]></answer>
+	</message>	
+	<message>
+		<list_id>2</list_id>
+		<name>public class Foo { 
+public static void main(String args[]) {
+try {
+return ;
+} finally {
+System.out.println("Finally");
+}
+}结果是什么?
+</name>
+		<body><![CDATA[A． 什么都不打印   
+B． 打印出"Finally"   
+C． 编译时间错误  
+]]></body>
+	<answer><![CDATA[B]]></answer>
+	</message>
+	<message>
+		<list_id>2</list_id>
+		<name>int i=1,j=10;
+do{
+if(i++>--j) continue;  
+}while(i 小于5);  
+这个代码块执行后，i和j的值是什么？
+	</name>
+	<body><![CDATA[A． i=6 j=5   
+B． i=5 j=5   
+C． i=6 j=4  
+D． i=5 j=6   
+E． i=6 j=6]]></body>
+		<answer><![CDATA[C]]></answer>
+	</message>
+	<message>
+		<list_id>2</list_id>
+		<name>public class A {
+public void m() {
+Object o = new Float(3.14F);  
+Object[] oa = new Object[1];
+oa[0] = o;
+o = null;//第六行
+oa[0] = null;
+System.out.println(oa[0]);
+}最早在第几行对象o就可以被垃圾回收？
+		</name>
+		<body><![CDATA[A． 第4行后  
+B． 第5行后  
+C． 第6行后  
+D． 第7行后   
+E． 第9行后（也就是说在方法结束后）  
+		]]></body>
+		<answer><![CDATA[C]]></answer>
+	</message>	
+	<message>
+		<list_id>2</list_id>
+		<name>int index=1;
+int foo[]=new int[3];
+int bar=foo[index];
+int baz=bar+index;经过以上代码后,baz的值是多少？
+		</name>
+		<body><![CDATA[A． baz 值为 0   
+B． baz 值为1   
+C． baz 值为2  
+D． 程序运行时抛出异常   
+E． 代码不能编译]]></body>
+		<answer><![CDATA[B]]></answer>
+	</message>
+	<message>
+		<list_id>2</list_id>
+		<name>public class A {
+public static void add3(Integer i) {
+int val = i.intValue();
+val += 3;
+i = new Integer(val);
+}
+public static void main(String args[]) {
+Integer i = new Integer(0);
+add3(i);
+System.out.println(i.intValue());
+}
+}以上代码执行结果是什么？
+		</name>
+		<body><![CDATA[A． 编译错误  
+B． 打印"0"  
+C． 打印"3"  
+D． 编译成功但运行时有第3行出现异常
+		]]></body>
+		<answer><![CDATA[B]]></answer>
+	</message>
+	
+	<message>
+		<list_id>2</list_id>
+		<name>class EnclosingOne{
+public class InsideOne{}
+}
+publiclass InnerTest{
+publistativoimain(String args[]){
+EnclosingOne eo=new EnclosingOne();
+//在这插入代码
+}
+}
+应将哪行代码插入代码块中？
+		</name>
+		<body><![CDATA[A． InsideOne ei=eo.new InsideOne();
+B． eo.InsideOne ei=eo.new InsideOne();
+C． InsideOne ei=EnclosingOne.new InsideOne();
+D． InsideOne ei=eo.new InsideOne();
+E． EnclosingOne.InsideOne ei=eo.new InsideOne();
+		]]></body>
+		<answer><![CDATA[E]]></answer>
+	</message>	
+	<message>
+		<list_id>2</list_id>
+		<name>下面哪个是"is a"的关系？
+		</name>
+		<body><![CDATA[A． Public interface Color{}
+Public class Shape{private Color color;}
+B． interface Component{}
+class Container implements Component{
+private Component[] children;
+}
+C． publiclass Species{}
+publiclass Animal{private Species species;} 
+		]]></body>
+		<answer><![CDATA[B]]></answer>
+	</message>
+	<message>
+		<list_id>2</list_id>
+		<name>Public class SychTest{
+private int x;
+private int y;
+public void setX(int i){ x=i;}
+public void setY(int i){y=i;}
+public synchronized void setXY(int i){
+setX(i);
+setY(i);
+}
+Public synchronized boolean check(){
+return x!=y;
+}
+}
+在什么条件下，在其它类中调用check()返回true?
+		</name>
+		<body><![CDATA[A． check() 永远不返回 true 
+B． 当setXY 被多个线程调用时check() 返回true  
+C． 当多个线程分别调用setX和setY时check() 返回true  
+D． 只有SychTest被改写为x和y可以分别赋值时check() 才可能返回 true  
+		]]></body>
+		<answer><![CDATA[C]]></answer>
+	</message>
+	<message>
+		<list_id>2</list_id>
+		<name>怎样计算42度角的余弦值？(</name>
+		<body><![CDATA[A． double d=Math.cos(42);
+B． double d=Math.cosine(42);
+C． double d=Math.cos(Math.toRadians(42));
+D． double d=Math.cos(Math.toDegrees(42));
+E． double d=Math.toRadious(42);
+		]]></body>
+		<answer><![CDATA[C]]></answer>
+	</message>	
+		<message>
+		<list_id>2</list_id>
+		<name>String foo="blue";
+boolean[] bar=new boolean[1];
+if(bar[0]){
+foo="green";
+}
+foo的值是多少?
+		</name>
+		<body><![CDATA[A． "" 
+B． Null  
+C． Blue  
+D． green  
+		]]></body>
+		<answer><![CDATA[C]]></answer>
+	</message>
+	<message>
+		<list_id>2</list_id>
+		<name>int index=1;
+String[] test=new String[3];
+String foo=test[index];
+foo的值是多少</name>
+		<body><![CDATA[A． ""
+B． Null
+C． throw Exception
+D． not compile
+		]]></body>
+		<answer><![CDATA[B]]></answer>
+	</message>
+	<message>
+		<list_id>2</list_id>
+		<name>Hashtable实现了哪个接口？
+		</name>
+		<body><![CDATA[A． javautil.Map
+B． javautil.List
+C． javautil.Hashable
+D． javautil.Collection
+		]]></body>
+		<answer><![CDATA[A]]></answer>
+	</message>
+	<message>
+		<list_id>2</list_id>
+		<name>为了让同一个包内其它类有权访问一个类的成员，以下哪个访问控制符最适合？
+		</name>
+		<body><![CDATA[A． public  
+B． private   
+C． protecte  
+D． transient  
+E． 没有访问控制符  
+		]]></body>
+		<answer><![CDATA[E]]></answer>
+	</message>
+		<message>
+		<list_id>2</list_id>
+		<name>下面哪些声明了一个数组,可以容放10个int类型元素？</name>
+		<body><![CDATA[A． int[] foo;
+B． int foo[];
+C． int foo[10];
+D． Object[] foo;
+E． Object foo[10];
+		]]></body>
+		<answer><![CDATA[C]]></answer>
+	</message>
+	<message>
+		<list_id>2</list_id>
+		<name>下面哪个方法声明可以让同一包的成员访问，而且不需要类的实例？
+		</name>
+		<body><![CDATA[A． abstract publivoimethoda();
+B． publiabstract double methoda();
+C． static void method(double d1){}
+D． publinative double methoda(){}
+		]]></body>
+		<answer><![CDATA[C]]></answer>
+	</message>
+	
+	<message>
+		<list_id>2</list_id>
+		<name>哪个可以得到"file.txt"的父目录的名字？
+		</name>
+		<body><![CDATA[A． String name=File.getParentName("file.txt");
+B． String name=(new File("file.txt")).getParent();
+C． String name=(new File("file.txt")).getParentName();
+D． String name=(new File("file.txt")).getParentFile();
+		]]></body>
+		<answer><![CDATA[B]]></answer>
+	</message>	
+	<message>
+		<list_id>2</list_id>
+		<name>文件"file.txt" 已经存在且包含ASCII码：
+try{
+File f=new File("file.txt");
+OutputStream out=new FileOutputStream(f);
+}catch (IOException e){}
+以下哪些是正确的？
+		</name>
+		<body><![CDATA[A． 代码不能编译
+B． 代码运行，但file.txt没有变化。
+C． 代码运行，但file.txt的长度变为0。
+D． 因为文件不存在，所以抛出一个异常。
+		]]></body>
+		<answer><![CDATA[C]]></answer>
+	</message>
+	<message>
+		<list_id>2</list_id>
+		<name>你的任务是创建一个面板，最上面是一个TextArea,在它的正下面是一个Label,在Label的下面是一个Button。当面板改变大小时， TextArea占用了所有的自由的垂直空间。请问应用哪种部局管理器？</name>
+		<body><![CDATA[A． Grid Layout
+B． Card Layout
+C． Flow Layout
+D． Gridbag Layout]]></body>
+		<answer><![CDATA[D]]></answer>
+	</message>
+	<message>
+		<list_id>2</list_id>
+		<name>下面哪个是正确的？
+		</name>
+		<body><![CDATA[A． 如果一个线程在一个对象的wait方法中受到阻塞，而另一个线程对同一对象调用notify方法，则第一个线程立即恢复执行。
+B． 如果一个线程在一个对象的wait方法中受到阻塞，而另一个线程对同一对象调用notify方法，仍然有可能第一个线程永远不恢复执行。
+C． 如果一个线程在一个对象的wait方法中受到阻塞，而另一个线程对同一对象调用notify方法，则作为notify方法的直接的、惟一的结果，第一个线程一定恢复执行。
+D． 如果两个线程在一个对象的wait方法中受到阻塞，而另一个线程对同一对象调用notify方法，则作为notify方法的直接的、惟一的结果，先执行call方法的线程一定恢复执行。
+		]]></body>
+		<answer><![CDATA[B]]></answer>
+	</message>
+		<message>
+		<list_id>2</list_id>
+		<name>下面哪个阻止创建子类？
+		</name>
+		<body><![CDATA[A． Static class FooBar{}
+B． pivate class Foobar{}
+C． abstract class FooBar{}
+D． final public class FooBar]]></body>
+		<answer><![CDATA[D]]></answer>
+	</message>
+	<message>
+		<list_id>2</list_id>
+		<name>面哪个把"\n"写到了文件"file.txt"的尾部?
+		</name>
+		<body><![CDATA[A． OutputStream out=new File Output Stream("file.txt");
+out.write Bytes("\n");
+B． OutputStream os=new FileOutputStream("file.txt",true);
+DataOutputStream out=new DatOutputStream(os);
+out.write Bytes("\n");
+C． OutputStream os=new File Output Stream("file.txt");
+DataOutputStream out=new DatOutput Stream(os);
+out.write Bytes("\n");
+D． OutputStream os=new Output Stream("file.txt",true);
+DataOutputStream out=new DatOutput Stream(os);
+out.write Bytes("\n");
+		]]></body>
+		<answer><![CDATA[B]]></answer>
+	</message>
+	
+	<message>
+		<list_id>2</list_id>
+		<name>下面哪个正确的构建了一个DataOutputStream?
+		</name>
+		<body><![CDATA[A． new DatOutputStream("out.txt");
+B． new DatOutputStream(new File("out.txt"));
+C． new DatOutputStream(new FileWriter("out.txt"));
+D． new DatOutputStream(new FileOutputSream("out.txt"));]]></body>
+		<answer><![CDATA[D]]></answer>
+	</message>	
+	<message>
+		<list_id>2</list_id>
+		<name>下面哪个关于类java.util.HashSet的说法是正确的?
+		</name>
+		<body><![CDATA[A． HashSet中的元素是有顺序的
+B． HashSet是不可改变的。
+C． HashSet中的元素是惟一的
+D． HashSet中的元素是用惟一的键值访问的
+		]]></body>
+		<answer><![CDATA[C]]></answer>
+	</message>
+	<message>
+		<list_id>2</list_id>
+		<name>HttpServlet 类的什么方法处理HTTP POST 请求?
+		</name>
+		<body><![CDATA[A． DoPost(Servlet Request, Servlet Response)
+B． DoPOST(Servlet Request, Servlet Response)
+C． doPost(Http Servlet Request, Http Servlet Response]]></body>
+		<answer><![CDATA[C]]></answer>
+	</message>
+	<message>
+		<list_id>2</list_id>
+		<name>下面哪行代码可以初始化out变量，用来发送一个Word文件到客户端？
+		</name>
+		<body><![CDATA[A． PrintWriter out = response.getServletOutput ();
+B． PrintWriter out = response.getPrintWriter ();  
+C． OutputStream out = response.getWriter ();  
+D． OutputStream out = response.getOuputStream ();]]></body>
+		<answer><![CDATA[D]]></answer>
+	</message>
+		<message>
+		<list_id>2</list_id>
+		<name>下面的哪个元素用来在部置描述文件中说明servlet的初始参数的详细信息？
+		</name>
+		<body><![CDATA[A． param-description  
+B． description 
+C． info  
+D． param-info]]></body>
+		<answer><![CDATA[B]]></answer>
+	</message>
+	<message>
+		<list_id>2</list_id>
+		<name>下面的哪个方法从HTTP session中取出对象？
+		</name>
+		<body><![CDATA[A． javax.servlet.Session 的get Attribute  
+B． javax.servlet.Http Session的get Attribute  
+C． javax.servlet.http.Session的get Attribute  
+D． javax.servlet.http.HttpSession的get Attribute  
+		]]></body>
+		<answer><![CDATA[D]]></answer>
+	</message>
+	
+	<message>
+		<list_id>2</list_id>
+		<name>下面的哪个方法可以使一个session永不失效？
+		</name>
+		<body><![CDATA[A:session.set Timeout(0);
+B:session.set Timeout(-1);
+C:session.set Timeout(Integer.MAX_VALUE);
+D:None of these
+		]]></body>
+		<answer><![CDATA[D]]></answer>
+	</message>	
+	<message>
+		<list_id>2</list_id>
+		<name>下面哪行选出所有last name为smith（不区分大小写）的？
+		</name>
+		<body><![CDATA[A． Select last name, first name.
+FROM emp
+WHERE last name= 'smith';   
+B． Select last name, first name.
+FROM emp
+WHERE UPPER (last name)= 'smith';   
+C． Select last name, first name.
+FROM emp 
+WHERE last name=UPPER ('smith');   
+D． Select last name, first name.
+FROM emp
+WHERE LOWER (last name)= 'smith']]></body>
+		<answer><![CDATA[D]]></answer>
+	</message>
+	<message>
+		<list_id>2</list_id>
+		<name>employee表结构如下：
+Last_name Varchar2 (25)
+First_name Varchar2 (25)
+Salary Number7, 2
+现想把所有高于平均工资的雇员名字显示出来，怎样修改下面的语句才能达到要求？SELECT, LAST_NAME, FIRST_NAME from employee where salary小于 avg(salary);
+		</name>
+		<body><![CDATA[A． 改正where语句中的avg函数。  
+B． 把avg函数移到select中，且加一个group从句。  
+C． 在where语句中使用子查询和平均值比较。.  
+D． 把avg函数移到select中，且加一个group从句和having从句]]></body>
+		<answer><![CDATA[C]]></answer>
+	</message>
+	<message>
+		<list_id>2</list_id>
+		<name>在EMP表dept_no列上加一个外键引用DEPT表的ID列, 下面哪句是正确的？
+		</name>
+		<body><![CDATA[A． 在DEPT表上使用ALTER TABLE和ADD。  
+B． 在EMP表上使用ALTER TABLE和ADD。  
+C． 在DEPT表上使用ALTER TABLE和MODIFY 。   
+D． 在EMP表上使用ALTER TABLE和MODIFY 。]]></body>
+		<answer><![CDATA[B]]></answer>
+	</message>
+	<message>
+		<list_id>2</list_id>
+		<name>student 表结构如下:
+Name Null Type
+STU INOT NULL NUMBER(3)
+NAME VARCHER2(25)
+ADDRESS VARCHER2(50)
+GRADUATION DATE
+现在表是空的，你想让列不能输入空值，下面哪句是正确的？
+		</name>
+		<body><![CDATA[A． ALTER TABLE student ADCONSTRAINT name(NOT NULL);   
+B． ALTER TABLE student ADCONSTRAINT NOT NULL (name);   
+C． ALTER TABLE student MODIFY CONSTRAINT name(NOT NULL);   
+D． ALTER TABLE student MODIFY(name varcher2(25) NOT NULL);   
+		]]></body> 
+		<answer><![CDATA[D]]></answer>
+	</message>
+	<message>
+		<list_id>2</list_id>
+		<name>现想把STUDENT表的全部数据删除而要保留表结构，下面哪句是正确的？
+		</name>
+		<body><![CDATA[A． DROP TABLE student;   
+B． TRUNCATE TABLE student;  
+C． DELETE * FROM student;   
+D． TRUNCATE TABLE student KEEP STRUCTURE;   
+E． DELETE* FROM student KEEP STRUCTURE.]]></body>
+		<answer><![CDATA[D]]></answer>
+	</message>
+		<message>
+		<list_id>2</list_id>
+		<name>你想保存的数据含有两位小数，但整数位经常变化使用下面的哪个数据类型？
+		</name>
+		<body><![CDATA[A． NUMBER   
+B． NUMBER(T)  
+C． LANG   
+D． LANGRA]]></body>
+		<answer><![CDATA[A]]></answer>
+	</message>
+	<message>
+		<list_id>2</list_id>
+		<name>下面哪句是正确的？
+		</name>
+		<body><![CDATA[A． 在升序时空值排在最后。   
+B． 数据默认是按降序排列的。  
+C． 在ORDER BY 从句中不能指定一个列的别名。   
+D． 如果没有ORDER BY从句，结果按第一列排序]]></body>
+		<answer><![CDATA[A]]></answer>
+	</message>
+	<message>
+		<list_id>2</list_id>
+		<name>scott 用户忘了密码，哪句可以重设密码？
+		</name>
+		<body><![CDATA[A． Scott 执行ALTER USER scott PASSOWRBY lion   
+B． DBA执行ALTER USER scott IDENTIFIEBY lion   
+C． Scott 执行 ALTER USER scott IDENTIFIEBY lion   
+D． The scott 执行CHANGE pass worto lion WHERE "user=scott";]]></body>
+		<answer><![CDATA[B]]></answer>
+	</message>
+		<message>
+		<list_id>2</list_id>
+		<name>你正在更新employee表，Jane也被授予和你相同的权限，你想在commit前让Jane检查你的错误，Jane可以做什么？
+		</name>
+		<body><![CDATA[A． Jane可以访问这个表，确认你的改变。  
+B． Jane不能访问这个表。  
+C． Jane可以访问这个表，不能确认你的改变，但可以给你修改。   
+D． Jane可以访问这个表，不能确认你的改变，也不可以给你修改。  
+		]]></body>
+		<answer><![CDATA[D]]></answer>
+	</message>
+	<message>
+		<list_id>2</list_id>
+		<name>现需要建立一个多次使用的cursor,每次有不同的操作，应建立什么样的cursor?
+		</name>
+		<body><![CDATA[A． 带循环的cursor.   
+B． 支持多选的cursor.   
+C． 每个操作对应一个curosr   
+D． 带参数据的cursor]]></body>
+		<answer><![CDATA[D]]></answer>
+	</message>
+	<message>
+		<list_id>2</list_id>
+		<name>现想找出last name 的第二个字母为'A'的雇员，下面哪个是正确的？</name>
+		<body><![CDATA[A． select last_name from emp where last_name like '_A%';   
+B． select last_name from emp where last_name ='*A%';  
+C． select last_name from emp where last_name='_A%';   
+D． select last_name from emp where last_name like '*A%';]]></body>
+		<answer><![CDATA[A]]></answer>
+	</message>
+		<message>
+		<list_id>2</list_id>
+		<name>下面哪两个接口可以储存关键字和数值对？
+		</name>
+		<body><![CDATA[A． javutil.Map  
+B． javutil.Set  
+C． javutil.List  
+D． javutil.Sorted Map  
+		]]></body>
+		<answer><![CDATA[AD]]></answer>
+	</message>
+	<message>
+		<list_id>2</list_id>
+		<name>下面哪些情况下一个session会失效？(选两个)
+		</name>
+		<body><![CDATA[A． 超过session的失效时间了，一直没有收到客户端的请求。  
+B． 客户发出了一个 KILL_SESSION的请求.  
+C． servlet容器由于session过多而使某一个session失效。  
+D． servlet 显式地使一个session失效。  
+		]]></body>
+		<answer><![CDATA[AD]]></answer>
+	</message>
+	<message>
+		<list_id>2</list_id>
+		<name>编写一个截取字符串的函数，输入为一个字符串和字节数，输出为按字节截取的字符串。但是要保证汉字不被截半个，如“我ABC”4，应该截为“我AB”，输入“我ABC汉DEF”，6，应该输出为“我ABC”而不是“我ABC+汉的半个”。</name>
+		<body><![CDATA[]]></body>
+		<answer><![CDATA[class  SplitString
+{
+ String SplitStr;
+ int SplitByte;
+ public SplitString(String str,int bytes)
+ {
+  SplitStr=str;
+  SplitByte=bytes;
+  System.out.println("The String is:'"+SplitStr+"';SplitBytes="+SplitByte);
+ }
+ public void SplitIt()
+ {
+  int loopCount;
+  
+loopCount=(SplitStr.length()%SplitByte==0)?(SplitStr.length()/SplitByte):(SplitStr.length()/Split
+Byte+1);
+  System.out.println("Will Split into "+loopCount);
+  for (int i=1;i小于=loopCount ;i++ )
+  {
+   if (i==loopCount){
+    
+System.out.println(SplitStr.substring((i-1)*SplitByte,SplitStr.length()));
+   } else {
+    
+System.out.println(SplitStr.substring((i-1)*SplitByte,(i*SplitByte)));
+   }
+  }
+ }
+		]]></answer>
+	</message>
+	<message>
+		<list_id>2</list_id>
+		<name>写一段Jdbc连Oracle的程序,并实现数据查询.
+		</name>
+		<answer><![CDATA[dbUrl="jdbc:oracle:thin:@127.0.0.1:1521:orcl";
+		Class.forName("oracle.jdbc.driver.OracleDriver").newInstance();
+          c = DriverManager.getConnection(dbUrl,theUser,thePw);
+    conn=c.createStatement();
+   ResultSet  rs=conn.executeQuery(sql);
+    while (rs.next())
+  {
+   System.out.println(rs.getString("id"));
+   System.out.println(rs.getString("name"));
+  }
+]]></answer>
+	</message>
+	<message>
+		<list_id>2</list_id>
+		<name>用jdom解析xml文件时如何解决中文问题?如何解析?
+		</name>
+		<answer><![CDATA[javax.xml.parsers.DocumentBuilder builder =     
+javax.xml.parsers.DocumentBuilderFactory.newInstance().newDocumentBuilder();
+      org.w3c.dom.Document doc = builder.newDocument();
+      org.w3c.dom.Element root = doc.createElement("老师");
+      org.w3c.dom.Element wang = doc.createElement("王");
+   org.w3c.dom.Element liu = doc.createElement("刘");
+      wang.appendChild(doc.createTextNode("我是王老师"));
+      root.appendChild(wang);
+      doc.appendChild(root);
+      javax.xml.transform.Transformer transformer =
+       javax.xml.transform.TransformerFactory.newInstance().newTransformer();
+      transformer.setOutputProperty(javax.xml.transform.OutputKeys.ENCODING, "gb2312");
+      transformer.setOutputProperty(javax.xml.transform.OutputKeys.INDENT, "yes");  
+      transformer.transform(new javax.xml.transform.dom.DOMSource(doc),
+            new javax.xml.transform.stream.StreamResult(outFile));
+]]></answer>
+	</message>
+		<message>
+		<list_id>2</list_id>
+		<name>编程用JAVA解析XML的方式
+		</name>
+		<answer><![CDATA[public class SAXHandler extends HandlerBase
+  {
+  private Hashtable table = new Hashtable();
+  private String currentElement = null;
+  private String currentValue = null;
+  public void setTable(Hashtable table)
+    {
+    this.table = table;
+    }
+  public Hashtable getTable()
+    {
+    return table;
+    }
+  public void startElement(String tag, AttributeList attrs)
+  throws SAXException
+    {
+    currentElement = tag;
+    }
+  public void characters(char[] ch, int start, int length)
+  throws SAXException
+    {
+    currentValue = new String(ch, start, length);
+    }
+  public void endElement(String name) throws SAXException
+    {
+    if (currentElement.equals(name))
+      table.put(currentElement, currentValue);
+    }
+  }]]></answer>
+	</message>
+</messages>

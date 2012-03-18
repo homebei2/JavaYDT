@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="utf-8"?>
+<messages>
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[Java是从（ ）语言改进重新设计。]]></name>
+		<body><![CDATA[A．Ada B．C++ C．Pasacal D．BASIC ]]></body>
+		<answer><![CDATA[B]]></answer>
+	</message>	
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[下列语句哪一个正确（ ）]]></name>
+		<body><![CDATA[A． Java程序经编译后会产生machine code  
+　　B． Java程序经编译后会产生byte code 
+　　C． Java程序经编译后会产生DLL  
+　　D． 以上都不正确]]></body>
+	<answer><![CDATA[B]]></answer>
+	</message>
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[下列说法正确的有（ ） ]]></name>
+		<body><![CDATA[A． class中的constructor不可省略   
+　    B． constructor必须与class同名，但方法不能与class同名   
+　　C． constructor在一个对象被new时执行   
+　　D． 一个class只能定义一个constructor   
+		]]></body>
+		<answer><![CDATA[C]]></answer>
+	</message>
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[提供Java存取数据库能力的包是（）]]></name>
+		<body><![CDATA[A．java.sql　　B．java.awt　　C．java.lang　　D．java.swing]]></body>
+		<answer><![CDATA[A]]></answer>
+	</message>	
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[下列运算符合法的是（）]]></name>
+		<body><![CDATA[　A．双与　　B．对括号　　C．if　　D．:=]]></body>
+		<answer><![CDATA[a]]></answer>
+	</message>
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[执行如下程序代码　　a=0;c=0;　　do{　　--c;　　a=a-1;　　}while(a>0);　　后，C的值是（）]]></name>
+		<body><![CDATA[　A．0　　B．1　　C．-1　　D．死循环]]></body>
+		<answer><![CDATA[C]]></answer>
+	</message>
+	
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[下列哪一种叙述是正确的（）]]></name>
+		<body><![CDATA[　A．abstract修饰符可修饰字段、方法和类  
+		　　B．抽象方法的body部分必须用一对大括号{}包住  
+		　　C．声明抽象方法，大括号可有可无  
+		　　D．声明抽象方法不可写出大括号]]></body>
+		<answer><![CDATA[D]]></answer>
+	</message>	
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[下列语句正确的是（）]]></name>
+		<body><![CDATA[　A．形式参数可被视为localvariable   
+		　　B．形式参数可被字段修饰符修饰  
+		　　C．形式参数为方法被调用时，真正被传递的参数   
+		　　D．形式参数不可以是对象]]></body>
+		<answer><![CDATA[A]]></answer>
+	</message>
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[下列哪种说法是正确的（）]]></name>
+		<body><![CDATA[A．实例方法可直接调用超类的实例方法   
+		　　B．实例方法可直接调用超类的类方法   
+		　　C．实例方法可直接调用其他类的实例方法   
+		　　D．实例方法可直接调用本类的类方法]]></body>
+		<answer><![CDATA[D]]></answer>
+	</message>
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[Java程序的种类有（）]]></name>
+		<body><![CDATA[　A．类（Class）　　B．Applet　　C．Application　　D．Servlet]]></body>
+		<answer><![CDATA[ABC]]></answer>
+	</message>	
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[下列说法正确的有（）]]></name>
+		<body><![CDATA[　A．环境变量可在编译sourcecode时指定    
+		　　B．在编译程序时，所能指定的环境变量不包括class path   
+		　　C．javac一次可同时编译数个Java源文件   
+		　　D．javac.exe能指定编译结果要置于哪个目录（directory）]]></body>
+		<answer><![CDATA[BCD]]></answer>
+	</message>
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[下列标识符不合法的有（）]]></name>
+		<body><![CDATA[A．new　　B．$Usdollars　　C．1234　　D．car.taxi]]></body>
+		<answer><![CDATA[ACD]]></answer>
+	</message>
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[下列说法错误的有（）]]></name>
+		<body><![CDATA[　A．数组是一种对象   
+		　　B．数组属于一种原生类   
+		　　C．intnumber=[]={31,23,33,43,35,63}   
+		　　D．数组的大小可以任意改变]]></body>
+		<answer><![CDATA[BCD]]></answer>
+	</message>	
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[不能用来修饰interface的有（）]]></name>
+		<body><![CDATA[A．private　　B．public
+		　　C．protected　　D．static]]></body>
+		<answer><![CDATA[ACD]]></answer>
+	</message>
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[下列正确的有（）]]></name> 
+		<body><![CDATA[　A． call byvalue不会改变实际参数的数值   
+		　　B． call by reference能改变实际参数的参考地址   
+		　　C． call byreference不能改变实际参数的参考地址   
+		　　D． call byreference能改变实际参数的内容]]></body>
+		<answer><![CDATA[ACD]]></answer>
+	</message>
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[下列说法错误的有（）]]></name>
+		<body><![CDATA[A．在类方法中可用this来调用本类的类方法   
+		　　B．在类方法中调用本类的类方法时可直接调用   
+		　　C．在类方法中只能调用本类中的类方法   
+		　　D．在类方法中绝对不能调用实例方法]]></body>
+		<answer><![CDATA[ACD]]></answer>
+	</message>	
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[下列说法错误的有（）]]></name>
+		<body><![CDATA[　A．Java面向对象语言容许单独的过程与函数存在   
+		　　B． Java面向对象语言容许单独的方法存在   
+　C．Java语言中的方法属于类中的成员（member）   
+		　　D．Java语言中的方法必定隶属于某一类（对象），调用方法与过程或函数相同]]></body>
+		<answer><![CDATA[ABC]]></answer>
+	</message>
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[下列说法错误的有（）]]></name>
+		<body><![CDATA[A．能被java.exe成功运行的javaclass文件必须有main()方法   
+		　　B． J2SDK就是Java API   
+		　　C．Appletviewer.exe可利用jar选项运行.jar文件   
+		　　D．能被Appletviewer成功运行的javaclass文件必须有main()方法]]></body>
+		<answer><![CDATA[BCD]]></answer>
+	</message>
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[Java程序中的起始类名称必须与存放该类的文件名相同。（）]]></name>
+		<body><![CDATA[判断题]]></body>
+		<answer><![CDATA[正确]]></answer>
+	</message>	
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[Unicode是用16位来表示一个字的。（）]]></name>
+		<body><![CDATA[判断题]]></body>
+		<answer><![CDATA[正确]]></answer>
+	</message>
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[原生类中的数据类型均可任意转换。（）]]></name>
+		<body><![CDATA[判断题]]></body>
+		<answer><![CDATA[错误]]></answer>
+	</message>
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[一个weapplication可以用jar打包。]]></name>
+				<body><![CDATA[判断题]]></body>
+		<answer><![CDATA[正确]]></answer>
+	</message>
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[Servlet Context类的get Request Dispatcher()可以接受相对路径。]]></name>
+		<body><![CDATA[判断题]]></body>
+		<answer><![CDATA[错误]]></answer>
+	</message>
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[当一个JSP修改后，需要重启服务器？。]]></name>
+		<body><![CDATA[判断题]]></body>
+		<answer><![CDATA[错误]]></answer>
+	</message>	
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[当一个servlet修改后，需要重启服务器。]]></name>
+		<body><![CDATA[判断题]]></body>
+		<answer><![CDATA[正确]]></answer>
+	</message>
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[senRedirect()方法可以转向本服务器以外的url。]]></name>
+		<body><![CDATA[判断题]]></body>
+		<answer><![CDATA[正确]]></answer>
+	</message>
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[ set Content Type()是Http Servlet Request类的方法]]></name>
+		<body><![CDATA[判断题]]></body>
+		<answer><![CDATA[错误]]></answer>
+	</message>	
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[get Parameter("User Name"),如果请求中没有"User Name",返回值是""。]]></name>
+		<body><![CDATA[判断题]]></body>
+		<answer><![CDATA[错误]]></answer>
+	</message>
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[文件找不到的错误代号是404吗？]]></name>
+		<body><![CDATA[判断题]]></body>
+		<answer><![CDATA[错误]]></answer>
+	</message>
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[Servlet Config类的get Init Parameters()方法可以取出初始参数。]]></name>
+		<body><![CDATA[判断题]]></body>
+		<answer><![CDATA[正确]]></answer>
+	</message>	
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[Http Servlet Request类的get Parameter Values()方法返回类型是String[]。]]></name>
+		<body><![CDATA[判断题]]></body>
+		<answer><![CDATA[正确]]></answer>
+	</message>
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[Http Servlet Request类的get Parameter Names()方法返回类型是String[]。]]></name>
+		<body><![CDATA[判断题]]></body>
+		<answer><![CDATA[错误]]></answer>
+	</message>
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[Http Servlet Request类的get Parameter()方法返回类型是Object。]]></name>
+		<body><![CDATA[判断题]]></body>
+		<answer><![CDATA[错误]]></answer>
+	</message>	
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[ form action="" 在form 提交时是post请求吗？]]></name>
+		<body><![CDATA[判断题]]></body>
+		<answer><![CDATA[正确]]></answer>
+	</message>
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[在地址栏输入url后回车是GET请求吗？]]></name>
+		<body><![CDATA[判断题]]></body>
+		<answer><![CDATA[正确]]></answer>
+	</message>
+	
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[点击超链接时是GET请求吗？]]></name>
+		<body><![CDATA[判断题]]></body>
+		<answer><![CDATA[正确]]></answer>
+	</message>	
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[简述HttpSession的作用，使用方法，可以用代码说明]]></name>
+		<answer><![CDATA[HttpSession session = request.getSession();
+session.setAttribute("name", new Date());   
+Date date = (Date)session.getAttribute("name");  
+答：HttpSession中可以跟踪并储存用户信息，把值设置到属性中，
+有2个方法：setAttribute(),getAttrribute()；
+例如：在一个方法中用session.setAttribute(“student”,student);在session中设置一个属性名为student,值为一个名为student的对象
+	。而后可在同一session范围内用getAttribute(“student”)取出该属性，得到student对象。
+		]]></answer>
+	</message>
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[简述Servlet请求时GET方法和POST方法的区别。]]></name>
+		<body><![CDATA[]]></body>
+		<answer><![CDATA[（1）GET：把Form的数据封装到请求行里URL后边，在浏览器地址栏能看见。
+                例如：/servlet/examples.HelloServlet?name=2p与password=123
+        POST：把Form的数据封装到请求体里，在浏览器地址栏看不见。 
+	（2）GET：Form缺省方法；Form的方法设成GET；超级连接；浏览器地址栏直接输入。
+        POST：Form的方法设成POST。
+	（3）编写Servlet时重写doGet（只支持GET请求）或doPost（只支持POST请求）。
+		]]></answer>
+	</message>
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[请列出jsp:useBean...标签中scope属性的候选值，并说明各候选值的存取范围。]]></name>
+		<answer><![CDATA[page、request、session、application
+	BeanClassName beanName = (BeanClassName)session.getAttribute("beanName");
+	if (beanName == null) 
+	{ beanName = new BeanClassName();
+	beanName.setXXX();
+	}]]></answer>
+	</message>	
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[清画出Servlet2.2以上Web Application的基本目录结构。]]></name>
+		<answer><![CDATA[J2EE1.2：JSP1.1  Servlet2.2  
+	J2EE1.3：JSP1.2  Servlet2.3  EJB2.0 
+	J2EE1.4：JSP2.0  Servlet2.4  EJB3.0
+	部署结构：  
+ 	\myWeb-----\WEB—INF-----web.xml
+ 	|-----\classes\包\*.class
+	|-----\lib\*.jar
+	归档：*.war
+	开发结构：
+ 	\myWeb-----\src-----*.java
+	|-----\etc-----web.xml, *.tld
+	|-----\lib-----*.jar
+	|-----\web-----*.jsp, *.html, *.jpg
+	部署：三个拷贝，一个编译
+		]]></answer>
+	</message>
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[谈谈你对三层结构的理解]]></name>
+		<answer><![CDATA[浏览器——Web服务器（MVC）——数据库。（扩展画图）]]></answer>
+	</message>	
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[程序设计，写出一个Servlet，实现以下功能，通过表单提取一个"ds"的参数（该参数代表一个可用的数据源），通过该参数获得一个可用的数据连接。]]></name>
+		<answer><![CDATA[ import javax.sql.*;
+ 	public class MyServlet extends HttpServlet{
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException{
+        String ds = request.getParemeter("ds");
+        Context initial = new InitialContext();
+        DataSource dss = (DataSource)initial.lookup(ds);
+        Connection conn = dss.getConnection();
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("select a, b, from mytable");
+        while(rs.next()){
+             rs.getXXX(); 
+        }
+}
+		]]></answer>
+	</message>
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[现在输入n个数字，以逗号，分开；然后可选择升或者降序排序；按提交键就在另一页面显示按什么排序，结果为，提供reset]]></name>
+		<answer><![CDATA[import java.util.*;
+public class bycomma{
+public static String[] splitStringByComma(String source){
+   if(source==null||source.trim().equals(""))
+    return null;
+   StringTokenizer commaToker = new StringTokenizer(source,",");
+   String[] result = new String[commaToker.countTokens()];
+   int i=0;
+   while(commaToker.hasMoreTokens()){
+    result[i] = commaToker.nextToken();
+    i++;
+   }
+   return result;
+}
+public static void main(String args[]){
+String[] s = splitStringByComma("5,8,7,4,3,9,1");
+int[] ii = new int[s.length];
+for(int i = 0;i ii[i] =Integer.parseInt(s[i]);
+}
+    Arrays.sort(ii);
+    //asc
+    for(int i=0;i    System.out.println(ii[i]);
+    }
+    //desc
+    for(int i=(s.length-1);i>=0;i--){
+    System.out.println(ii[i]);
+    }
+}]]></answer>
+	</message>
+	
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[写一个方法，实现字符串的反转，如：输入abc，输出cba]]></name>
+		<answer><![CDATA[ public static String reverse(String s){
+        int length=s.length();
+        StringBuffer result=new StringBuffer(length);
+        for(int i=length-1;i>=0;i--)
+            result.append(s.charAt(i));
+        return result.toString();
+    }
+		]]></answer>
+	</message>	
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[如何取得年月日，小时分秒]]></name>
+		<answer><![CDATA[Date dat=new Date();
+dat.getYear();dat.getMonth();dat.getDay();dat.getHours();…
+如何取得从1970年到现在的毫秒数
+long now=dat.getTime();
+如何获取某个日期是当月的最后一天
+如何格式化日期
+DateFormate df=DateFormate.getInstance();
+df.Format(dat);
+		]]></answer>
+	</message>
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[ javac xxx.java顺利通过了，但是java xxx的时候显示什么"NoClassDefFoundError"]]></name>
+		<answer><![CDATA[你遇到了classpath问题。java命令在一定的范围(classpath)内搜索你要用的class文件，但是未能找到。 
+　　首先请确认你没有错敲成java xxx.class， 　　其次，检查你的CLASSPATH环境变量，如果你设置了该变量又没有包含.（代表当前目录）你就会遇到这个问题。请在你的CLASSPATH环境变量中加入一项. 
+		]]></answer>
+	</message>
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[用了package的时候显示"NoClassDefFoundError"，但是我把所有package去掉的时候能正常运行。]]></name>
+		<answer><![CDATA[将你的java文件按包名存放。 
+　　比如你的工作目录是/work，你的类是package1.class1，那么将它存放为/work/package1/class1.java。
+　　如果没有声明包，那么直接放在/work下。 　　在/work下执行javac package1/class1.java，再执行java package1.class1，你会发现 　　一切正常。　　另外，你可以考虑开始使用IDE。 
+		]]></answer>
+	</message>	
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[列出所有年龄比所属主管年龄大的人的ID 和名字?]]></name>
+		<body><![CDATA[数据库表(Test)结构如下：【基础】
+ID NAME AGE MANAGER(所属主管人ID)
+106 A 30 104
+109 B 19 104
+104 C 20 111
+107 D 35 109
+112 E 25 120
+119 F 45 NULL
+		]]></body>
+		<answer><![CDATA[select employee.name from test employee
+where employee.age > (select manager.age from test manager
+where manager.id=employee.manager);
+		]]></answer>
+	</message>
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[有如下两张表：【中等难度】
+表city： 表state：
+CityNo CityName StateNo
+BJ 北京（Null）
+SH 上海（Null）
+GZ 广州GD
+DL 大连LN
+		]]></name>
+		<body><![CDATA[得到如下结果： City
+No City Name State No State Name BJ
+北京（Null） （Null） DL
+大连LN 辽宁GZ
+广州GD 广东SH
+上海（Null） （Null） 写相
+应的SQL 语句。
+		]]></body>
+		<answer><![CDATA[SELECT C.CITYNO, C.CITYNAME, C.STATENO, S.STATENAME
+FROM CITY C, STATE S
+WHERE C.STATENO=S.STATENO(+)
+ORDER BY(C.CITYNO);
+		]]></answer>
+	</message>	
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[请说出const与#define 相比，有何优点？]]></name>
+		<body><![CDATA[]]></body>
+		<answer><![CDATA[1） const常量有数据类型，而宏常量没有数据类型。
+		编译器可以对前者进行类型安全检查。而对后者只进行字符替换，没有类型安全检查，
+		并且在字符替换可能会产生意料不到的错误。
+		　　2） 有些集成化的调试工具可以对const 常量进行调试，但是不能对宏常量进行调试。]]></answer>
+	</message>
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[类成员函数的重载、覆盖和隐藏区别？]]></name>
+		<body><![CDATA[]]></body>
+		<answer><![CDATA[a.成员函数被重载的特征：　
+		　		（1）相同的范围（在同一个类中）；　
+				　（2）函数名字相同；　　（3）参数不同；　
+		　		（4）virtual 关键字可有可无。
+		　	　b.覆盖是指派生类函数覆盖基类函数，特征是：
+		　			（1）不同的范围（分别位于派生类与基类）；
+		　			（2）函数名字相同；　　（3）参数相同；
+		　		　    （4）基类函数必须有virtual 关键字。　
+		　	c.“隐藏”是指派生类的函数屏蔽了与其同名的基类函数，规则如下：　
+		　		（1）如果派生类的函数与基类的函数同名，但是参数不同。此时，不论有无virtual关键字，
+					基类的函数将被隐藏（注意别与重载混淆）。
+		　	　（2）如果派生类的函数与基类的函数同名，并且参数也相同，
+					但是基类函数没有virtual 关键字。此时，基类的函数被隐藏（注意别与覆盖混淆）]]></answer>
+	</message>
+	<message>
+		<list_id>1</list_id>
+		<name><![CDATA[There are two int variables: a and b, don’t use “if”, “? :”, 
+		“switch”orother judgement statements, find out the biggest one of the two numbers.]]></name>
+		<body><![CDATA[]]></body>
+		<answer><![CDATA[( ( a + b ) + abs( a - b ) ) / 2]]></answer>
+	</message>	
+</messages>

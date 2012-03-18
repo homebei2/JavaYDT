@@ -1,0 +1,12 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:background="@drawable/tab_page_background">
+
+	<ImageView android:id="@+id/main"
+		android:src="@drawable/java"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent">
+	</ImageView>
+</LinearLayout>

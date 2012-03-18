@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<messages>
+	<message>
+		<keywords>
+			<keyword>数据库</keyword>
+			<keyword>DataBase</keyword>
+			<keyword>DB</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[数据库（DataBase，DB）是什么]]></name>
+		<body><![CDATA[数据库（DataBase，DB）是一个长期存储在计算机内的、有组织的、有共享的、统一管理的数据集合。她是一个按数据结构来存储和管理数据的计算机软件系统。数据库的概念实际包括两层意思：（1）数据库是一个实体，它是能够合理保管数据的“仓库”，用户在该“仓库”中存放要管理的事务数据，“数据”和“库”两个概念结合成为数据库。（2）数据库是数据管理的新方法和技术，他能更合适的组织数据、更方便的维护数据、更严密的控制数据和更有效的利用数据。]]></body>
+		<desc>...</desc>
+	</message>	
+	<message>
+		<keywords>
+			<keyword>数据库</keyword>
+			<keyword>分类</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[数据库的大致分类]]></name>
+		<body><![CDATA[1：关系型数据库关系型数据库以行和列的形式存储数据，以便于用户理解。这一系列的行和列被称为表，一组表组成了数据库。用户用查询（Query）来检索数据库中的数据。一个Query是一个用于指定数据库中行和列的SELECT语句。通常我们说得数据库通指关系型数据库2：网状数据库 处理以记录类型为结点的网状数据模型的数据库。处理方法是将网状结构分解成若干棵二级树结构，称为系。系类型是二个或二个以上的记录类型之间联系的一种描述。在一个系类型中，有一个记录类型处于主导地位，称为系主记录类型，其它称为成员记录类型。3：层次型数据库管理系统是紧随网状数据库而出现的。现实世界中很多事物是按层次组织起来的。层次数据模型的提出，首先是为了模拟这种按层次组织起来的事物。层次数据库也是按记录来存取数据的。层次数据模型中最基本的数据关系是基本层次关系，它代表两个记录型之间一对多的关系，也叫做双亲子女关系(PCR).]]></body>
+		<desc>...</desc>
+	</message>
+			<message>
+		<keywords>
+			<keyword>SQL</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[SQL语法的分类 ]]></name>
+		<body><![CDATA[第一类、属性词（Predicates） 
+在SQL命令中用来指明所要选择的记录的方式。如ALL、TOP与DISTINCT等等。 
+第二类、声明（Declaration） 
+针对SQL Parameter或Parameter Query 的名称与数据类型做声明，如PARAMETERS的声明等等。 
+第三类、条件子句（Clause） 
+在SQL的查询中，利用一些表达式定义出查询的条件，以缩小寻找的范围，如WHERE。 
+第四类、运算符（Operator）与操作数（Operation） 
+在SQL的查询中，与Operation共同组成表达式（Expression），如BETWEEN....AND 运算符与INNER JOIN操作数。 
+第五类、函数（Function） 
+一些SQL常见的函数，像是AVG()是求算数平均数的函数。 
+第六类、SQL语句（Statement） 
+SQL的语句，可以说是SQL语法的主体，用来对某一个特定的数据库发出指示，并返回相关的数据，而SQL的语法结构，基本上可以利用下面 
+的式子来表示：命令＋条件子句]]></body>
+		<desc>...</desc>
+	</message>
+			<message>
+		<keywords>
+			<keyword>SELECT</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[Select语法与命令]]></name>
+		<body><![CDATA[SELECT[predicate]{*|table.*|[table.]field [,[table.]field2[,...]]} [AS alias1 [,alias2[,...]]]   
+FROM tableexpression [,...][IN externaldatabase]   
+[WHERE...]   
+[GROUP BY...]   
+[HAVING...]   
+[ORDER BY...]   
+[WITH OWNERACCESS OPTION]   
+]]></body>
+		<desc>...</desc>
+	</message>
+			<message>
+		<keywords>
+			<keyword></keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[DELETE语句 ]]></name>
+		<body><![CDATA[DELETE[table.*] 
+FROM tableexpression 
+WHERE criteria  
+]]></body>
+		<desc>...</desc>
+	</message>
+			<message>
+		<keywords>
+			<keyword>ALTER</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[ALTER语句]]></name>
+		<body><![CDATA[ALTER TABLE table 
+{ADD {COLUMN field type[(size)][CONSTRAINT index]   
+|CONSTRAINT multifieldindex}   
+|DROP {COLUMN field|CONSTRAINT indexname}}   
+table 
+欲被ALTER的表格名称。 
+field 
+要被增加或删除的字段名称。 
+type 
+字段数据类型。 
+size 
+字段大小。 
+index 
+对此字段的索引。]]></body>
+		<desc>...</desc>
+	</message>
+			<message>
+		<keywords>
+			<keyword>INSERT</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[INSERT INTO语句 ]]></name>
+		<body><![CDATA[INSERT INTO target[(field1[,field2[,...]])]   
+VALUES(value1[,value2[,...])   
+target 
+新建记录的表格名称。 
+externaldatabase 
+外部数据库的路径，搭配IN条件子句使用。 
+source 
+若是记录从其它表格中拷贝时，指明该表格的名称。 
+field1,field2 
+欲增加数据的字段名称。 
+tableexpression 
+表格名称或描述记录是从哪一个表格中插入的表格名称。配合INNER JOIN，LEFT JOIN，或 RIGHT JOIN 运算符一起使用。 
+value1,value2 
+欲插入表格中的数值。 
+]]></body>
+		<desc>...</desc>
+	</message>
+		<message>
+		<keywords>
+			<keyword>UPDATE</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[UPDATE语句]]></name>
+		<body><![CDATA[UPDATE table 
+SET newvalue 
+WHERE criteria; 
+table 
+欲修改数据的表格名称。 
+newvalue 
+欲修改成的数值(将该项数值插入到特定的字段当中)。 
+criteria 
+查询条件，用来决定要修改哪些记录]]></body>
+		<desc>...</desc>
+	</message>
+		<message>
+		<keywords>
+			<keyword>CNF</keyword>
+			<keyword>三范式</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[数据库的三范式]]></name>
+		<body><![CDATA[1N:关系R中的属性都是不可分割的项.
+2N:在1N的基础上,每个非主属性完全函数依赖于码.
+3N:在2N的基础上,每一个非主属性既不部分依赖于码也不传递依赖于码.
+ 1N |   消除非主属性对码的部分函数依赖
+ 2N|   消除非主属性对码的传递函数依赖
+ 3N|   消除主属性对码的部分和传递函数依赖
+ BCNF |   消除非平凡且非函数依赖的多值依赖
+ 4N
+简单描述：
+第三范式的要求如下： 
+1，每一列只有一个值 
+2，每一行都能区分。 
+3，每一个表都不包含其他表已经包含的非主关键字信息。 
+你说的两个表，如果每个都满足三范式，那么两个表也满足三范式。]]></body>
+		<desc>...</desc>
+	</message>
+		<message>
+		<keywords>
+			<keyword>SQL语句的优化</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[选择最有效率的表名顺序]]></name>
+		<body><![CDATA[ORACLE 的解析器按照从右到左的顺序处理FROM子句中的表名，FROM子句中写在最后的表(基础表 driving table)将被最先处理，在FROM子句中包含多个表的情况下,你必须选择记录条数最少的表作为基础表。如果有3个以上的表连接查询, 那就需要选择交叉表(intersection table)作为基础表, 交叉表是指那个被其他表所引用的表.]]></body>
+		<desc>...</desc>
+	</message>
+		<message>
+		<keywords>
+			<keyword>SQL语句的优化</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[WHERE子句中的连接顺序]]></name>
+		<body><![CDATA[ORACLE采用自下而上的顺序解析WHERE子句,根据这个原理,表之间的连接必须写在其他WHERE条件之前, 那些可以过滤掉最大数量记录的条件必须写在WHERE子句的末尾]]></body>
+		<desc>...</desc>
+	</message> 
+		<message>
+		<keywords>
+			<keyword>SQL语句的优化</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[SELECT子句中避免使用 ‘ * ‘： ]]></name>
+		<body><![CDATA[ORACLE在解析的过程中, 会将'*' 依次转换成所有的列名, 这个工作是通过查询数据字典完成的, 这意味着将耗费更多的时间 ]]></body>
+		<desc>...</desc>
+	</message> 
+		<message>
+		<keywords>
+			<keyword>SQL语句的优化</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[减少访问数据库的次数：]]></name>
+		<body><![CDATA[ORACLE在内部执行了许多工作: 解析SQL语句, 估算索引的利用率, 绑定变量 , 读数据块等； ]]></body>
+		<desc>...</desc>
+	</message> 
+		<message>
+		<keywords>
+			<keyword>SQL语句的优化</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[使用DECODE函数来减少处理时间：]]></name>
+		<body><![CDATA[使用DECODE函数可以避免重复扫描相同记录或重复连接相同的表]]></body>
+		<desc>...</desc>
+	</message> 
+		<message>
+		<keywords>
+			<keyword>SQL语句的优化</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[整合简单,无关联的数据库访问：]]></name>
+		<body><![CDATA[如果你有几个简单的数据库查询语句,你可以把它们整合到一个查询中(即使它们之间没有关系) ]]></body>
+		<desc>...</desc>
+	</message> 
+	<message>
+		<keywords>
+			<keyword>SQL语句的优化</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[删除重复记录：]]></name>
+		<body><![CDATA[最高效的删除重复记录方法 ( 因为使用了ROWID)例子： 
+DELETE  FROM  EMP E  WHERE  E.ROWID 大于 (SELECT MIN(X.ROWID) 
+FROM  EMP X  WHERE  X.EMP_NO = E.EMP_NO); ]]></body>
+		<desc>...</desc>
+	</message> 
+		<message>
+		<keywords>
+			<keyword>SQL语句的优化</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[用TRUNCATE替代DELETE]]></name>
+		<body><![CDATA[当删除表中的记录时,在通常情况下, 回滚段(rollback segments ) 用来存放可以被恢复的信息. 如果你没有COMMIT事务,ORACLE会将数据恢复到删除之前的状态(准确地说是恢复到执行删除命令之前的状况) 而当运用TRUNCATE时, 回滚段不再存放任何可被恢复的信息.当命令运行后,数据不能被恢复.因此很少的资源被调用,执行时间也会很短. (译者按: TRUNCATE只在删除全表适用,TRUNCATE是DDL不是DML) ]]></body>
+		<desc>...</desc>
+	</message> 
+		<message>
+		<keywords>
+			<keyword>SQL语句的优化</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[尽量多使用COMMIT]]></name>
+		<body><![CDATA[只要有可能,在程序中尽量多使用COMMIT, 这样程序的性能得到提高,需求也会因为COMMIT所释放的资源而减少: 
+COMMIT所释放的资源: 
+a. 回滚段上用于恢复数据的信息. 
+b. 被程序语句获得的锁 
+c. redo log buffer 中的空间 
+d. ORACLE为管理上述3种资源中的内部花费]]></body>
+		<desc>...</desc>
+	</message> 
+		<message>
+		<keywords>
+			<keyword>SQL语句的优化</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[用Where子句替换HAVING子句]]></name>
+		<body><![CDATA[避免使用HAVING子句, HAVING 只会在检索出所有记录之后才对结果集进行过滤. 这个处理需要排序,总计等操作. 如果能通过WHERE子句限制记录的数目,那就能减少这方面的开销. (非oracle中)on、where、having这三个都可以加条件的子句中，on是最先执行，where次之，having最后，因为on是先把不符合条件的记录过滤后才进行统计，它就可以减少中间运算要处理的数据，按理说应该速度是最快的，where也应该比having快点的，因为它过滤数据后才进行sum，在两个表联接时才用on的，所以在一个表的时候，就剩下where跟having比较了。在这单表查询统计的情况下，如果要过滤的条件没有涉及到要计算字段，那它们的结果是一样的，只是where可以使用rushmore技术，而having就不能，在速度上后者要慢如果要涉及到计算的字段，就表示在没计算之前，这个字段的值是不确定的，根据上篇写的工作流程，where的作用时间是在计算之前就完成的，而having就是在计算后才起作用的，所以在这种情况下，两者的结果会不同。在多表联接查询时，on比where更早起作用。系统首先根据各个表之间的联接条件，把多个表合成一个临时表后，再由where进行过滤，然后再计算，计算完后再由having进行过滤。由此可见，要想过滤条件起到正确的作用，首先要明白这个条件应该在什么时候起作用，然后再决定放在那里]]></body>
+		<desc>...</desc>
+	</message> 
+		<message>
+		<keywords>
+			<keyword>SQL语句的优化</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[通过内部函数提高SQL效率]]></name>
+		<body><![CDATA[复杂的SQL往往牺牲了执行效率. 能够掌握上面的运用函数解决问题的方法在实际工作中是非常有意义的 ]]></body>
+		<desc>...</desc>
+	</message> 
+		<message>
+		<keywords>
+			<keyword>SQL语句的优化</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[使用表的别名(Alias)]]></name>
+		<body><![CDATA[当在SQL语句中连接多个表时, 请使用表的别名并把别名前缀于每个Column上.这样一来,就可以减少解析的时间并减少那些由Column歧义引起的语法错误.]]></body>
+		<desc>...</desc>
+	</message> 
+		<message>
+		<keywords>
+			<keyword>SQL语句的优化</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[用EXISTS替代IN、用NOT EXISTS替代NOT IN]]></name>
+		<body><![CDATA[在许多基于基础表的查询中,为了满足一个条件,往往需要对另一个表进行联接.在这种情况下, 使用EXISTS(或NOT EXISTS)通常将提高查询的效率. 在子查询中,NOT IN子句将执行一个内部的排序和合并. 无论在哪种情况下,NOT IN都是最低效的 (因为它对子查询中的表执行了一个全表遍历). 为了避免使用NOT IN ,我们可以把它改写成外连接(Outer Joins)或NOT EXISTS. 
+例子： （高效）SELECT * FROM  EMP (基础表)  WHERE  EMPNO > 0  AND  EXISTS (SELECT ‘X'  FROM DEPT  WHERE  DEPT.DEPTNO = EMP.DEPTNO  AND  LOC = ‘MELB') (低效)SELECT  * FROM  EMP (基础表)  WHERE  EMPNO > 0  AND  DEPTNO IN(SELECT DEPTNO  FROM  DEPT  WHERE  LOC = ‘MELB') 
+]]></body>
+		<desc>...</desc>
+	</message> 
+		<message>
+		<keywords>
+			<keyword>SQL语句的优化</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[用索引提高效率]]></name>
+		<body><![CDATA[索引是表的一个概念部分,用来提高检索数据的效率，ORACLE使用了一个复杂的自平衡B-tree结构. 通常,通过索引查询数据比全表扫描要快. 当ORACLE找出执行查询和Update语句的最佳路径时, ORACLE优化器将使用索引. 同样在联结多个表时使用索引也可以提高效率. 另一个使用索引的好处是,它提供了主键(primary key)的唯一性验证.。那些LONG或LONG RAW数据类型, 你可以索引几乎所有的列. 通常, 在大型表中使用索引特别有效. 当然,你也会发现, 在扫描小表时,使用索引同样能提高效率. 虽然使用索引能得到查询效率的提高,但是我们也必须注意到它的代价. 索引需要空间来存储,也需要定期维护, 每当有记录在表中增减或索引列被修改时, 索引本身也会被修改. 这意味着每条记录的INSERT , DELETE , UPDATE将为此多付出4 , 5 次的磁盘I/O . 因为索引需要额外的存储空间和处理,那些不必要的索引反而会使查询反应时间变慢.。定期的重构索引是有必要的.： ALTER  INDEX INDEXNAME REBUILD TABLESPACENAME ]]></body>
+		<desc>...</desc>
+	</message> 
+		<message>
+		<keywords>
+			<keyword>SQL语句的优化</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[用EXISTS替换DISTINCT： ]]></name>
+		<body><![CDATA[当提交一个包含一对多表信息(比如部门表和雇员表)的查询时,避免在SELECT子句中使用DISTINCT. 一般可以考虑用EXIST替换, EXISTS 使查询更为迅速,因为RDBMS核心模块将在子查询的条件一旦满足后,立刻返回结果. 例子： 
+      (低效): SELECT  DISTINCT  DEPT_NO,DEPT_NAME  FROM  DEPT D , EMP E 
+WHERE  D.DEPT_NO = E.DEPT_NO 
+(高效): SELECT  DEPT_NO,DEPT_NAME  FROM  DEPT D  WHERE  EXISTS ( SELECT ‘X' 
+FROM  EMP E  WHERE E.DEPT_NO = D.DEPT_NO); ]]></body>
+		<desc>...</desc>
+	</message> 
+		<message>
+		<keywords>
+			<keyword>SQL语句的优化</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[sql语句用大写的]]></name>
+		<body><![CDATA[因为oracle总是先解析sql语句，把小写的字母转换成大写的再执行 ]]></body>
+		<desc>...</desc>
+	</message> 
+		<message>
+		<keywords>
+			<keyword>SQL语句的优化</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[避免在索引列上使用NOT]]></name>
+		<body><![CDATA[我们要避免在索引列上使用NOT, NOT会产生在和在索引列上使用函数相同的影响. 当ORACLE”遇到”NOT,他就会停止使用索引转而执行全表扫描. ]]></body>
+		<desc>...</desc>
+	</message> 
+		<message>
+		<keywords>
+			<keyword>SQL语句的优化</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[避免在索引列上使用计算]]></name>
+		<body><![CDATA[WHERE子句中，如果索引列是函数的一部分．优化器将不使用索引而使用全表扫描． 
+举例: 低效： SELECT … FROM  DEPT  WHERE SAL * 12 > 25000; 
+高效: SELECT … FROM DEPT WHERE SAL > 25000/12; 
+]]></body>
+		<desc>...</desc>
+	</message> 
+		<message>
+		<keywords>
+			<keyword>SQL语句的优化</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[用UNION替换OR (适用于索引列)]]></name>
+		<body><![CDATA[通常情况下, 用UNION替换WHERE子句中的OR将会起到较好的效果. 对索引列使用OR将造成全表扫描. 注意, 以上规则只针对多个索引列有效. 如果有column没有被索引, 查询效率可能会因为你没有选择OR而降低. 在下面的例子中, LOC_ID 和REGION上都建有索引. ]]></body>
+		<desc>...</desc>
+	</message> 
+		<message>
+		<keywords>
+			<keyword>SQL语句的优化</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[避免在索引列上使用IS NULL和IS NOT NULL ]]></name>
+		<body><![CDATA[避免在索引中使用任何可以为空的列，ORACLE将无法使用该索引．对于单列索引，如果列包含空值，索引中将不存在此记录. 对于复合索引，如果每个列都为空，索引中同样不存在此记录.　如果至少有一个列不为空，则记录存在于索引中．举例: 如果唯一性索引建立在表的A列和B列上, 并且表中存在一条记录的A,B值为(123,null) , ORACLE将不接受下一条具有相同A,B值（123,null）的记录(插入). 然而如果所有的索引列都为空，ORACLE将认为整个键值为空而空不等于空. 因此你可以插入1000 条具有相同键值的记录,当然它们都是空! 因为空值不存在于索引列中,所以WHERE子句中对索引列进行空值比较将使ORACLE停用该索引.]]></body>
+		<desc>...</desc>
+	</message> 
+		<message>
+		<keywords>
+			<keyword>SQL语句的优化</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[用WHERE替代ORDER BY]]></name>
+		<body><![CDATA[ORDER BY 子句只在两种严格的条件下使用索引. 
+ORDER BY中所有的列必须包含在相同的索引中并保持在索引中的排列顺序. 
+ORDER BY中所有的列必须定义为非空. 
+WHERE子句使用的索引和ORDER BY子句中所使用的索引不能并列.]]></body>
+		<desc>...</desc>
+	</message> 
+		<message>
+		<keywords>
+			<keyword>SQL语句的优化</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[避免使用耗费资源的操作]]></name>
+		<body><![CDATA[带有DISTINCT,UNION,MINUS,INTERSECT,ORDER BY的SQL语句会启动SQL引擎 
+执行耗费资源的排序(SORT)功能. DISTINCT需要一次排序操作, 而其他的至少需要执行两次排序. 通常, 带有UNION, MINUS , INTERSECT的SQL语句都可以用其他方式重写. 如果你的数据库的SORT_AREA_SIZE调配得好, 使用UNION , MINUS, INTERSECT也是可以考虑的, 毕竟它们的可读性很强]]></body>
+		<desc>...</desc>
+	</message> 
+<message>
+		<keywords>
+			<keyword>SQL语句的优化</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[优化GROUP BY]]></name>
+		<body><![CDATA[提高GROUP BY 语句的效率, 可以通过将不需要的记录在GROUP BY 之前过滤掉.下面两个查询返回相同结果但第二个明显就快了许多. 
+低效: SELECT JOB , AVG(SAL) FROM EMP GROUP by JOB HAVING JOB = ‘PRESIDENT' OR JOB = ‘MANAGER' 
+高效: SELECT JOB , AVG(SAL) FROM EMP WHERE JOB = ‘PRESIDENT' OR JOB = ‘MANAGER' GROUP by JOB  ]]></body>
+		<desc>...</desc>
+	</message> 
+		<message>
+		<keywords>
+			<keyword>复制</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[表的复制]]></name>
+		<body><![CDATA[INSERT INTO SELECT语句语句形式为：Insert into Table2(field1,field2,...) select value1,value2,... from Table1
+要求目标表Table2必须存在，由于目标表Table2已经存在，所以我们除了插入源表Table1的字段外，还可以插入常量。
+SELECT INTO FROM语句 语句形式为：SELECT vale1, value2 into Table2 from Table1
+      要求目标表Table2不存在，因为在插入时会自动创建表Table2，并将Table1中指定字段数据复制到Table2中。
+]]></body>
+		<desc>...</desc>
+	</message> 
+		<message>
+		<keywords>
+			<keyword>JDBC</keyword>
+			<keyword>Connection</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[ JDBC（Java Data Base Connectivity,java数据库连接]]></name>
+		<body><![CDATA[JDBC（Java Data Base Connectivity,java数据库连接）是一种用于执行SQL语句的Java API，可以为多种关系数据库提供统一访问，它由一组用Java语言编写的类和接口组成。JDBC为工具/数据库开发人员提供了一个标准的API，据此可以构建更高级的工具和接口，使数据库开发人员能够用纯 Java API 编写数据库应用程序，同时，JDBC也是个商标名。 
+		JDBC 可做三件事：与数据库建立连接、发送 操作数据库的语句并处理结果。下列代码段给出了以上三步的基本示例： Class.forName("sun.jdbc.odbc.JdbcOdbcDriver"); 　　Connection con = DriverManager.getConnection("jdbc:odbc:wombat","login", 　　"password"); 　　Statement stmt = con.createStatement(); 　　ResultSet rs = stmt.executeQuery("SELECT a, b, c FROM Table1"); 　　while (rs.next()) { 　　int x = rs.getInt("a"); 　　String s = rs.getString("b"); 　　float f = rs.getFloat("c"); 　　} ]]></body>
+		<desc>...</desc>
+	</message> 
+	<message>
+		<keywords>
+			<keyword>JDBC</keyword>
+			<keyword>连接方式</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[JDBC连接数据库方式]]></name>
+		<body><![CDATA[其中有3种方式属于2层构架，分别为：
+　　1.JDBC-ODBC，是用于对以往使用ODBC数据库连接方式的一种过渡而出现的。
+　　2.JDBC-NATIVE ,针对需要在客户端安装数据库客户端的这种情况。
+　　3.100%JAVA，JDBC直接与数据库相连。]]></body>
+		<desc>...</desc>
+	</message> 
+		<message>
+		<keywords>
+			<keyword>Oracle</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[连接Oracle8/8i/9i数据库]]></name>
+		<body><![CDATA[Class.forName("oracle.jdbc.driver.OracleDriver").newInstance();   
+String url="jdbc:oracle:thin:@localhost:1521:orcl"; //orcl为数据库的SID   
+String user="test";   
+String password="test";   
+Connection conn= DriverManager.getConnection(url,user,password);  ]]></body>
+		<desc>...</desc>
+	</message> 
+		<message>
+		<keywords>
+			<keyword>DB2</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[连接DB2数据库]]></name>
+		<body><![CDATA[Class.forName("com.ibm.db2.jdbc.app.DB2Driver ").newInstance();   
+String url="jdbc:db2://localhost:5000/sample"; //sample为你的数据库名   
+String user="admin";   
+String password="";   
+Connection conn= DriverManager.getConnection(url,user,password);  ]]></body>
+		<desc>...</desc>
+	</message> 
+			<message>
+		<keywords>
+			<keyword>Sql Server</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[Sql Server7.0/2000数据库]]></name>
+		<body><![CDATA[Class.forName("com.microsoft.jdbc.sqlserver.SQLServerDriver").newInstance();   
+String url="jdbc:microsoft:sqlserver://localhost:1433;DatabaseName=mydb";   
+//mydb为数据库   
+String user="sa";   
+String password="";   
+Connection conn= DriverManager.getConnection(url,user,password); ]]></body>
+		<desc>...</desc>
+	</message> 
+<!--			<message>
+		<keywords>
+			<keyword>SQL语句的优化</keyword>
+		</keywords>
+		<type>2</type>
+		<name><![CDATA[ ]]></name>
+		<body><![CDATA[ ]]></body>
+		<desc>...</desc>
+	</message>  -->
+</messages>

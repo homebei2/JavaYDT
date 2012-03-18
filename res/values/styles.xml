@@ -1,24 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    
-    <style name="SettingsLabelText">
-		<item name="android:textColor">@color/page_settings_lbl_color</item>
-        <item name="android:textSize">22dp</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-    
-    <style name="SettingsItemLabelText">
-		<item name="android:textColor">@color/page_settings_lbl_color</item>
-        <item name="android:textSize">20dp</item>
-    </style>
-	<style name="BuyButtonStyle">
-		<item name="android:layout_width">wrap_content</item>
-	    <item name="android:layout_height">wrap_content</item>
-	    <item name="android:paddingRight">10dp</item>
-	    <item name="android:paddingLeft">10dp</item>
-	   	<item name="android:visibility">visible</item>
-	  	<item name="android:textColor">#FFFFFFFF</item>
-	  	<item name="android:gravity">center</item>
-		<item name="android:layout_centerInParent">true</item>
-  	</style>
+	<style name="HeaderTitle">
+		<item name="android:textSize">@dimen/topbanner_text_size</item>
+		<item name="android:textColor">@color/header_title_colour</item>
+		<item name="android:typeface">serif</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:ellipsize">end</item>
+		<item name="android:scrollHorizontally">true</item>
+		<item name="android:lines">1</item>
+		<item name="android:gravity">center</item>
+	
+	</style>
+	<style name="EditMessage">
+		<item name="android:textSize">@dimen/message_text_size</item>
+		<item name="android:textColor">@color/title_text_colour</item>
+		<item name="android:typeface">serif</item>
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:paddingLeft">@dimen/item_padding_left</item>
+		<item name="android:paddingRight">@dimen/item_padding_right</item>
+	</style>
+	<style name="SaveCancel" parent="EditMessage">
+		<item name="android:layout_weight">1</item>
+		<item name="android:gravity">center</item>
+	</style>
+	<style name="FaceButton" parent="HeaderTitle">
+		<item name="android:textSize">@dimen/face_text_size</item>
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">fill_parent</item>
+		<item name="android:layout_weight">1</item>
+		<item name="android:focusableInTouchMode">true</item>
+		<item name="android:focusable">true</item>
+		<item name="android:gravity">center</item>
+		<!-- <item name="android:onClick">onClickButton</item>-->
+	</style>
+
+	<style name="ListItem">
+		<item name="android:typeface">serif</item>
+		<item name="android:ellipsize">end</item>
+		<item name="android:lines">1</item>
+		<item name="android:gravity">center_vertical</item>
+		<item name="android:textColor">@color/title_text_colour</item>
+		<item name="android:scrollHorizontally">true</item>
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:paddingLeft">@dimen/item_padding_left</item>
+		
+	</style>
 </resources>

@@ -1,0 +1,23 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:background="@drawable/tab_page_background">
+	<include layout="@layout/top_banner"/>
+	<ScrollView
+		android:id="@+id/scroll"
+		android:layout_width="fill_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1">
+		<TextView android:id="@+id/message"
+			android:typeface="serif"
+			android:textSize="@dimen/message_text_size"
+			android:layout_width="fill_parent" android:layout_height="fill_parent" 
+			android:paddingRight="@dimen/item_padding_right"
+			android:paddingLeft="@dimen/item_padding_left"
+			android:textColor="@color/title_text_colour"/>
+	</ScrollView>
+	<LinearLayout android:id="@+id/adLayout"
+		android:layout_width="fill_parent" android:layout_height="@dimen/ad">
+	</LinearLayout>	
+</LinearLayout>

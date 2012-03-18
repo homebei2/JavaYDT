@@ -6,8 +6,10 @@
 	<classpathentry kind="lib" path="libs/adchina_android_sdk.jar"/>
 	<classpathentry kind="lib" path="libs/adlib_android.jar"/>
 	<classpathentry kind="lib" path="libs/admob-sdk-android.jar"/>
-	<classpathentry kind="lib" path="libs/casee-ad-sdk-2.1.jar"/>
+	<classpathentry kind="lib" path="libs/casee-ad-sdk-2.5.jar"/>
+	<classpathentry kind="lib" path="libs/domob_android_sdk.jar"/>
 	<classpathentry kind="lib" path="libs/guohead-sdk.jar"/>
+	<classpathentry kind="lib" path="libs/MMAdView.jar"/>
 	<classpathentry kind="lib" path="libs/smartmad-sdk-android.jar"/>
 	<classpathentry kind="lib" path="libs/WiAd.jar"/>
 	<classpathentry kind="lib" path="libs/youmiad-android.jar"/>

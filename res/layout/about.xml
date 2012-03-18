@@ -1,0 +1,19 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:id="@+id/AboutLayout"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:background="@drawable/tab_page_background">
+	<ScrollView
+		android:layout_width="fill_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1">
+		<TextView android:id="@+id/About"
+			android:typeface="serif"
+			android:textSize="@dimen/about_test_size"
+			android:layout_width="fill_parent" android:layout_height="fill_parent" 
+			android:paddingRight="@dimen/item_padding_right"
+			android:paddingLeft="@dimen/item_padding_left"
+			android:textColor="@color/title_text_colour"/>
+	</ScrollView>
+</LinearLayout>

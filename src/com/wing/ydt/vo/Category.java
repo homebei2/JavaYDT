@@ -3,7 +3,7 @@ package com.wing.ydt.vo;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Category implements Parcelable {
+public class Category extends ListItem implements Parcelable {
 	private int category_type;
 	private String category_name;
 	private String category_desc;
@@ -56,4 +56,9 @@ public class Category implements Parcelable {
 	    public Category(){
 	    	
 	    }
+		@Override
+		public int getId() {
+			// TODO Auto-generated method stub
+			return category_type;
+		}
 }

@@ -12,41 +12,71 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.wing.ydt.Application;
 import com.wing.ydt.R;
+import com.wing.ydt.handler.HandlerFactory;
 import com.wing.ydt.vo.Category;
-import com.wing.ydt.vo.Key_Mess;
-import com.wing.ydt.vo.Keyword;
+import com.wing.ydt.vo.ListItem;
 import com.wing.ydt.vo.Message;
-import com.wing.ydt.vo.WMessage;
 import com.wing.ydt.vo.WMessageList;
 
 public class DBAdapter {
-
-	private static final String DATABASE_NAME_OLD = "wp.db";
 	private static final String DATABASE_NAME = "wpp.db";
-	private static final String DATABASE_PATH ="/data/data/com.wing.ydt/databases";
+	private static final String DATABASE_PATH = "/data/data/com.wing.ydt/databases";
 	private static final String Category_TABLE = "category";
-	private static final String FAVORITE_TABLE="favorite";
-	private static final String Message_TABLE="message";
-	private static final String Key_Mess_TABLE="key_mess";
-	private static int Version = 2;
-	private static final String Category_CREATE = "create table "+Category_TABLE+"(category_type INTEGER PRIMARY KEY,category_name TEXT,category_desc TEXT);";
-	private static final String FAVORITE_CREATE = "create table  "+FAVORITE_TABLE+"(message_id INTEGER PRIMARY KEY,category_type INTEGER NOT NULL,message_name TEXT,message_body TEXT,message_desc text);";
-	private static final String Message_CREATE = "create table  "+Message_TABLE+"(message_id INTEGER PRIMARY KEY,category_type INTEGER NOT NULL,message_name TEXT,message_body TEXT,message_desc text);";
-	private static final String Key_Mess_CREATE = "create table "+Key_Mess_TABLE+"(message_id INTEGER NOT NULL,keyword_type INTEGER,keyword_name TEXT ,key_mess_desc TEXT);";
-	
-	private static final String W_Message_TABLE="wmessage";
-	private static final String W_Message_LIST="wmessagelist";
-	private static final String W_Message_CREATE = "create table  "+W_Message_TABLE+"(wmessage_id INTEGER PRIMARY KEY,wmessagelist_id INTEGER NOT NULL,wmessage_name TEXT,wmessage_body TEXT,wmessage_answer text);";
-	private static final String W_Message_LIST_CREATE = "create table  "+W_Message_LIST+"(wmessagelist_id INTEGER PRIMARY KEY,category_type INTEGER NOT NULL,wmessagelist_name TEXT);";
-	
+	private static final String Message_TABLE = "message";
+	private static final String WMessage_TABLE = "wmessage";
+	private static int Version = 5;
+	private static final String Category_CREATE = "create table "
+			+ Category_TABLE
+			+ "(category_type INTEGER PRIMARY KEY ASC,category_name TEXT,category_desc TEXT);";
+	private static final String Message_CREATE = "create table  "
+			+ Message_TABLE
+			+ "(message_id INTEGER PRIMARY KEY ASC,messagelist_id INTEGER,category_type INTEGER NOT NULL,message_name TEXT,message_body TEXT,favorite INTEGER,message_answer text);";
+	private static final String WMessage_CREATE = "create table  "
+			+ WMessage_TABLE
+			+ "(message_id INTEGER PRIMARY KEY ASC,messagelist_id INTEGER,category_type INTEGER NOT NULL,message_name TEXT,message_body TEXT,favorite INTEGER,message_answer text);";
+
+	private static final String W_Message_LIST = "wmessagelist";
+	private static final String W_Message_LIST_CREATE = "create table  "
+			+ W_Message_LIST
+			+ "(wmessagelist_id INTEGER PRIMARY KEY ASC,category_type INTEGER NOT NULL,wmessagelist_name TEXT,wmessagelist_desc TEXT);";
+
+	private static DBAdapter dbAdapter;
 	private SQLiteDatabase db;
 	private DatabaseHelper dbHelper;
 	private Context context;
 
-	public DBAdapter(Context ctx) {
-		this.context = ctx;
-		dbHelper = new DatabaseHelper(context);
+	private DBAdapter(Context ctx) {
+		if (context == null)
+			context = ctx;
+		if (dbHelper == null)
+			dbHelper = new DatabaseHelper(context);
+		if (db == null)
+			db = dbHelper.getWritableDatabase();
+		Log.i("DBAdapter", "initialize:");
+	}
+
+	public static DBAdapter getInstance(Context ctx) {
+		if (dbAdapter == null) {
+			synchronized (DBAdapter.class) {
+				if (dbAdapter == null) {
+					dbAdapter = new DBAdapter(ctx);
+				}
+			}
+		}
+		return dbAdapter;
+	}
+
+	public static DBAdapter getInstance() {
+		if (dbAdapter == null) {
+			synchronized (DBAdapter.class) {
+				if (dbAdapter == null) {
+					dbAdapter = new DBAdapter(Application.getContext());
+				}
+			}
+		}
+		return dbAdapter;
 	}
 
 	private class DatabaseHelper extends SQLiteOpenHelper {
@@ -58,32 +88,30 @@ public class DBAdapter {
 		@Override
 		public void onCreate(SQLiteDatabase db) {
 			// create table
-			Log.i("onCreateTable",":");
-			db.execSQL(Category_CREATE);
-			db.execSQL(FAVORITE_CREATE);
-			db.execSQL(Message_CREATE);
-			db.execSQL(Key_Mess_CREATE);
-			db.execSQL(W_Message_LIST_CREATE);
-			db.execSQL(W_Message_CREATE);	
+			Log.i("onCreateTable", ":");
+			if (Application.IS_DEBUG) {
+				db.execSQL(Category_CREATE);
+				db.execSQL(Message_CREATE);
+				db.execSQL(W_Message_LIST_CREATE);
+				db.execSQL(WMessage_CREATE);
+				HandlerFactory.instance.initDB(Application.getContext(), db);
+			} else {
+				copyDB();
+			}
+
 		}
 
 		@Override
 		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-			db.execSQL("drop table if exists "+Category_TABLE);	
-			db.execSQL("drop table if exists "+FAVORITE_TABLE);	
-			db.execSQL("drop table if exists "+Message_TABLE);	
-			db.execSQL("drop table if exists "+Key_Mess_TABLE);	
-			db.execSQL("drop table if exists "+W_Message_TABLE);	
-			db.execSQL("drop table if exists "+W_Message_LIST);	
-			onCreate(db);
+			// reLoad raw resources
+			// HandlerFactory.instance.initDB(Application.getContext());
+//			copyDB();
 		}
 
 	}
 
-	public DBAdapter open() {
-		//db = context.openOrCreateDatabase(DATABASE_NAME, Context.MODE_PRIVATE, null);
-		try
-		{
+	public static void copyDB() {
+		try {
 			// 获得dictionary.db文件的绝对路径
 			String databaseFilename = DATABASE_PATH + "/" + DATABASE_NAME;
 			File dir = new File(DATABASE_PATH);
@@ -93,329 +121,404 @@ public class DBAdapter {
 			// 如果在/sdcard/dictionary目录中不存在
 			// dictionary.db文件，则从res\raw目录中复制这个文件到
 			// SD卡的目录（/sdcard/dictionary）
-			File file = new File( DATABASE_PATH + "/" + DATABASE_NAME_OLD);
-			if(file.exists()){
-				Log.i(databaseFilename,"delete db");
+			for (File file : dir.listFiles())
 				file.delete();
+			Log.i(databaseFilename, "copy db");
+			// 获得封装dictionary.db文件的InputStream对象
+			InputStream is = Application.getContext().getResources().openRawResource(R.raw.wpp);
+			FileOutputStream fos = new FileOutputStream(databaseFilename);
+			byte[] buffer = new byte[8192];
+			int count = 0;
+			// 开始复制db文件
+			while ((count = is.read(buffer)) > 0) {
+				fos.write(buffer, 0, count);
 			}
-			if (!(new File(databaseFilename)).exists())
-			{	
-				Log.i(databaseFilename,"copy db");
-				// 获得封装dictionary.db文件的InputStream对象
-				InputStream is = context.getResources().openRawResource(
-						R.raw.wpp);
-				FileOutputStream fos = new FileOutputStream(databaseFilename);
-				byte[] buffer = new byte[8192];
-				int count = 0;
-				// 开始复制dictionary.db文件
-				while ((count = is.read(buffer)) > 0)
-				{
-					fos.write(buffer, 0, count);
-				}
-
-				fos.close();
-				is.close();
-			}
-			// 打开/sdcard/dictionary目录中的dictionary.db文件
-				db = SQLiteDatabase.openOrCreateDatabase(
-					databaseFilename, null);
-			return this;
+			fos.close();
+			is.close();
+		} catch (Exception e) {
+			Log.e("CopyDB", "Error:" + e.getMessage());
 		}
-		catch (Exception e)
-		{
-		}
-		return null;
 	}
 
 	public void close() {
 		try {
+			if (db.isOpen())
+				db.close();
+
+		} catch (Exception e) {
+		}
+		try {
 			dbHelper.close();
 		} catch (Exception e) {
+		}
 
+	}
+	public void saveFavorite(Message category) {
+		// TODO Auto-generated method stub
+		// Log.i("saveFavorite",":"+category.getMessage_id());
+		String table = category.getCategory_type() == 5 ? WMessage_TABLE
+				: Message_TABLE;
+		ContentValues cv = new ContentValues();
+		cv.put("favorite", category.isFavorite() ? 1 : 0);
+		String[] args = new String[] { category.getMessage_id() + "" };
+		db.update(table, cv, " message_id=?", args);
+	}
+
+	public ArrayList<ListItem> getFavorites(int num, int flag) {
+		String table = flag == 0 ? Message_TABLE : WMessage_TABLE;
+		String sql = "select * from " + table + " where favorite=1";
+		// Log.i("getFavorites",":"+sql+":"+db);
+		ArrayList<ListItem> allMessages = new ArrayList<ListItem>();
+		Message mes;
+		Cursor cur = db.rawQuery(sql, null);
+		if (cur == null)
+			return allMessages;
+		cur.moveToFirst();
+		while (!cur.isAfterLast()) {
+			mes = new Message();
+			mes.setCategory_type(cur
+					.getInt(cur.getColumnIndex("category_type")));
+			mes.setMessage_id(cur.getInt(cur.getColumnIndex("message_id")));
+			mes.setMessage_name(cur.getString(cur
+					.getColumnIndex("message_name")));
+			mes.setMessage_body(cur.getString(cur
+					.getColumnIndex("message_body")));
+			mes.setMessage_answer(cur.getString(cur
+					.getColumnIndex("message_answer")));
+			mes.setMessagelist_id(cur.getInt(cur
+					.getColumnIndex("messagelist_id")));
+			mes.setFavorite(1);
+			allMessages.add(mes);
+			cur.moveToNext();
+		}
+		cur.close();
+		// db.close();
+		return allMessages;
+	}
+
+	public static void saveMessages(ArrayList<Object> allMessages,
+			SQLiteDatabase db) {
+		// TODO Auto-generated method stub
+		ContentValues cv;
+		Message category;
+		for (int i = 0; i < allMessages.size(); i++) {
+			cv = new ContentValues();
+			category = (Message) allMessages.get(i);
+			cv.put("message_name", category.getMessage_name());
+			cv.put("message_body", category.getMessage_body());
+			cv.put("message_answer", category.getMessage_answer());
+			cv.put("messagelist_id", category.getMessagelist_id());
+			cv.put("category_type", category.getCategory_type());
+			cv.put("favorite", category.isFavorite() ? 1 : 0);
+			db.insert(Message_TABLE, null, cv);
+		}
+	}
+
+	public long saveMessage(Message category, Boolean isAdd) {
+		ContentValues cv = new ContentValues();
+		cv.put("message_name", category.getMessage_name());
+		cv.put("message_body", category.getMessage_body());
+		cv.put("message_answer", category.getMessage_answer());
+		cv.put("favorite", category.isFavorite() ? 1 : 0);
+		if (isAdd) {
+			cv.put("messagelist_id", category.getMessagelist_id());
+			cv.put("category_type", category.getCategory_type());
+			return db.insert(Message_TABLE, null, cv);
+		} else {
+			String[] args = new String[] { category.getMessage_id() + "" };
+			db.update(Message_TABLE, cv, " message_id=?", args);
+			return 0;
 		}
 
 	}
 
-	public void saveCategories(ArrayList<Category> allCategories) {
+	public static void saveCategories(ArrayList<Object> allCategories,
+			SQLiteDatabase db) {
 		// TODO Auto-generated method stub
 		ContentValues cv;
 		Category category;
-		for(int i=0;i<allCategories.size();i++){
+		for (int i = 0; i < allCategories.size(); i++) {
 			cv = new ContentValues();
-			category = allCategories.get(i);
+			category = (Category) allCategories.get(i);
 			cv.put("category_type", category.getCategory_type());
 			cv.put("category_name", category.getCategory_name());
 			cv.put("category_desc", category.getCategory_desc());
 			db.insert(Category_TABLE, null, cv);
 		}
-		db.close();
-	}
-	public boolean isExistFavorite(int messageId) {
-		// TODO Auto-generated method stub
-		String sql = "select count(*) num from favorite where message_id ="+messageId;
-		//Log.i("isExistFavorite",":"+sql+":"+db);
-		boolean isExist=false;
-		Cursor cur = db.rawQuery(sql, null);
-		if (cur != null && cur.moveToFirst()&& cur.getInt(cur.getColumnIndex("num"))>0) {
-			isExist = true;
-		}else{
-			isExist = false;
-		}
-		cur.close();
-		db.close();
-		return isExist;
-	}
-	public void deleteFavorite(int message_id) {
-		//Log.i("deleteFavorite",":"+message_id);
-		String sql = "delete from favorite where message_id="+message_id;
-		db.execSQL(sql);
-		db.close();
-	}
-	public void saveFavorite(Message category) {
-		// TODO Auto-generated method stub
-			//Log.i("saveFavorite",":"+category.getMessage_id());
-			ContentValues cv;
-			cv = new ContentValues();
-			cv.put("message_id", category.getMessage_id());
-			cv.put("message_name", category.getMessage_name());
-			cv.put("message_body", category.getMessage_body());
-			cv.put("message_desc", category.getMessage_desc());
-			cv.put("category_type", 6);
-			db.insert(FAVORITE_TABLE, null, cv);
-			db.close();
 	}
 
-	public ArrayList<Message> getFavorites(int i) {
-		String sql = "select * from favorite ";
-		//Log.i("getFavorites",":"+sql+":"+db);
-		ArrayList<Message> allMessages = new ArrayList<Message>();
-		Message mes;
-		Cursor cur = db.rawQuery(sql, null);
-		if(cur==null) return allMessages;
-		cur.moveToFirst();
-		while(!cur.isAfterLast()){
-			mes = new Message();
-			mes.setCategory_type(cur.getInt(cur.getColumnIndex("category_type")));
-			mes.setMessage_id(cur.getInt(cur.getColumnIndex("message_id")));
-			mes.setMessage_name(cur.getString(cur.getColumnIndex("message_name")));
-			mes.setMessage_body(cur.getString(cur.getColumnIndex("message_body")));
-			mes.setMessage_desc(cur.getString(cur.getColumnIndex("message_desc")));
-			allMessages.add(mes);
-			cur.moveToNext();
+	public long saveCategory(Category category, Boolean isAdd) {
+		ContentValues cv = new ContentValues();
+		cv.put("category_name", category.getCategory_name());
+		cv.put("category_desc", category.getCategory_desc());
+		if (isAdd) {
+			return db.insert(Category_TABLE, null, cv);
+		} else {
+			String[] args = new String[] { category.getCategory_type() + "" };
+			db.update(Category_TABLE, cv, " category_type=?", args);
+			return 0;
 		}
-		cur.close();
-		db.close();
-		return allMessages;
-	}
-	
-	public void saveMessages(ArrayList<Message> allMessages) {
-		// TODO Auto-generated method stub
-		ContentValues cv;
-		Message category;
-		for(int i=0;i<allMessages.size();i++){
-			cv = new ContentValues();
-			category = allMessages.get(i);
-			cv.put("message_id", category.getMessage_id());
-			cv.put("message_name", category.getMessage_name());
-			cv.put("message_body", category.getMessage_body());
-			cv.put("message_desc", category.getMessage_desc());
-			cv.put("category_type", category.getCategory_type());
-			db.insert(Message_TABLE, null, cv);
-		}
-		db.close();
 	}
 
-	public int getMaxMessageId() {
-		// TODO Auto-generated method stub
-		int i=0;
-		Cursor cur =db.rawQuery("select max(message_id) mess from "+Message_TABLE,null);
-		if (cur != null && cur.moveToFirst()) {
-			i= cur.getInt(cur.getColumnIndex("mess"));
-		}
-		cur.close();
-		db.close();
-		return i;
-	}
-
-	public void saveKey_Messes(ArrayList<Key_Mess> allKeyMess) {
-		// TODO Auto-generated method stub
-		ContentValues cv;
-		Key_Mess category;
-		for(int i=0;i<allKeyMess.size();i++){
-			cv = new ContentValues();
-			category = allKeyMess.get(i);
-			cv.put("message_id", category.getMessage_id());
-			cv.put("key_mess_desc", category.getKey_mess_desc());
-			cv.put("keyword_name", category.getKeyword_name());
-			cv.put("keyword_type", category.getKeyword_type());
-			db.insert(Key_Mess_TABLE, null, cv);
-		}
-		db.close();
-	}
-
-	public ArrayList<Category> QueryAllCategories() {
-		// TODO Auto-generated method stub
+	public ArrayList<ListItem> QueryCategories() {
 		String sql = "select * from category order by category_type asc";
-		ArrayList<Category> allCategories = new ArrayList<Category>();
+		ArrayList<ListItem> allCategories = new ArrayList<ListItem>();
 		Category cat;
 		Cursor cur = db.rawQuery(sql, null);
-		if(cur==null) return null;
+		if (cur == null)
+			return null;
 		cur.moveToFirst();
-		while(!cur.isAfterLast()){
+		while (!cur.isAfterLast()) {
 			cat = new Category();
-			cat.setCategory_type(cur.getInt(cur.getColumnIndex("category_type")));
-			cat.setCategory_name(cur.getString(cur.getColumnIndex("category_name")));
-			cat.setCategory_desc(cur.getString(cur.getColumnIndex("category_desc")));
+			cat.setCategory_type(cur
+					.getInt(cur.getColumnIndex("category_type")));
+			cat.setCategory_name(cur.getString(cur
+					.getColumnIndex("category_name")));
+			cat.setCategory_desc(cur.getString(cur
+					.getColumnIndex("category_desc")));
 			allCategories.add(cat);
 			cur.moveToNext();
 		}
 		cur.close();
-		db.close();
 		return allCategories;
 	}
-	public ArrayList<Message> QueryMessages(String search) {
+
+	public String QueryCategoryName(int type) {
 		// TODO Auto-generated method stub
-		//从关键字中搜索，按照message_id排序
-		String sql = "select * from message where message_id  in " +
-				" (select distinct(message_id) from key_mess where keyword_name  = '"+search+"') order by message_id asc";
-		ArrayList<Message> allMessages = new ArrayList<Message>();
-		Message mes;
+		String sql = "select category_name from category where category_type ="
+				+ type;
 		Cursor cur = db.rawQuery(sql, null);
-		if(cur==null) return null;
+		String name;
+		if (cur == null)
+			return "";
 		cur.moveToFirst();
-		
-		Log.i("QueryMessages",":"+sql+":"+cur.getCount());
-		while(!cur.isAfterLast()){
-			mes = new Message();
-			mes.setCategory_type(cur.getInt(cur.getColumnIndex("category_type")));
-			mes.setMessage_id(cur.getInt(cur.getColumnIndex("message_id")));
-			mes.setMessage_name(cur.getString(cur.getColumnIndex("message_name")));
-			mes.setMessage_body(cur.getString(cur.getColumnIndex("message_body")));
-			mes.setMessage_desc(cur.getString(cur.getColumnIndex("message_desc")));
-			allMessages.add(mes);
-			cur.moveToNext();
-		}
+		name = cur.getString(cur.getColumnIndex("category_name"));
 		cur.close();
-		cur=null;
-		
-		//从message_name、message_body中搜索
-		sql = "select * from message where (message_name like '%"+search+ "%' or (message_name not like '%"+search+"%' and message_body like '%"+search
-		+"%')) and message_id not in (select distinct(message_id) from key_mess where keyword_name = '"+search+"')";
-		cur = db.rawQuery(sql, null);
-		if(cur==null) return allMessages;
-		cur.moveToFirst();
-		Log.i("QueryMessages",":"+sql+":"+cur.getCount());
-		while(!cur.isAfterLast()){
-			mes = new Message();
-			mes.setCategory_type(cur.getInt(cur.getColumnIndex("category_type")));
-			mes.setMessage_id(cur.getInt(cur.getColumnIndex("message_id")));
-			mes.setMessage_name(cur.getString(cur.getColumnIndex("message_name")));
-			mes.setMessage_body(cur.getString(cur.getColumnIndex("message_body")));
-			mes.setMessage_desc(cur.getString(cur.getColumnIndex("message_desc")));
-			allMessages.add(mes);
-			cur.moveToNext();
-		}
-		cur.close();
-		db.close();
-		return allMessages;
+		return name;
 	}
-	public ArrayList<Message>  getMessages(int type,int num) {
+
+	public ArrayList<ListItem> QueryMessages(String search, int flag) {
 		// TODO Auto-generated method stub
-		//String sql = "select * from category where category_type="+type+" limit "+(num-1)*50+",50 order by message_id asc";
-		String sql = "select * from message where category_type="+type;
-		Log.i("getMessages",":"+sql+":"+db);
-		ArrayList<Message> allMessages = new ArrayList<Message>();
+		String table = flag == 0 ? Message_TABLE : WMessage_TABLE;
+		ArrayList<ListItem> allMessages = new ArrayList<ListItem>();
 		Message mes;
+		// 从message_name、message_body中搜索
+		String sql = "select * from  " + table
+				+ "  where (message_name like '%" + search
+				+ "%' or (message_name not like '%" + search
+				+ "%' and message_body like '%" + search + "%')) ";
 		Cursor cur = db.rawQuery(sql, null);
-		if(cur==null) return allMessages;
+		if (cur == null)
+			return allMessages;
 		cur.moveToFirst();
-		while(!cur.isAfterLast()){
+		Log.i("QueryMessages", ":" + sql + ":" + cur.getCount());
+		while (!cur.isAfterLast()) {
 			mes = new Message();
-			mes.setCategory_type(cur.getInt(cur.getColumnIndex("category_type")));
+			mes.setCategory_type(cur
+					.getInt(cur.getColumnIndex("category_type")));
 			mes.setMessage_id(cur.getInt(cur.getColumnIndex("message_id")));
-			mes.setMessage_name(cur.getString(cur.getColumnIndex("message_name")));
-			mes.setMessage_body(cur.getString(cur.getColumnIndex("message_body")));
-			mes.setMessage_desc(cur.getString(cur.getColumnIndex("message_desc")));
+			mes.setMessage_name(cur.getString(cur
+					.getColumnIndex("message_name")));
+			mes.setMessage_body(cur.getString(cur
+					.getColumnIndex("message_body")));
+			mes.setMessage_answer(cur.getString(cur
+					.getColumnIndex("message_answer")));
+			mes.setMessagelist_id(cur.getInt(cur
+					.getColumnIndex("messagelist_id")));
+			mes.setFavorite(cur.getInt(cur.getColumnIndex("favorite")));
 			allMessages.add(mes);
 			cur.moveToNext();
 		}
 		cur.close();
-		db.close();
+		// db.close();
 		return allMessages;
 	}
 
-	public ArrayList<Key_Mess> getKey_Messes(int messageId) {
-		// TODO Auto-generated method stub
-		String sql = "select * from key_mess where message_id="+messageId+" order by message_id asc";
-		Log.i("getKey_Messes",":"+sql+":"+db);
-		ArrayList<Key_Mess> allKey_Messes = new ArrayList<Key_Mess>();
-		Key_Mess mes;
-		Cursor cur = db.rawQuery(sql, null);
-		if(cur==null) return null;
-		cur.moveToFirst();
-		while(!cur.isAfterLast()){
-			mes = new Key_Mess();
-			mes.setMessage_id(cur.getInt(cur.getColumnIndex("message_id")));
-			mes.setKeyword_name((cur.getString(cur.getColumnIndex("keyword_name"))));
-			mes.setKey_mess_desc((cur.getString(cur.getColumnIndex("key_mess_desc"))));
-			allKey_Messes.add(mes);
-			cur.moveToNext();
-		}
-		cur.close();
-		db.close();
-		return allKey_Messes;
+	public ArrayList<ListItem> getMessages(int type, int num) {
+		return getMessages(type, 9999, num);
 	}
+
+	public ArrayList<ListItem> getMessages(int type, int list_id, int num) {
+		// TODO Auto-generated method stub
+		// String sql =
+		// "select * from category where category_type="+type+" limit "+(num-1)*50+",50 order by message_id asc";
+		if (type == 5 && list_id == 9999) {
+			return getWMessageList();
+		} else if (type == 7) {
+			return getFavorites(num, 0);
+		} else {
+			String sql = null;
+			if (list_id == 9999) {
+				sql = "select * from message where category_type=" + type;
+			} else {
+				sql = "select * from wmessage where messagelist_id=" + list_id;
+			}
+			Log.i("getMessages", ":" + sql + ":" + db);
+			ArrayList<ListItem> allMessages = new ArrayList<ListItem>();
+			Message mes;
+			Cursor cur = db.rawQuery(sql, null);
+			if (cur == null)
+				return allMessages;
+			cur.moveToFirst();
+			while (!cur.isAfterLast()) {
+				mes = new Message();
+				mes.setCategory_type(cur.getInt(cur
+						.getColumnIndex("category_type")));
+				mes.setMessage_id(cur.getInt(cur.getColumnIndex("message_id")));
+				mes.setMessage_name(cur.getString(cur
+						.getColumnIndex("message_name")));
+				mes.setMessage_body(cur.getString(cur
+						.getColumnIndex("message_body")));
+				mes.setMessage_answer(cur.getString(cur
+						.getColumnIndex("message_answer")));
+				mes.setMessagelist_id(cur.getInt(cur
+						.getColumnIndex("messagelist_id")));
+				mes.setFavorite(cur.getInt(cur.getColumnIndex("favorite")));
+				allMessages.add(mes);
+				cur.moveToNext();
+			}
+			cur.close();
+			// db.close();
+			return allMessages;
+		}
+	}
+
 	public void clearTables() {
 		// TODO Auto-generated method stub
-		db.execSQL("delete from  "+Category_TABLE);	
-		db.execSQL("delete from  "+FAVORITE_TABLE);	
-		db.execSQL("delete from  "+Message_TABLE);	
-		db.execSQL("delete from  "+Key_Mess_TABLE);	
-		db.execSQL("delete from  "+W_Message_LIST);	
-		db.execSQL("delete from  "+W_Message_TABLE);	
+		db.execSQL("delete from  " + Category_TABLE);
+		db.execSQL("delete from  " + Message_TABLE);
+		db.execSQL("delete from  " + W_Message_LIST);
+		db.execSQL("delete from  " + WMessage_TABLE);
 	}
-	public ArrayList<WMessageList> getWMessageList() {
+
+	public static void saveWMessages(ArrayList<Object> allMessages,
+			SQLiteDatabase db) {
 		// TODO Auto-generated method stub
-		String sql = "select * from wmessagelist where category_type="+5;
-		Log.i("getWMessageList",":"+sql+":"+db);
-		ArrayList<WMessageList> allMessages = new ArrayList<WMessageList>();
+		ContentValues cv;
+		Message category;
+		for (int i = 0; i < allMessages.size(); i++) {
+			cv = new ContentValues();
+			category = (Message) allMessages.get(i);
+			cv.put("message_name", category.getMessage_name());
+			cv.put("message_body", category.getMessage_body());
+			cv.put("message_answer", category.getMessage_answer());
+			cv.put("messagelist_id", category.getMessagelist_id());
+			cv.put("category_type", category.getCategory_type());
+			cv.put("favorite", category.isFavorite() ? 1 : 0);
+			db.insert(WMessage_TABLE, null, cv);
+		}
+	}
+
+	public long saveWMessage(Message category, Boolean isAdd) {
+		ContentValues cv = new ContentValues();
+		cv.put("message_name", category.getMessage_name());
+		cv.put("message_body", category.getMessage_body());
+		cv.put("message_answer", category.getMessage_answer());
+		cv.put("favorite", category.isFavorite() ? 1 : 0);
+		if (isAdd) {
+			cv.put("messagelist_id", category.getMessagelist_id());
+			cv.put("category_type", category.getCategory_type());
+			return db.insert(WMessage_TABLE, null, cv);
+		} else {
+			String[] args = new String[] { category.getMessage_id() + "" };
+			db.update(WMessage_TABLE, cv, " message_id=?", args);
+			return 0;
+		}
+	}
+
+	public static void saveWMessageList(ArrayList<Object> allMessages,
+			SQLiteDatabase db) {
+		// TODO Auto-generated method stub
+		ContentValues cv;
+		WMessageList category;
+		for (int i = 0; i < allMessages.size(); i++) {
+			cv = new ContentValues();
+			category = (WMessageList) allMessages.get(i);
+			cv.put("wmessagelist_name", category.getWmessagelist_name());
+			cv.put("wmessagelist_desc", category.getWmessagelist_desc());
+			cv.put("category_type", category.getCategory_type());
+			db.insert(W_Message_LIST, null, cv);
+		}
+	}
+
+	public long saveWMessageList(WMessageList category, Boolean isAdd) {
+		ContentValues cv = new ContentValues();
+		cv.put("wmessagelist_name", category.getWmessagelist_name());
+		cv.put("wmessagelist_desc", category.getWmessagelist_desc());
+		if (isAdd) {
+			cv.put("category_type", category.getCategory_type());
+			return db.insert(W_Message_LIST, null, cv);
+		} else {
+			String[] args = new String[] { category.getWmessagelist_id() + "" };
+			db.update(W_Message_LIST, cv, " wmessagelist_id=?", args);
+			return 0;
+		}
+	}
+
+	public ArrayList<ListItem> getWMessageList() {
+		// TODO Auto-generated method stub
+		String sql = "select * from wmessagelist where category_type=" + 5;
+		Log.i("getWMessageList", ":" + sql + ":" + db);
+		ArrayList<ListItem> allMessages = new ArrayList<ListItem>();
 		WMessageList mes;
 		Cursor cur = db.rawQuery(sql, null);
-		if(cur==null) return allMessages;
+		if (cur == null)
+			return allMessages;
 		cur.moveToFirst();
-		while(!cur.isAfterLast()){
+		while (!cur.isAfterLast()) {
 			mes = new WMessageList();
-			mes.setCategory_type(cur.getInt(cur.getColumnIndex("category_type")));
-			mes.setWmessagelist_id(cur.getInt(cur.getColumnIndex("wmessagelist_id")));
-			mes.setWmessagelist_name(cur.getString(cur.getColumnIndex("wmessagelist_name")));
+			mes.setCategory_type(cur
+					.getInt(cur.getColumnIndex("category_type")));
+			mes.setWmessagelist_id(cur.getInt(cur
+					.getColumnIndex("wmessagelist_id")));
+			mes.setWmessagelist_name(cur.getString(cur
+					.getColumnIndex("wmessagelist_name")));
+			mes.setWmessagelist_desc(cur.getString(cur
+					.getColumnIndex("wmessagelist_desc")));
 			allMessages.add(mes);
 			cur.moveToNext();
 		}
 		cur.close();
-		db.close();
+		// db.close();
 		return allMessages;
 	}
-	public ArrayList<WMessage> getWMessages( int id) {
+
+	public String getWMessageListName(int id) {
 		// TODO Auto-generated method stub
-		String sql = "select * from wmessage where wmessagelist_id="+id+" order by wmessage_id asc ";
-		Log.i("getWMessages",":"+sql+":"+db);
-		ArrayList<WMessage> allMessages = new ArrayList<WMessage>();
-		WMessage mes;
+		String sql = "select * from wmessagelist where wmessagelist_id=" + id;
+		Log.i("getWMessageListName", ":" + sql + ":" + db);
 		Cursor cur = db.rawQuery(sql, null);
-		if(cur==null) return allMessages;
+		if (cur == null)
+			return "";
 		cur.moveToFirst();
-		while(!cur.isAfterLast()){
-			mes = new WMessage();
-			mes.setWmessage_answer(cur.getString(cur.getColumnIndex("wmessage_answer")));
-			mes.setWmessagelist_id(cur.getInt(cur.getColumnIndex("wmessagelist_id")));
-			mes.setWmessage_body(cur.getString(cur.getColumnIndex("wmessage_body")));
-			mes.setWmessage_name(cur.getString(cur.getColumnIndex("wmessage_name")));
-			mes.setWmessage_id(cur.getInt(cur.getColumnIndex("wmessage_id")));
-			allMessages.add(mes);
-			cur.moveToNext();
-		}
+		String name = cur.getString(cur.getColumnIndex("wmessagelist_name"));
 		cur.close();
-		db.close();
-		return allMessages;
+		// db.close();
+		return name;
+	}
+
+	public int delListItem(ListItem item) {
+		if (item == null) {
+			return 0;
+		} else if (item instanceof Category) {
+			String[] args = new String[] { ((Category) item).getCategory_type()
+					+ "" };
+			return db.delete(Category_TABLE, " category_type=?", args);
+		} else if (item instanceof WMessageList) {
+			String[] args = new String[] { ((WMessageList) item)
+					.getWmessagelist_id()
+					+ "" };
+			return db.delete(W_Message_LIST, " wmessagelist_id=?", args);
+		} else if (item instanceof Message) {
+			String[] args = new String[] { ((Message) item).getMessage_id()
+					+ "" };
+			if (((Message) item).getMessagelist_id() > 0) {
+				return db.delete(WMessage_TABLE, " message_id=?", args);
+			} else {
+				return db.delete(Message_TABLE, " message_id=?", args);
+			}
+		} else {
+			return 0;
+		}
 	}
 }
